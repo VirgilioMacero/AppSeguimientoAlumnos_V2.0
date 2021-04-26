@@ -55,6 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Administrador.cs" />
+    <Compile Include="Alumno.cs" />
+    <Compile Include="Escuela.cs" />
+    <Compile Include="Plan_De_Estudio.cs" />
+    <Compile Include="Profesor.cs" />
+    <Compile Include="Ramo.cs" />
+    <Compile Include="Semestre.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +76,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Nota.cs" />
+    <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
