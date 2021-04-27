@@ -1,0 +1,50 @@
+﻿<Window x:Class="SeguimientoAlumnos.VistaAlumno"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeguimientoAlumnos"
+        mc:Ignorable="d"
+        Title="VistaAlumno" Height="450" Width="800">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="329" Margin="29,44,0,0" VerticalAlignment="Top" Width="364">
+            <TabItem Header="Inicio">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="LblNombreAlumno" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="178"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Perfil Academico">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Universidad" Margin="0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="213*"/>
+                        <ColumnDefinition Width="145*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem" Margin="-2,0,2,0">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <TabControl HorizontalAlignment="Left" Height="329" Margin="420,44,0,0" VerticalAlignment="Top" Width="339">
+            <TabItem Header="Notificaciones">
+                <Grid Background="#FFE5E5E5">
+                    <ListView x:Name="LstNotificaciones" HorizontalAlignment="Left" Height="234" Margin="10,57,0,0" VerticalAlignment="Top" Width="100">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Label Content="Notificaciones" HorizontalAlignment="Left" Margin="88,10,0,0" VerticalAlignment="Top" Width="143" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                    <TextBlock x:Name="TxtBNotificacion" HorizontalAlignment="Left" Margin="115,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="234" Width="208"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Noticias(?)">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,13 @@
+﻿<Window x:Class="SeguimientoAlumnos.VistaProfesor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeguimientoAlumnos"
+        mc:Ignorable="d"
+        Title="VistaProfesor" Height="450" Width="814.658">
+    <Grid>
+        <Label x:Name="LblNombreProfesor" Content="" HorizontalAlignment="Left" Margin="46,71,0,0" VerticalAlignment="Top" Height="51" Width="501" FontSize="22"/>
+
+    </Grid>
+</Window>

@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeguimientoAlumnos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Inicio Sesion" Height="507" Width="501">
     <Grid>
-        
+        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="82"/>
+        <TabControl HorizontalAlignment="Left" Height="476" VerticalAlignment="Top" Width="493">
+            <TabItem Header="Profesor">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="BtnIniciarProfesor" Content="Iniciar" HorizontalAlignment="Left" Margin="349,377,0,0" VerticalAlignment="Top" Width="104" Height="38" Click="BtnIniciarProfesor_Click"/>
+                    <TextBox x:Name="TxtUsuarioProfesor" HorizontalAlignment="Left" Height="23" Margin="42,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+                    <TextBox x:Name="TxtContraseniaProfesor" HorizontalAlignment="Left" Height="23" Margin="42,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+                    <Label Content="Usuario" HorizontalAlignment="Left" Margin="42,66,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Contraseña" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Width="120"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Alumno">
+                <Grid Background="#FFE5E5E5">
+                    <Grid Background="#FFE5E5E5">
+                        <Button x:Name="BtnIniciarAlumno" Content="Iniciar" HorizontalAlignment="Left" Margin="322,373,0,0" VerticalAlignment="Top" Width="104" Height="38" Click="BtnIniciarAlumno_Click"/>
+                        <TextBox x:Name="TxtUsuarioAlumno" HorizontalAlignment="Left" Height="23" Margin="42,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+                        <TextBox x:Name="TxtContraseniaAlumno" HorizontalAlignment="Left" Height="23" Margin="42,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+                        <Label Content="Usuario" HorizontalAlignment="Left" Margin="42,66,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Administrador" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="103" Margin="-1,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid Background="#FFE5E5E5">
+                        <Button x:Name="BtnIniciarAdmin" Content="Iniciar" HorizontalAlignment="Left" Margin="322,373,0,0" VerticalAlignment="Top" Width="104" Height="38"/>
+                        <TextBox x:Name="TxtUsuarioAdministrador" HorizontalAlignment="Left" Height="23" Margin="42,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+                        <TextBox x:Name="TxtContraseniaAdministrador" HorizontalAlignment="Left" Height="23" Margin="42,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+                        <Label Content="Usuario" HorizontalAlignment="Left" Margin="42,66,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>
