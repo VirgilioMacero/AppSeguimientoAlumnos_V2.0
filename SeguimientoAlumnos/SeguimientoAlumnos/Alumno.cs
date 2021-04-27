@@ -15,8 +15,10 @@ namespace SeguimientoAlumnos
         public Alumno()
         {
 
-             new Alumno();
-
+            this.Nombre = "";
+            this.ListaPlan_De_Estudio = new List<Plan_De_Estudio>();
+            this.Correo = "";
+            this.RUT = "";
            
         }
 
