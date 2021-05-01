@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,64 @@ namespace SeguimientoAlumnos
     /// </summary>
     public partial class VistaProfesor : Window
     {
-        public VistaProfesor()
+        public List<Ramo> ListaRamos { get; set; }
+        public VistaProfesor(Profesor Profe)
         {
+
+            
+
+            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+            ConexionDataBase.Open();
+            MySqlCommand Consulta = new MySqlCommand();
+            Consulta.Connection = ConexionDataBase;
+            Consulta.CommandText = ("SELECT * FROM ramo , profesor WHERE Profesor_Id = profesor.id AND profesor.RUT ='"+ Profe.RUT +"'");
+
+            MySqlDataReader Leer = Consulta.ExecuteReader();
+
+            ListaRamos = new List<Ramo>();
+
+            
+            if (Leer.HasRows)
+            {
+            while (Leer.Read())
+            {
+
+
+                    //string Codigo = (Leer.GetValue(5)).ToString()+"-"+(Leer.GetValue(6)).ToString();
+                    var Ramo1 = new Ramo();
+
+
+                    Ramo1.Codigo = Leer.GetValue(5).ToString();
+
+                    Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(6));
+
+
+
+                    ListaRamos.Add(Ramo1);
+
+
+
+                    
+
+                }
+                DataContext = this;
+                    
+               
+
+
+            }
+            else
+            {
+
+                
+
+            }
+
+
+
             InitializeComponent();
+
         }
+
     }
 }

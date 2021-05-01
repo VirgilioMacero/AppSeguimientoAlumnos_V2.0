@@ -5,9 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeguimientoAlumnos"
         mc:Ignorable="d"
-        Title="VistaProfesor" Height="450" Width="814.658">
+        Title="VistaProfesor" Height="504.235" Width="1084.365">
     <Grid>
-        <Label x:Name="LblNombreProfesor" Content="" HorizontalAlignment="Left" Margin="46,71,0,0" VerticalAlignment="Top" Height="51" Width="501" FontSize="22"/>
-
+        <TabControl HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="716">
+            <TabItem Header="Ramos">
+                <Grid Background="#FFE5E5E5">
+                    <ListView x:Name="LstRamosDados" HorizontalAlignment="Left" Height="351" Margin="10,10,0,0" VerticalAlignment="Top" Width="144" ItemsSource="{Binding ListaRamos}">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="true"
+              ColumnHeaderToolTip="Ramo" >
+                                <GridViewColumn Header="Codigo" 
+                            DisplayMemberBinding="{Binding Codigo}" Width="70"/>
+                                <GridViewColumn Header="Seccion" 
+                            DisplayMemberBinding="{Binding Seccion}" Width="50"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ayuda">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <TabControl HorizontalAlignment="Left" Height="399" Margin="731,10,0,0" VerticalAlignment="Top" Width="335">
+            <TabItem Header="Notificaciones">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

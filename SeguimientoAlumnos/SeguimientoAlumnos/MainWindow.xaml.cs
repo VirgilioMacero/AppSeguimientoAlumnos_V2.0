@@ -26,11 +26,6 @@ namespace SeguimientoAlumnos
         {
             InitializeComponent();
 
-
-
-
-            
-
         }
 
         private void BtnIniciarProfesor_Click(object sender, RoutedEventArgs e)
@@ -48,9 +43,14 @@ namespace SeguimientoAlumnos
             if (Leer.Read())
             {
 
-                VistaProfesor VistaProfe = new VistaProfesor();
+                var Profesor1 = new Profesor();
 
-                VistaProfe.LblNombreProfesor.Content = Leer.GetValue(2);
+                Profesor1.Correo = (Leer.GetValue(2)).ToString();
+                Profesor1.Nombre = (Leer.GetValue(1)).ToString();
+                Profesor1.RUT = (Leer.GetValue(3).ToString());
+                
+
+                VistaProfesor VistaProfe = new VistaProfesor(Profesor1);
 
                 VistaProfe.Show();
 
@@ -106,6 +106,7 @@ namespace SeguimientoAlumnos
 
             }
 
+                ConexionDataBase.Close();
 
 
             //string conexion = "datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento";

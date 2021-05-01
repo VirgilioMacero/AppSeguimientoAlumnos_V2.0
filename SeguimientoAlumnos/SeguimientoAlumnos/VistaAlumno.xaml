@@ -42,9 +42,6 @@
                     <TextBlock x:Name="TxtBNotificacion" HorizontalAlignment="Left" Margin="115,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="234" Width="208"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Noticias(?)">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
         </TabControl>
     </Grid>
 </Window>
