@@ -45,10 +45,14 @@ namespace SeguimientoAlumnos
 
                     var Ramo1 = new Ramo();
 
-                    Ramo1.Nombre =
+                    Ramo1.Nombre = Leer.GetValue(1).ToString();
                     Ramo1.Codigo = Leer.GetValue(5).ToString();
-
                     Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(6));
+
+                    while (true)
+                    {
+
+                    }
 
 
 
