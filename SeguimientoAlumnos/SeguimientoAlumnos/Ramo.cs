@@ -13,14 +13,13 @@ namespace SeguimientoAlumnos
 
         public string RUTProfesor { get; set; }
 
-        public string RUTAlumno { get; set; }
 
         public string Codigo { get; set; }
 
         public int Seccion { get; set; }
 
-        public List<Nota> ListaNotas { get; set; }
-
+       
+        public List<Alumno_Por_Ramo> ListaAlumnos { get; set; }
 
     }
 }

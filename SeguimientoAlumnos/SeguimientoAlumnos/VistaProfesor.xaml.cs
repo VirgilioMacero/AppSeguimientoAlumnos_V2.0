@@ -39,14 +39,13 @@ namespace SeguimientoAlumnos
             
             if (Leer.HasRows)
             {
-            while (Leer.Read())
-            {
+                while (Leer.Read())
+                {
 
 
-                    //string Codigo = (Leer.GetValue(5)).ToString()+"-"+(Leer.GetValue(6)).ToString();
                     var Ramo1 = new Ramo();
 
-
+                    Ramo1.Nombre =
                     Ramo1.Codigo = Leer.GetValue(5).ToString();
 
                     Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(6));

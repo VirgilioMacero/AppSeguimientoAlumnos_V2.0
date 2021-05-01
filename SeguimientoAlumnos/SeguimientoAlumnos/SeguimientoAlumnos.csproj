@@ -61,6 +61,7 @@
     <Compile Include="Administrador.cs" />
     <Compile Include="Alumno.cs" />
     <Compile Include="Escuela.cs" />
+    <Compile Include="Alumno_Por_Ramo.cs" />
     <Compile Include="Plan_De_Estudio.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Ramo.cs" />

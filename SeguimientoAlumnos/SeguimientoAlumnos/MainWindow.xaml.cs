@@ -86,10 +86,10 @@ namespace SeguimientoAlumnos
 
                 var Alumnito2 = new Alumno();
 
-                Alumnito2.Nombre = Leer.GetString(5);
-                Alumnito2.Correo = Leer.GetString(4);
-                Alumnito2.RUT = Leer.GetString(6);
-                Alumnito2.Clave = Leer.GetString(7);
+                Alumnito2.Nombre = Leer.GetString(4);
+                Alumnito2.Correo = Leer.GetString(3);
+                Alumnito2.RUT = Leer.GetString(5);
+                Alumnito2.Clave = Leer.GetString(6);
 
 
 
