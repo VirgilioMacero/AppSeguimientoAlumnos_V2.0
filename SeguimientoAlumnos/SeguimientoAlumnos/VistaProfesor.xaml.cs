@@ -40,15 +40,11 @@ namespace SeguimientoAlumnos
             if (Leer.HasRows)
             {
 
-                var CodigoRam = "";
-                var SeccRamo = 0;
 
                 while (Leer.Read())
                 {
 
 
-                    if (Leer.GetValue(5).ToString() != CodigoRam && Convert.ToInt32(Leer.GetValue(6)) != SeccRamo)
-                    {
 
 
                     var Ramo1 = new Ramo();
@@ -57,57 +53,54 @@ namespace SeguimientoAlumnos
                     Ramo1.Codigo = Leer.GetValue(5).ToString();
                     Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(6));
 
-                    CodigoRam = Leer.GetValue(5).ToString();
-                    SeccRamo = Convert.ToInt32(Leer.GetValue(6));
-
-                    Leer.Close();
-
-                    MySqlCommand ConsultaLista = new MySqlCommand();
-                    ConsultaLista.Connection = ConexionDataBase;
-                    ConsultaLista.CommandText = ("SELECT * FROM alumno, lista_alumnos, ramo WHERE lista_alumnos.Ramo_Id = ramo.id and lista_alumnos.Ramo_Id = ramo.id and ramo.Codigo ='"+ CodigoRam + "' and ramo.Seccion ='"+ SeccRamo + "' AND lista_alumnos.Alumno_Id=alumno.id");
-
-                    MySqlDataReader LeerAlumnos = ConsultaLista.ExecuteReader();
 
 
 
-                    while (LeerAlumnos.Read())
-                    {
 
-                        var Alumno2 = new Alumno_Por_Ramo();
-                        Alumno2.Nombre = LeerAlumnos.GetValue(4).ToString();
-                        Alumno2.RUTAlumno = LeerAlumnos.GetValue(5).ToString();
+                    //MySqlCommand ConsultaLista = new MySqlCommand();
+                    //ConsultaLista.Connection = ConexionDataBase;
+                    //ConsultaLista.CommandText = ("SELECT * FROM alumno, lista_alumnos, ramo WHERE lista_alumnos.Ramo_Id = ramo.id and lista_alumnos.Ramo_Id = ramo.id and ramo.Codigo ='"+ CodigoRam + "' and ramo.Seccion ='"+ SeccRamo + "' AND lista_alumnos.Alumno_Id=alumno.id");
 
-                        LeerAlumnos.Close();
-
-                        MySqlCommand ConsultaNotas = new MySqlCommand();
-                        ConsultaNotas.Connection = ConexionDataBase;
-                        ConsultaNotas.CommandText = ("SELECT * FROM nota, lista_alumnos,ramo WHERE nota.Lista_Alumnos_Id = lista_alumnos.id and lista_alumnos.Ramo_Id = ramo.id AND ramo.Codigo ='"+ CodigoRam + "' and ramo.Seccion = '"+ SeccRamo + "'");
-
-                        MySqlDataReader LeerNotas = ConsultaNotas.ExecuteReader();       
-
-                        while (LeerNotas.Read())
-                        {
-
-                            var Nota1 = new Nota();
-
-                            Nota1.Puntacion = Convert.ToDouble(LeerNotas.GetValue(1));
-
-                            Alumno2.ListaNotas.Add(Nota1);
-
-                        }
-
-                        LeerNotas.Close();
-
-                        Ramo1.ListaAlumnos.Add(Alumno2);
+                    //MySqlDataReader LeerAlumnos = ConsultaLista.ExecuteReader();
 
 
-                    }
+
+                    //while (LeerAlumnos.Read())
+                    //{
+
+                    //    var Alumno2 = new Alumno_Por_Ramo();
+                    //    Alumno2.Nombre = LeerAlumnos.GetValue(4).ToString();
+                    //    Alumno2.RUTAlumno = LeerAlumnos.GetValue(5).ToString();
+
+                    //    LeerAlumnos.Close();
+
+                    //    MySqlCommand ConsultaNotas = new MySqlCommand();
+                    //    ConsultaNotas.Connection = ConexionDataBase;
+                    //    ConsultaNotas.CommandText = ("SELECT * FROM nota, lista_alumnos,ramo WHERE nota.Lista_Alumnos_Id = lista_alumnos.id and lista_alumnos.Ramo_Id = ramo.id AND ramo.Codigo ='"+ CodigoRam + "' and ramo.Seccion = '"+ SeccRamo + "'");
+
+                    //    MySqlDataReader LeerNotas = ConsultaNotas.ExecuteReader();       
+
+                    //    while (LeerNotas.Read())
+                    //    {
+
+                    //        var Nota1 = new Nota();
+
+                    //        Nota1.Puntacion = Convert.ToDouble(LeerNotas.GetValue(1));
+
+                    //        Alumno2.ListaNotas.Add(Nota1);
+
+                    //    }
+
+                    //    LeerNotas.Close();
+
+                    //    Ramo1.ListaAlumnos.Add(Alumno2);
+
+
+                    //}
 
 
 
                     ListaRamos.Add(Ramo1);
-
-                    }
 
 
                     
