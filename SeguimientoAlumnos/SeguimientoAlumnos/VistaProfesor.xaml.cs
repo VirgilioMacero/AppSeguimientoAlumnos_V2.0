@@ -21,10 +21,13 @@ namespace SeguimientoAlumnos
     public partial class VistaProfesor : Window
     {
         public List<Ramo> ListaRamos { get; set; }
+        public List<Alumno_Por_Ramo> ListaAlumnos { get; set; }
+
+        public Ramo RamoSeleccionado { get; set; }
         public VistaProfesor(Profesor Profe)
         {
 
-            
+            InitializeComponent();
 
             MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
             ConexionDataBase.Open();
@@ -109,8 +112,8 @@ namespace SeguimientoAlumnos
 
                 }
                 DataContext = this;
-                    
-               
+
+
 
 
             }
@@ -121,11 +124,87 @@ namespace SeguimientoAlumnos
 
             }
 
+            ListBoxItem Valor1 = new ListBoxItem();
+
+            ListBox Contenedor = new ListBox();
 
 
-            InitializeComponent();
+
+            Valor1.Content = "Juan";
+
+            Contenedor.Items.Add(Valor1);
+
+            LstBoxRamos = Contenedor ;
+
+            
 
         }
 
+        private void LstRamosDados_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+
+            //ListaAlumnos = new List<Alumno_Por_Ramo>();
+
+            //MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+            //ConexionDataBase.Open();
+            //MySqlCommand ConsultaLista = new MySqlCommand();
+            //ConsultaLista.Connection = ConexionDataBase;
+            //ConsultaLista.CommandText = ("SELECT * FROM alumno, lista_alumnos, ramo WHERE lista_alumnos.Ramo_Id = ramo.id and lista_alumnos.Ramo_Id = ramo.id and ramo.Codigo ='" + CodigoRam + "' and ramo.Seccion ='" + SeccRamo + "' AND lista_alumnos.Alumno_Id=alumno.id");
+
+            //MySqlDataReader LeerAlumnos = ConsultaLista.ExecuteReader();
+
+
+
+            //while (LeerAlumnos.Read())
+            //{
+
+            //    var Alumno2 = new Alumno_Por_Ramo();
+            //    Alumno2.Nombre = LeerAlumnos.GetValue(4).ToString();
+            //    Alumno2.RUTAlumno = LeerAlumnos.GetValue(5).ToString();
+
+            //    ListaAlumnos.Add(Alumno2);
+
+            //}
+
+
+
+
+            }
+
+        private void LstRamosDados_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+            DataContext = this;
+
+            ListaAlumnos = new List<Alumno_Por_Ramo>();
+
+            RamoSeleccionado = new Ramo();
+
+            DataContext = this;
+            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+            ConexionDataBase.Open();
+            MySqlCommand ConsultaLista = new MySqlCommand();
+
+            var CodigoRamo = LstBoxRamos.SelectedIndex;
+            
+            ConsultaLista.Connection = ConexionDataBase;
+            ConsultaLista.CommandText = ("SELECT * FROM alumno, lista_alumnos, ramo WHERE lista_alumnos.Ramo_Id = ramo.id and lista_alumnos.Ramo_Id = ramo.id and ramo.Codigo ='" + LstRamosDados.SelectedItem + "' and ramo.Seccion ='" + Convert.ToInt32(LstRamosDados.SelectedItem) + "' AND lista_alumnos.Alumno_Id=alumno.id");
+
+            MySqlDataReader LeerAlumnos = ConsultaLista.ExecuteReader();
+
+
+
+            while (LeerAlumnos.Read())
+            {
+
+                var Alumno2 = new Alumno_Por_Ramo();
+                Alumno2.Nombre = LeerAlumnos.GetValue(4).ToString();
+                Alumno2.RUTAlumno = LeerAlumnos.GetValue(5).ToString();
+
+                ListaAlumnos.Add(Alumno2);
+
+            }
+        }
     }
 }

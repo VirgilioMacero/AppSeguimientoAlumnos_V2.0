@@ -10,10 +10,12 @@
         <TabControl HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="716">
             <TabItem Header="Ramos">
                 <Grid Background="#FFE5E5E5">
-                    <ListView x:Name="LstRamosDados" HorizontalAlignment="Left" Height="351" Margin="10,10,0,0" VerticalAlignment="Top" Width="144" ItemsSource="{Binding ListaRamos}">
+                    <ListView x:Name="LstRamosDados" HorizontalAlignment="Left" Height="351" Margin="24,10,0,0" VerticalAlignment="Top" Width="244" ItemsSource="{Binding ListaRamos}" FocusableChanged="LstRamosDados_FocusableChanged" GotFocus="LstRamosDados_GotFocus" SelectedItem="{Binding RamoSeleccionado}">
                         <ListView.View>
                             <GridView AllowsColumnReorder="true"
               ColumnHeaderToolTip="Ramo" >
+                                <GridViewColumn Header="Nombre" 
+                            DisplayMemberBinding="{Binding Nombre}" Width="90"/>
                                 <GridViewColumn Header="Codigo" 
                             DisplayMemberBinding="{Binding Codigo}" Width="70"/>
                                 <GridViewColumn Header="Seccion" 
@@ -21,6 +23,19 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
+                    <ListView x:Name="LstAlumnosInscritos" HorizontalAlignment="Left" Height="351" Margin="273,10,0,0" VerticalAlignment="Top" Width="187" ItemsSource="{Binding ListaAlumnos}">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="true"
+                                ColumnHeaderToolTip="Ramo" >
+                                <GridViewColumn Header="Nombre" 
+                                    DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                <GridViewColumn Header="RUT" 
+                                    DisplayMemberBinding="{Binding RUTAlumno}" Width="80"/>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ListBox x:Name="LstBoxRamos" HorizontalAlignment="Left" Height="351" Margin="465,10,0,0" VerticalAlignment="Top" Width="206"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Ayuda">
