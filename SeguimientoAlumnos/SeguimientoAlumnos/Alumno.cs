@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SeguimientoAlumnos
 {
@@ -19,7 +15,7 @@ namespace SeguimientoAlumnos
             this.ListaPlan_De_Estudio = new List<Plan_De_Estudio>();
             this.Correo = "";
             this.RUT = "";
-           
+
         }
 
         public Alumno(Alumno alumnito)
@@ -29,7 +25,7 @@ namespace SeguimientoAlumnos
             this.Correo = alumnito.Correo;
             this.RUT = alumnito.RUT;
             this.ListaPlan_De_Estudio = alumnito.ListaPlan_De_Estudio;
-            
+
 
         }
 

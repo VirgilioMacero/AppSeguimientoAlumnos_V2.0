@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SeguimientoAlumnos
 {
@@ -10,7 +6,7 @@ namespace SeguimientoAlumnos
     {
         public int Numero { get; set; }
 
-        public List<Ramo> ListaRamos {get;set;}
+        public List<Ramo> ListaRamos { get; set; }
 
 
         public int SacarPromedio(Ramo Ramito)

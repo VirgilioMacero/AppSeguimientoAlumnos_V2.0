@@ -5,16 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeguimientoAlumnos"
         mc:Ignorable="d"
-        Title="VistaAlumno" Height="450" Width="800">
+        Title="VistaAlumno" Height="570" Width="935">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="329" Margin="29,44,0,0" VerticalAlignment="Top" Width="364">
+        <TabControl HorizontalAlignment="Left" Height="485" Margin="29,44,0,0" VerticalAlignment="Top" Width="506">
             <TabItem Header="Inicio">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="LblNombreAlumno" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="178"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Perfil Academico">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <ListView x:Name="LstRamosActuales" HorizontalAlignment="Left" Height="369" Margin="10,10,0,0" VerticalAlignment="Top" Width="241">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Nombre-Ramo" 
+                                    DisplayMemberBinding="{Binding Nombre}" Width="90"/>
+                                <GridViewColumn Header="Codigo" 
+                                    DisplayMemberBinding="{Binding Codigo}" Width="80"/>
+                                <GridViewColumn Header="Seccion" 
+                                    DisplayMemberBinding="{Binding Seccion}" Width="80"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button x:Name="BtnMostrarNotas" Content="Mostrar Notas" HorizontalAlignment="Left" Margin="159,398,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="BtnMostrarNotas_Click"/>
+                    <ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="134" Margin="289,10,0,0" VerticalAlignment="Top" Width="176">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Numero Nota" 
+                                    DisplayMemberBinding="{Binding NumeroNota}" Width="80"/>
+                                <GridViewColumn Header="Puntaje" 
+                                    DisplayMemberBinding="{Binding Puntacion}" Width="70"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
             </TabItem>
             <TabItem Header="Universidad" Margin="0">
                 <Grid Background="#FFE5E5E5">
@@ -28,10 +52,10 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-        <TabControl HorizontalAlignment="Left" Height="329" Margin="420,44,0,0" VerticalAlignment="Top" Width="339">
+        <TabControl HorizontalAlignment="Left" Height="485" Margin="540,44,0,0" VerticalAlignment="Top" Width="339">
             <TabItem Header="Notificaciones">
                 <Grid Background="#FFE5E5E5">
-                    <ListView x:Name="LstNotificaciones" HorizontalAlignment="Left" Height="234" Margin="10,57,0,0" VerticalAlignment="Top" Width="100">
+                    <ListView x:Name="LstNotificaciones" HorizontalAlignment="Left" Margin="10,57,0,10" Width="100">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>

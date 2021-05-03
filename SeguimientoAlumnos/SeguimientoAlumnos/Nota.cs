@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SeguimientoAlumnos
+﻿namespace SeguimientoAlumnos
 {
     public class Nota
     {
+
+        public string NumeroNota { get; set; }
 
         public double Puntacion { get; set; }
 

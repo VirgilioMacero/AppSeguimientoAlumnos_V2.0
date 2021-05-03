@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SeguimientoAlumnos
 {
@@ -18,8 +14,12 @@ namespace SeguimientoAlumnos
 
         public int Seccion { get; set; }
 
-       
+
         public List<Alumno_Por_Ramo> ListaAlumnos { get; set; }
+
+
+
+
 
     }
 }

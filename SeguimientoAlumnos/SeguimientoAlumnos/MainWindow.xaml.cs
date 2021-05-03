@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
 
 namespace SeguimientoAlumnos
 {
@@ -31,11 +18,11 @@ namespace SeguimientoAlumnos
         private void BtnIniciarProfesor_Click(object sender, RoutedEventArgs e)
         {
 
-            MySqlConnection ConexionDataBase = new  MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
             ConexionDataBase.Open();
             MySqlCommand Consulta = new MySqlCommand();
             Consulta.Connection = ConexionDataBase;
-            Consulta.CommandText = ("select * FROM profesor where RUT ='"+this.TxtUsuarioProfesor.Text +"' and Contrasenia ='" + this.TxtContraseniaProfesor.Text +" ' ");
+            Consulta.CommandText = ("select * FROM profesor where RUT ='" + this.TxtUsuarioProfesor.Text + "' and Contrasenia ='" + this.TxtContraseniaProfesor.Text + " ' ");
 
             MySqlDataReader Leer = Consulta.ExecuteReader();
 
@@ -48,7 +35,7 @@ namespace SeguimientoAlumnos
                 Profesor1.Correo = (Leer.GetValue(2)).ToString();
                 Profesor1.Nombre = (Leer.GetValue(1)).ToString();
                 Profesor1.RUT = (Leer.GetValue(3).ToString());
-                
+
 
                 VistaProfesor VistaProfe = new VistaProfesor(Profesor1);
 
@@ -106,7 +93,7 @@ namespace SeguimientoAlumnos
 
             }
 
-                ConexionDataBase.Close();
+            ConexionDataBase.Close();
 
 
             //string conexion = "datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento";
