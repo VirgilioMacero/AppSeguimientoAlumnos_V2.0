@@ -29,7 +29,10 @@ namespace SeguimientoAlumnos
             this.lblBienvenido.Content = "Bienvenido "+Alumnito2.Nombre;
             this.txtbInicio.Text = "";
             //this.cargarNotificacionesAtencion();
-            //LblNombreAlumno.Content = "Bienvenido " + Alumnito.Nombre;
+            //Ventana Universidad/Profesor
+            this.cboxUniProfOrigen.SelectedIndex = 0;
+            this.cboxUniProfRamo.SelectedIndex = 0;
+            this.cboxUniProfEscuela.SelectedItem = 0;
 
 
             MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");

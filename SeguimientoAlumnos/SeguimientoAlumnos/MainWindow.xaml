@@ -5,28 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeguimientoAlumnos"
         mc:Ignorable="d"
-        Title="Inicio Sesion" Height="507" Width="501">
+        Title="Inicio Sesion" Height="468.25" Width="518.5">
     <Grid>
         <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="82"/>
-        <TabControl HorizontalAlignment="Left" Height="476" VerticalAlignment="Top" Width="493">
+        <TabControl HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="493" Margin="10,10,0,0">
             <TabItem Header="Alumno">
                 <Grid Background="#FFE5E5E5">
                     <Grid Background="#FFE5E5E5">
-                        <Button x:Name="BtnIniciarAlumno" Content="Iniciar" HorizontalAlignment="Left" Margin="322,373,0,0" VerticalAlignment="Top" Width="104" Height="38" Click="BtnIniciarAlumno_Click"/>
-                        <TextBox x:Name="TxtUsuarioAlumno" HorizontalAlignment="Left" Height="23" Margin="42,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
-                        <TextBox x:Name="TxtContraseniaAlumno" HorizontalAlignment="Left" Height="23" Margin="42,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
-                        <Label Content="Usuario" HorizontalAlignment="Left" Margin="42,66,0,0" VerticalAlignment="Top" Width="120"/>
-                        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="81*"/>
+                            <ColumnDefinition Width="197*"/>
+                            <ColumnDefinition Width="210*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="BtnIniciarAlumno" Content="Iniciar" HorizontalAlignment="Left" Margin="96,345,0,0" VerticalAlignment="Top" Width="104" Height="38" Click="BtnIniciarAlumno_Click" Grid.Column="2"/>
+                        <TextBox x:Name="TxtUsuarioAlumno" HorizontalAlignment="Left" Height="27" Margin="71.5,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
+                        <TextBox x:Name="TxtContraseniaAlumno" HorizontalAlignment="Left" Height="30" Margin="71,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Grid.ColumnSpan="2" Grid.Column="1"/>
+                        <Label Content="Usuario" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="467" HorizontalContentAlignment="Center" FontSize="16" Grid.ColumnSpan="3"/>
+                        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="467" FontSize="16" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                        <Label Content="Prototipo de Interfaz de Seguimiento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Height="48" FontSize="14" HorizontalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3"/>
+                        <Label Content="Prototipo de Interfaz de Seguimiento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Height="48" FontSize="14" HorizontalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3"/>
                     </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Profesor">
                 <Grid Background="#FFE5E5E5">
-                    <Button x:Name="BtnIniciarProfesor" Content="Iniciar" HorizontalAlignment="Left" Margin="349,377,0,0" VerticalAlignment="Top" Width="104" Height="38" Click="BtnIniciarProfesor_Click"/>
-                    <TextBox x:Name="TxtUsuarioProfesor" HorizontalAlignment="Left" Height="23" Margin="42,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
-                    <TextBox x:Name="TxtContraseniaProfesor" HorizontalAlignment="Left" Height="23" Margin="42,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
-                    <Label Content="Usuario" HorizontalAlignment="Left" Margin="42,66,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Contraseña" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="38*"/>
+                        <ColumnDefinition Width="449*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BtnIniciarProfesor" Content="Iniciar" HorizontalAlignment="Left" Margin="335,345,0,0" VerticalAlignment="Top" Width="104" Height="38" Click="BtnIniciarProfesor_Click" Grid.Column="1"/>
+                    <TextBox x:Name="TxtUsuarioProfesor" HorizontalAlignment="Left" Height="29" Margin="115,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Grid.Column="1"/>
+                    <TextBox x:Name="TxtContraseniaProfesor" HorizontalAlignment="Left" Height="28" Margin="113,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Grid.Column="1"/>
+                    <Label Content="Usuario" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="467" FontSize="16" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <Label Content="Contraseña" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="467" FontSize="16" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <Label Content="Prototipo de Interfaz de Seguimiento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Height="48" FontSize="14" HorizontalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Administrador" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="103" Margin="-1,0,0,0">

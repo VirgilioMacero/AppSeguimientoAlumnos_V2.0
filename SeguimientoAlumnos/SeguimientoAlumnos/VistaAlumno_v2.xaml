@@ -135,13 +135,21 @@
 										<ComboBoxItem Content="Mis profesores" HorizontalAlignment="Left" Width="118"/>
 										<ComboBoxItem Content="Todos los profesores" HorizontalAlignment="Left" Width="118"/>
 									</ComboBox>
-									<ComboBox x:Name="cboxUniProfEscuela" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="134"/>
-									<Label Content="Escuela" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="134" HorizontalContentAlignment="Center"/>
+									<ComboBox x:Name="cboxUniProfEscuela" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="134">
+                                        <ComboBoxItem Content="Facultad de ciencias" HorizontalAlignment="Left" Width="132"/>
+                                    </ComboBox>
+                                    <Label Content="Escuela" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="134" HorizontalContentAlignment="Center"/>
 									<Label Content="Ramo" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.231" Width="234" HorizontalContentAlignment="Center"/>
-									<ComboBox x:Name="cboxUniProfRamo" HorizontalAlignment="Left" Margin="173,36,0,0" VerticalAlignment="Top" Width="234"/>
-									<Button x:Name="btnUniProfBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="332,86,0,0" VerticalAlignment="Top" Width="75"/>
-									<ListBox x:Name="lboxUniProfList" HorizontalAlignment="Left" Height="159" VerticalAlignment="Top" Width="397" Margin="10,111,0,0"/>
-									<TextBlock x:Name="txtbUniProfDatos" HorizontalAlignment="Left" Margin="10,275,0,0" TextWrapping="Wrap" Text="Datos del profesor" VerticalAlignment="Top" Height="88" Width="397"/>
+									<ComboBox x:Name="cboxUniProfRamo" HorizontalAlignment="Left" Margin="173,36,0,0" VerticalAlignment="Top" Width="234">
+                                        <ComboBoxItem Content="Programación I" HorizontalAlignment="Left" Width="232"/>
+                                        <ComboBoxItem Content="Algebra VI" HorizontalAlignment="Left" Width="232"/>
+                                    </ComboBox>
+                                    <Button x:Name="btnUniProfBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="332,86,0,0" VerticalAlignment="Top" Width="75"/>
+									<ListBox x:Name="lboxUniProfList" HorizontalAlignment="Left" Height="159" VerticalAlignment="Top" Width="397" Margin="10,111,0,0">
+                                        <ListBoxItem Content="Luis Torres --- Facultad de ciencias --- Programación I"/>
+                                        <ListBoxItem Content="Alejando magno --- Facultad de ciencias --- Programación I"/>
+                                    </ListBox>
+                                    <TextBlock x:Name="txtbUniProfDatos" HorizontalAlignment="Left" Margin="10,275,0,0" TextWrapping="Wrap" Text="Acá se podrá consultar sobre los profesores disponibles en la universidad, para establecer un oportuno contacto para tratar cualquier situación que requiera un contacto rápido y directo entre profesor y alumno" VerticalAlignment="Top" Height="88" Width="397"/>
 									<Button x:Name="btnUniProfContacto" Content="Contacto" HorizontalAlignment="Left" Margin="332,370,0,0" VerticalAlignment="Top" Width="75"/>
 								</Grid>
 							</Grid>
@@ -153,9 +161,10 @@
 										<Grid Background="#FFE5E5E5">
 											<Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFDBD8FF">
 												<ListBox x:Name="lboxMisAyudantias" HorizontalAlignment="Left" Height="166" Margin="10,10,0,0" VerticalAlignment="Top" Width="371">
-													<ListBoxItem Content="##/##/#### -- ##:## -- Ramo"/>
-													<ListBoxItem Content=""/>
-												</ListBox>
+													<ListBoxItem Content="##/##/#### // ##:## - ##:## // Ramo"/>
+													<ListBoxItem Content="31/10/2021 // 12:00 - 13:20 // Programación I"/>
+                                                    <ListBoxItem Content="04/05/2021 // 15:30 - 16:50 // Algebra VI"/>
+                                                </ListBox>
 												<TextBlock x:Name="txtbMisAyudInfo" HorizontalAlignment="Left" Margin="10,181,0,0" TextWrapping="Wrap" Text="Info ayudantia selecionada" VerticalAlignment="Top" Height="161" Width="371"/>
 											</Grid>
 										</Grid>
@@ -164,9 +173,12 @@
 										<Grid Background="#FFE5E5E5">
 											<Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFE5FFE2">
 												<Label Content="Seleccionar ramo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="371" HorizontalContentAlignment="Center"/>
-												<ComboBox x:Name="cboxAyudInscSelec" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="371"/>
-												<ListBox x:Name="lboxAyudInsRamo" HorizontalAlignment="Left" Height="109" Margin="10,68,0,0" VerticalAlignment="Top" Width="371"/>
-												<TextBlock x:Name="txtbAyudInscInfo" HorizontalAlignment="Left" Margin="10,182,0,0" TextWrapping="Wrap" Text="Datos de la ayudantía" VerticalAlignment="Top" Height="115" Width="371"/>
+												<ComboBox x:Name="cboxAyudInscSelec" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="371">
+                                                    <ComboBoxItem Content="Programación I" HorizontalAlignment="Left" Width="369"/>
+                                                    <ComboBoxItem Content="Algebra VI" HorizontalAlignment="Left" Width="369"/>
+                                                </ComboBox>
+                                                <ListBox x:Name="lboxAyudInsRamo" HorizontalAlignment="Left" Height="109" Margin="10,68,0,0" VerticalAlignment="Top" Width="371"/>
+												<TextBlock x:Name="txtbAyudInscInfo" HorizontalAlignment="Left" Margin="10,182,0,0" TextWrapping="Wrap" Text="Acá se mostrará información sobre las ayudantías disponibles según los ramos que estén en la carga académica del estudiante que ingresó a la app" VerticalAlignment="Top" Height="115" Width="371"/>
 												<Button x:Name="btnAyudInscEnviar" Content="Enviar solicitud" HorizontalAlignment="Left" Margin="290,323,0,0" VerticalAlignment="Top" Width="91"/>
 											</Grid>
 										</Grid>
