@@ -116,5 +116,10 @@ namespace SeguimientoAlumnos
 
 
         }
+
+        private void LstRamosActuales_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

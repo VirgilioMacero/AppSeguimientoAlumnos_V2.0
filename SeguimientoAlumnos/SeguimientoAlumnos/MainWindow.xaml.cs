@@ -80,7 +80,7 @@ namespace SeguimientoAlumnos
 
 
 
-                VistaAlumno VistaAlumno1 = new VistaAlumno(Alumnito2);
+                VistaAlumno_v2 VistaAlumno1 = new VistaAlumno_v2(Alumnito2);
 
                 VistaAlumno1.Show();
 

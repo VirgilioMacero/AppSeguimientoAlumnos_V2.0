@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeguimientoAlumnos"
         mc:Ignorable="d"
-        Title="VistaProfesor" Height="554.235" Width="1084.365">
+        Title="VistaProfesor" Height="535.485" Width="1146.865">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="445" Margin="10,10,0,0" VerticalAlignment="Top" Width="716">
+        <TabControl HorizontalAlignment="Left" Height="482" Margin="10,10,0,0" VerticalAlignment="Top" Width="716">
             <TabItem Header="Ramos">
                 <Grid Background="#FFE5E5E5">
                     <ListView x:Name="LstRamosDados" HorizontalAlignment="Left" Height="397" Margin="24,10,0,0" VerticalAlignment="Top" Width="230" GotFocus="LstRamosDados_GotFocus">
@@ -60,18 +60,69 @@
                             <Button x:Name="BtnSubirPuntuacion" Content="Subir" HorizontalAlignment="Left" Margin="126,69,0,0" VerticalAlignment="Top" Width="75" Click="BtnSubirPuntuacion_Click"/>
                         </Grid>
                     </GroupBox>
+                    <Button x:Name="BtnMostrarAlumnos" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="24,412,0,0" VerticalAlignment="Top" Width="106" Height="32" Click="BtnMostrarAlumnos_Click" RenderTransformOrigin="4.92,0.797"/>
+                    <Button x:Name="BtnMostrarNotas" Content="MostrarNotas" HorizontalAlignment="Left" Margin="259,412,0,0" VerticalAlignment="Top" Width="96" Height="32" Click="BtnMostrarNotas_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Ayuda">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Asistencia" HorizontalAlignment="Left" Width="65" Height="22" Margin="-2,0,-14,0" VerticalAlignment="Bottom">
+                <Grid Background="#FFE5E5E5">
+                    <TabControl HorizontalAlignment="Left" Height="395" Margin="10,10,0,0" VerticalAlignment="Top" Width="690" RenderTransformOrigin="0.03,0.352">
+                        <TabItem Header="Atención">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="347" Margin="10,10,0,0" VerticalAlignment="Top" Width="664" Background="#FFFFF1D3">
+                                    <ListView x:Name="LstAsisAtencion" HorizontalAlignment="Left" Height="299" Margin="10,38,0,0" VerticalAlignment="Top" Width="300">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <TextBlock HorizontalAlignment="Left" Margin="315,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="327" Width="339"><Run Text="Contenido de la notificación"/><LineBreak/><Run Text="-Mala asistencia de algún estudiante"/><LineBreak/><Run Text="-Datos de la asistencia del alumno"/><LineBreak/><Run Text="-Posibilidad de establecer contacto"/></TextBlock>
+                                    <Label Content="Notificaciones sobre estudiantes ausentes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.115" Width="300"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Consultar asistencia">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="23*"/>
+                                    <ColumnDefinition Width="13*"/>
+                                    <ColumnDefinition Width="649*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="347" Margin="10,10,0,0" VerticalAlignment="Top" Width="664" Background="#FFE2FBFF"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="54">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="69*"/>
+                        <ColumnDefinition Width="641*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </TabItem>
         </TabControl>
-        <TabControl HorizontalAlignment="Left" Height="445" Margin="731,10,0,0" VerticalAlignment="Top" Width="335">
+        <TabControl HorizontalAlignment="Left" Height="445" Margin="731,10,0,0" VerticalAlignment="Top" Width="398">
             <TabItem Header="Notificaciones">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="118*"/>
+                        <ColumnDefinition Width="211*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView x:Name="LstNotifNotificaciones" HorizontalAlignment="Left" Height="397" Margin="10,10,0,0" VerticalAlignment="Top" Width="169" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBlock x:Name="txtbNotifFecha" Grid.Column="1" HorizontalAlignment="Left" Margin="43,10,0,0" TextWrapping="Wrap" Text="Fecha" VerticalAlignment="Top" Height="54" Width="80" FontSize="14"/>
+                    <TextBlock x:Name="txtbNotifTitulo" Grid.Column="1" HorizontalAlignment="Left" Margin="128,10,0,0" TextWrapping="Wrap" Text="Título" VerticalAlignment="Top" Height="54" Width="113" FontSize="14"/>
+                    <TextBlock x:Name="txtbNotifContenido" Grid.Column="1" HorizontalAlignment="Left" Margin="43,69,0,0" TextWrapping="Wrap" Text="Contenido" VerticalAlignment="Top" Height="338" Width="198" FontSize="14"/>
+                </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="BtnMostrarAlumnos" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="162,460,0,0" VerticalAlignment="Top" Width="106" Height="32" Click="BtnMostrarAlumnos_Click"/>
-        <Button x:Name="BtnMostrarNotas" Content="MostrarNotas" HorizontalAlignment="Left" Margin="368,460,0,0" VerticalAlignment="Top" Width="96" Height="32" Click="BtnMostrarNotas_Click"/>
     </Grid>
 </Window>

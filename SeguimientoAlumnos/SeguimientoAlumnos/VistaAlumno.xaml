@@ -15,7 +15,11 @@
             </TabItem>
             <TabItem Header="Perfil Academico">
                 <Grid Background="#FFE5E5E5">
-                    <ListView x:Name="LstRamosActuales" HorizontalAlignment="Left" Height="369" Margin="10,10,0,0" VerticalAlignment="Top" Width="241">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="173*"/>
+                        <ColumnDefinition Width="327*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView x:Name="LstRamosActuales" HorizontalAlignment="Left" Height="369" Margin="10,10,0,0" VerticalAlignment="Top" Width="241" Grid.ColumnSpan="2" SelectionChanged="LstRamosActuales_SelectionChanged">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Nombre-Ramo" 
@@ -27,8 +31,8 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <Button x:Name="BtnMostrarNotas" Content="Mostrar Notas" HorizontalAlignment="Left" Margin="159,398,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="BtnMostrarNotas_Click"/>
-                    <ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="134" Margin="289,10,0,0" VerticalAlignment="Top" Width="176">
+                    <Button x:Name="BtnMostrarNotas" Content="Mostrar Notas" HorizontalAlignment="Left" Margin="159,398,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="BtnMostrarNotas_Click" Grid.ColumnSpan="2"/>
+                    <ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="134" Margin="116.25,10,0,0" VerticalAlignment="Top" Width="176" Grid.Column="1">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Numero Nota" 

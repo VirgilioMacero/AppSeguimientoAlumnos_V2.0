@@ -69,6 +69,9 @@
     <Compile Include="VistaAlumno.xaml.cs">
       <DependentUpon>VistaAlumno.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaAlumno_v2.xaml.cs">
+      <DependentUpon>VistaAlumno_v2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistaProfesor.xaml.cs">
       <DependentUpon>VistaProfesor.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
     <Page Include="VistaAlumno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaAlumno_v2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="VistaProfesor.xaml">
       <SubType>Designer</SubType>
