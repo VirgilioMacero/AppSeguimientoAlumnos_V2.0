@@ -81,7 +81,7 @@
 										</GridView>
 									</ListView.View>
 								</ListView>
-								<Button Content="Mostrar calificaciones" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="196" RenderTransformOrigin="-0.153,-1.173" Click="Button_Click"/>
+								<Button Content="Mostrar calificaciones" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="-0.153,-1.173" Click="Button_Click"/>
 								<ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="371" Margin="272,10,0,0" VerticalAlignment="Top" Width="155">
 									<ListView.View>
 										<GridView>
@@ -98,7 +98,7 @@
 							<Grid Background="#FFE5E5E5">
 								<Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFDAFDFF">
 									<Label x:Name="lblBienvenido" Content="Bienvenido " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="397" Height="43" FontSize="20" HorizontalContentAlignment="Center"/>
-									<TextBlock x:Name="txtbInicio" HorizontalAlignment="Left" Margin="10,94,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="139" Width="397" Background="#FFE6FFFC"/>
+									<TextBlock x:Name="txtbInicio" HorizontalAlignment="Left" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="139" Width="397" Background="#FFE6FFFC"/>
 								</Grid>
 							</Grid>
 						</TabItem>
