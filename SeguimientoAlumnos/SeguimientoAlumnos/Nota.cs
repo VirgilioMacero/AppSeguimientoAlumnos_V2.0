@@ -2,6 +2,7 @@
 {
     public class Nota
     {
+        public int ID { get; set; } //agregue int id en nota
 
         public string NumeroNota { get; set; }
 
