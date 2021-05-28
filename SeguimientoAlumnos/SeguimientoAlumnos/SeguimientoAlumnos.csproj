@@ -65,6 +65,7 @@
     <Compile Include="Plan_De_Estudio.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Ramo.cs" />
+    <Compile Include="Seguimiento.cs" />
     <Compile Include="Semestre.cs" />
     <Compile Include="VistaAlumno.xaml.cs">
       <DependentUpon>VistaAlumno.xaml</DependentUpon>
