@@ -14,7 +14,7 @@ namespace SeguimientoAlumnos
 
         public string Mensaje { get; set; } //agregue string Mensaje
 
-
+        //Falto Fecha:DateTime 
 
     }
 }

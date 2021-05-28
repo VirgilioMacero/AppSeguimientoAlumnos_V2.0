@@ -8,5 +8,8 @@
 
         public double Puntacion { get; set; }
 
+        //Falto Fecha DateTime
+        
+
     }
 }
