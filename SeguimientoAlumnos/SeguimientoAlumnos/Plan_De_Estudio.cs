@@ -5,7 +5,7 @@ namespace SeguimientoAlumnos
     public class Plan_De_Estudio
     {
 
-        public string ID { get; set; }
+        public int ID { get; set; } //se arreglo ID en int 
 
         public int anio { get; set; }
 

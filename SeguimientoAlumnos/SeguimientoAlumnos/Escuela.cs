@@ -7,30 +7,9 @@ namespace SeguimientoAlumnos
 
         public string NombreEscuela { get; set; }
 
-        public List<Profesor> ListaProfesore { get; set; }
+        public int ID { get; set; } //Se agrego int ID
 
-        public List<Alumno> ListaAlumnos { get; set; }
-
-        public List<Ramo> ListaRamos { get; set; }
-
-        public void MostrarMensajeApoyo()
-        {
-
-
-        }
-        public void MostrarOpcionesProfesor()
-        {
-
-
-
-
-        }
-        public void NotificarProfesor()
-        {
-
-
-        }
-
+        public List<Plan_De_Estudio> Plan_De_Estudios { get; set; } //Se agrego la Lista
 
 
     }

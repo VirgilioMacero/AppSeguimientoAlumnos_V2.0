@@ -1,4 +1,6 @@
-﻿namespace SeguimientoAlumnos
+﻿using System.Collections.Generic;
+
+namespace SeguimientoAlumnos
 {
     public class Persona
     {
@@ -10,6 +12,6 @@
 
         public string Correo { get; set; }
 
-
+        public List<Mensaje> Mensajes { get; set; } //se creo la lista de mensajes 
     }
 }
