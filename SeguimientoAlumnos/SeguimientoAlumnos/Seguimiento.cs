@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeguimientoAlumnos
 {
-    class Seguimiento  //agregue la clase seguimiento
+    public class Seguimiento  //agregue la clase seguimiento
     {
         public string Causa { get; set; }   //agregue string causa
 
