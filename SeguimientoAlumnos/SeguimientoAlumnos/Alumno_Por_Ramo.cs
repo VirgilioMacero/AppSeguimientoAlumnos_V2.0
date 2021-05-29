@@ -16,5 +16,17 @@ namespace SeguimientoAlumnos
 
         public List<Seguimiento> Seguimientos { get; set; } //se agrego List Seguimiento
 
+
+        public List<string> MostrarSeguimiento(List<Seguimiento> Seg,List<Nota> Not)
+        {
+
+            var Lista = new List<string>();
+
+
+            return Lista;
+
+        }
+
+
     }
 }

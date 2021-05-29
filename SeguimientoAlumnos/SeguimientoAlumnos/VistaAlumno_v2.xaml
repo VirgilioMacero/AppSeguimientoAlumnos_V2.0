@@ -173,7 +173,7 @@
 										<Grid Background="#FFE5E5E5">
 											<Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFE5FFE2">
 												<Label Content="Seleccionar ramo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="371" HorizontalContentAlignment="Center"/>
-												<ComboBox x:Name="cboxAyudInscSelec" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="371">
+												<ComboBox x:Name="CmbAyudantiasDiponibles" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="371">
                                                     <ComboBoxItem Content="Programación I" HorizontalAlignment="Left" Width="369"/>
                                                     <ComboBoxItem Content="Algebra VI" HorizontalAlignment="Left" Width="369"/>
                                                 </ComboBox>

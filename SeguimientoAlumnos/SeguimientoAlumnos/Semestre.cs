@@ -11,13 +11,6 @@ namespace SeguimientoAlumnos
         public List<Ramo> ListaRamos { get; set; }
 
 
-        public int SacarPromedio(Ramo Ramito)
-        {
-            int numero = 0;
-
-
-            return numero;
-        }
 
 
 

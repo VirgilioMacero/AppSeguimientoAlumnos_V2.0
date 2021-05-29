@@ -22,6 +22,8 @@ namespace SeguimientoAlumnos
 
         public string Cuerpo { get; set; }
 
+        public DateTime Fecha { get; set; }
+
         public bool Leido { get; set; }
 
     }

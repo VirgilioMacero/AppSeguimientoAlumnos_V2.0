@@ -60,6 +60,8 @@
     </ApplicationDefinition>
     <Compile Include="Administrador.cs" />
     <Compile Include="Alumno.cs" />
+    <Compile Include="Alumno_Por_Ayudantia.cs" />
+    <Compile Include="Ayudantia.cs" />
     <Compile Include="Escuela.cs" />
     <Compile Include="Alumno_Por_Ramo.cs" />
     <Compile Include="Mensaje.cs" />
@@ -68,9 +70,6 @@
     <Compile Include="Ramo.cs" />
     <Compile Include="Seguimiento.cs" />
     <Compile Include="Semestre.cs" />
-    <Compile Include="VistaAlumno.xaml.cs">
-      <DependentUpon>VistaAlumno.xaml</DependentUpon>
-    </Compile>
     <Compile Include="VistaAlumno_v2.xaml.cs">
       <DependentUpon>VistaAlumno_v2.xaml</DependentUpon>
     </Compile>
@@ -89,10 +88,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="VistaAlumno.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="VistaAlumno_v2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

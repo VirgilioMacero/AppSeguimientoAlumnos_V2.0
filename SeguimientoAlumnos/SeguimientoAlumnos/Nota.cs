@@ -1,4 +1,6 @@
-﻿namespace SeguimientoAlumnos
+﻿using System;
+
+namespace SeguimientoAlumnos
 {
     public class Nota
     {
@@ -8,8 +10,8 @@
 
         public double Puntacion { get; set; }
 
-        //Falto Fecha DateTime
-        
+        public DateTime Fecha { get; set; }
+
 
     }
 }

@@ -29,6 +29,8 @@ namespace SeguimientoAlumnos
             this.Correo = Profe.Correo;
             this.Clave = Profe.Clave;
 
+            
+
 
         }
 

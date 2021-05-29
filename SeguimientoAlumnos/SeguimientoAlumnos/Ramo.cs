@@ -19,6 +19,8 @@ namespace SeguimientoAlumnos
 
         public List<Alumno_Por_Ramo> ListaAlumnos { get; set; }
 
+        public List<Ayudantia> ListaAyudantias { get; set;}
+
         public int SacarPromedio(Alumno_Por_Ramo Ramo) //se agrego SacarPromedio Alumno Por Ramo
         {
             int numero = 0;
