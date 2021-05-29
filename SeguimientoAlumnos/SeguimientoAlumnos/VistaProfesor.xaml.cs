@@ -22,7 +22,7 @@ namespace SeguimientoAlumnos
             ConexionDataBase.Open();
             MySqlCommand Consulta = new MySqlCommand();
             Consulta.Connection = ConexionDataBase;
-            Consulta.CommandText = ("SELECT * FROM ramo , profesor WHERE Profesor_Id = profesor.id AND profesor.RUT ='" + Profe.RUT + "'");
+            Consulta.CommandText = ("SELECT * FROM ramo,profesor WHERE ramo.RUT_Profesor=profesor.RUT and ramo.RUT_Profesor ='"+Profe.RUT+"'");
 
             MySqlDataReader Leer = Consulta.ExecuteReader();
 
@@ -40,10 +40,10 @@ namespace SeguimientoAlumnos
 
 
                     var Ramo1 = new Ramo();
-
-                    Ramo1.Nombre = Leer.GetValue(1).ToString();
-                    Ramo1.Codigo = Leer.GetValue(5).ToString();
-                    Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(6));
+                    Ramo1.ID = Convert.ToInt32(Leer.GetValue(0));
+                    Ramo1.Nombre = Leer.GetValue(3).ToString();
+                    Ramo1.Codigo = Leer.GetValue(4).ToString();
+                    Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(5));
 
 
 
@@ -134,7 +134,7 @@ namespace SeguimientoAlumnos
             {
                 var Ram = new Ramo();
                 Ram = (Ramo)LstRamosDados.SelectedItem;
-                ConsultaLista.CommandText = ("SELECT * FROM alumno, lista_alumnos, ramo WHERE lista_alumnos.Ramo_Id = ramo.id and lista_alumnos.Ramo_Id = ramo.id and ramo.Codigo ='" + Ram.Codigo + "'  and ramo.Seccion = " + Ram.Seccion + " AND lista_alumnos.Alumno_Id=alumno.id");
+                ConsultaLista.CommandText = ("SELECT * FROM alumno,ramo,alumno_por_ramo WHERE alumno.RUT=alumno_por_ramo.RUT_Alumno AND alumno_por_ramo.id_Ramo=ramo.id AND ramo.Codigo='"+Ram.Codigo+"' AND ramo.Seccion ="+Ram.Seccion+"");
 
                 MySqlDataReader LeerAlumnos = ConsultaLista.ExecuteReader();
 
@@ -144,14 +144,17 @@ namespace SeguimientoAlumnos
                 {
 
                     var Alumno2 = new Alumno_Por_Ramo();
-                    Alumno2.Nombre = LeerAlumnos.GetValue(4).ToString();
-                    Alumno2.RUTAlumno = LeerAlumnos.GetValue(5).ToString();
+                    Alumno2.ID= Convert.ToInt32(LeerAlumnos.GetValue(11));
+                    Alumno2.Nombre = LeerAlumnos.GetValue(2).ToString();
+                    Alumno2.RUTAlumno = LeerAlumnos.GetValue(0).ToString();
 
                     ListaAlumnos.Add(Alumno2);
                 }
 
             }
             LstAlumnosInscritos.ItemsSource = ListaAlumnos;
+
+            ConexionDataBase.Close();
         }
 
         private void LstRamosDados_GotFocus(object sender, RoutedEventArgs e)
@@ -211,7 +214,7 @@ namespace SeguimientoAlumnos
                 var Ramo1 = new Ramo();
                 Ramo1 = (Ramo)LstRamosDados.SelectedItem;
 
-                ConsultaNotas.CommandText = ("SELECT * FROM nota, lista_alumnos,ramo,alumno WHERE nota.Lista_Alumnos_Id = lista_alumnos.id and lista_alumnos.Ramo_Id = ramo.id AND ramo.Codigo ='"+Ramo1.Codigo+"' and ramo.Seccion = "+Ramo1.Seccion+" and alumno.RUT ='"+Persona1.RUTAlumno+"'");
+                ConsultaNotas.CommandText = ("SELECT * FROM nota,alumno_por_ramo,ramo WHERE nota.Id_Alumno_Por_Ramo = alumno_por_ramo.id AND ramo.id = alumno_por_ramo.id_Ramo AND ramo.Codigo = '"+ Ramo1.Codigo +"' AND ramo.Seccion = "+ Ramo1.Seccion +" AND alumno_por_ramo.RUT_Alumno ='"+Persona1.RUTAlumno+"'");
                 MySqlDataReader LeerNotas = ConsultaNotas.ExecuteReader();
 
                
@@ -220,8 +223,8 @@ namespace SeguimientoAlumnos
 
                     var Nota2 = new Nota();
                     
-                    Nota2.NumeroNota = LeerNotas.GetValue(1).ToString();
-                    Nota2.Puntacion = Convert.ToDouble(LeerNotas.GetValue(2));
+                    Nota2.NumeroNota = LeerNotas.GetValue(2).ToString();
+                    Nota2.Puntacion = Convert.ToDouble(LeerNotas.GetValue(3));
 
                     ListaNotas.Add(Nota2);
                     ListaModificacionesNota.Add(Nota2.NumeroNota);
@@ -233,7 +236,7 @@ namespace SeguimientoAlumnos
 
             }
 
-
+            ConexionDataBase.Close();
 
 
 
@@ -268,13 +271,45 @@ namespace SeguimientoAlumnos
             }
 
 
-
+            ConexionDataBase.Close();
 
 
         }
 
         private void BtnSubirPuntuacion_Click(object sender, RoutedEventArgs e)
         {
+
+            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+            ConexionDataBase.Open();
+            
+
+            if (LstAlumnosInscritos.SelectedItem != null)
+            {
+
+                var Ramo1 = (Ramo)LstRamosDados.SelectedItem;
+
+                var Alumno1 = (Alumno_Por_Ramo)LstAlumnosInscritos.SelectedItem;
+
+                string Query = "INSERT INTO nota (id, Id_Alumno_Por_Ramo, NumeroNota, Puntuacion, Fecha) VALUES (NULL, " + Alumno1.ID + ", 'Nota 5', " + TxtNuevaNota.Text + ", current_timestamp())";
+                //string Query1 = "INSERT INTO nota (id, Id_Alumno_Por_Ramo, NumeroNota, Puntuacion, Fecha) VALUES (NULL,@IdAlumno_Por_Ramo,@Nota,@Punto,current_timestamp())";
+
+                MySqlCommand CargarNota = new MySqlCommand(Query,ConexionDataBase);
+
+                //CargarNota.Parameters.AddWithValue("@IdAlumno_Por_Ramo",Alumno1.ID);
+                //CargarNota.Parameters.AddWithValue("@Nota", "Nota " + LsvNotasAlumno.Items.Count + 1);
+
+                CargarNota.ExecuteNonQuery();
+
+                
+
+            }
+            else
+            {
+
+                MessageBox.Show("Debe seleccionar un alumno");
+
+            }
+
 
 
 

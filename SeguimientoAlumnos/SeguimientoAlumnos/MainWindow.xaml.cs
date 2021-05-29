@@ -32,10 +32,10 @@ namespace SeguimientoAlumnos
 
                 var Profesor1 = new Profesor();
 
-                Profesor1.Correo = (Leer.GetValue(2)).ToString();
-                Profesor1.Nombre = (Leer.GetValue(1)).ToString();
-                Profesor1.RUT = (Leer.GetValue(3).ToString());
-
+                Profesor1.Correo = (Leer.GetValue(3)).ToString();
+                Profesor1.Nombre = (Leer.GetValue(2)).ToString();
+                Profesor1.RUT = (Leer.GetValue(0).ToString());
+                Profesor1.Telefono = Leer.GetValue(5).ToString();
 
                 VistaProfesor VistaProfe = new VistaProfesor(Profesor1);
 
@@ -73,10 +73,11 @@ namespace SeguimientoAlumnos
 
                 var Alumnito2 = new Alumno();
 
-                Alumnito2.Nombre = Leer.GetString(4);
-                Alumnito2.Correo = Leer.GetString(3);
-                Alumnito2.RUT = Leer.GetString(5);
-                Alumnito2.Clave = Leer.GetString(6);
+                Alumnito2.Nombre = Leer.GetString(2);
+                Alumnito2.Correo = Leer.GetString(1);
+                Alumnito2.RUT = Leer.GetString(0);
+                Alumnito2.Clave = Leer.GetString(3);
+                Alumnito2.Telefono = Leer.GetString(4);
 
 
 

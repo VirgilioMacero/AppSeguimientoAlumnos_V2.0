@@ -14,10 +14,12 @@
                         <ListView.View>
                             <GridView AllowsColumnReorder="true"
               ColumnHeaderToolTip="Ramo" >
+                                <GridViewColumn Header="ID" 
+                            DisplayMemberBinding="{Binding ID}" Width="30"/>
                                 <GridViewColumn Header="Nombre" 
-                            DisplayMemberBinding="{Binding Nombre}" Width="90"/>
+                            DisplayMemberBinding="{Binding Nombre}" Width="80"/>
                                 <GridViewColumn Header="Codigo" 
-                            DisplayMemberBinding="{Binding Codigo}" Width="70"/>
+                            DisplayMemberBinding="{Binding Codigo}" Width="60"/>
                                 <GridViewColumn Header="Seccion" 
                             DisplayMemberBinding="{Binding Seccion}" Width="50"/>
                             </GridView>
@@ -27,6 +29,8 @@
                         <ListView.View>
                             <GridView AllowsColumnReorder="true"
                                 ColumnHeaderToolTip="Ramo" >
+                                <GridViewColumn Header="ID" 
+                                    DisplayMemberBinding="{Binding ID}" Width="30"/>
                                 <GridViewColumn Header="Nombre" 
                                     DisplayMemberBinding="{Binding Nombre}" Width="80"/>
                                 <GridViewColumn Header="RUT" 
@@ -53,15 +57,16 @@
                             <Button x:Name="BtnModificarNota" Content="Modificar" HorizontalAlignment="Left" Margin="128,63,0,0" VerticalAlignment="Top" Width="75" Click="BtnModificarNota_Click"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Ingresar Nota" HorizontalAlignment="Left" Height="119" Margin="461,151,0,0" VerticalAlignment="Top" Width="239">
-                        <Grid Margin="0,0,-2,-3">
-                            <Label Content="Ingrese Puntuacion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="10,10,0,0"/>
-                            <TextBox x:Name="TxtNuevaNota" HorizontalAlignment="Left" Height="23" Margin="11,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
-                            <Button x:Name="BtnSubirPuntuacion" Content="Subir" HorizontalAlignment="Left" Margin="126,69,0,0" VerticalAlignment="Top" Width="75" Click="BtnSubirPuntuacion_Click"/>
-                        </Grid>
-                    </GroupBox>
                     <Button x:Name="BtnMostrarAlumnos" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="24,412,0,0" VerticalAlignment="Top" Width="106" Height="32" Click="BtnMostrarAlumnos_Click" RenderTransformOrigin="4.92,0.797"/>
                     <Button x:Name="BtnMostrarNotas" Content="MostrarNotas" HorizontalAlignment="Left" Margin="259,412,0,0" VerticalAlignment="Top" Width="96" Height="32" Click="BtnMostrarNotas_Click"/>
+                    <GroupBox Header="Ingresar Nota" HorizontalAlignment="Left" Height="119" Margin="461,151,0,0" VerticalAlignment="Top" Width="239">
+                        <Grid Margin="0,0,-2,-3">
+                            <TextBox x:Name="TxtNuevaNota" HorizontalAlignment="Left" Height="23" Margin="0,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121"/>
+                            <Button x:Name="BtnSubirPuntuacion" Content="Subir" HorizontalAlignment="Left" Margin="126,69,0,0" VerticalAlignment="Top" Width="75" Click="BtnSubirPuntuacion_Click"/>
+                            <Label Content="Ingrese Puntuacion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="10,10,0,0"/>
+                            <DatePicker x:Name="DtpFechaNota" HorizontalAlignment="Left" Margin="0,69,0,0" VerticalAlignment="Top" Width="121"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Asistencia" HorizontalAlignment="Left" Width="65" Height="22" Margin="58,0,-58,0" VerticalAlignment="Bottom">

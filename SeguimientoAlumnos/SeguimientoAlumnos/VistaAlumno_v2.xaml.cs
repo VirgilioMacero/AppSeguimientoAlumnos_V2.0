@@ -26,7 +26,7 @@ namespace SeguimientoAlumnos
             var Alumnito = new Alumno(Alumnito2);
             this.cboxFiltroAsisEstado.SelectedIndex = 0;
             //Ventana Seguimiento/Inicio
-            this.lblBienvenido.Content = "Bienvenido "+Alumnito2.Nombre;
+            this.lblBienvenido.Content = "Bienvenido " + Alumnito2.Nombre;
             this.txtbInicio.Text = "";
             //this.cargarNotificacionesAtencion();
             //Ventana Universidad/Profesor
