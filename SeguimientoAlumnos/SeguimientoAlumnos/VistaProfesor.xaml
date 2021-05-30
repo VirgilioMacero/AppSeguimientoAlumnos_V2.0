@@ -117,6 +117,38 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>
+            <TabItem Header="Ayudantias" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="76" Margin="-123,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <TabControl HorizontalAlignment="Left" Height="432" Margin="10,10,0,0" VerticalAlignment="Top" Width="690">
+                        <TabItem Header="Ayudantias Pendientes">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="Crear  Ayudantia">
+                            <Grid Background="#FFE5E5E5">
+                                <Label Content="Crear Ayudantia" HorizontalAlignment="Center" Margin="132,0,140,0" VerticalAlignment="Top" Height="40" Width="412" FontSize="21" ForceCursor="True" HorizontalContentAlignment="Center"/>
+                                <Label Content="Seleccione la Fecha de la ayudantia" HorizontalAlignment="Left" Margin="355,138,0,0" VerticalAlignment="Top" Width="200"/>
+                                <Button x:Name="BtnCrearAyudantia" Content="Registrar" HorizontalAlignment="Left" Margin="539,355,0,0" VerticalAlignment="Top" Width="120" Height="39" Click="BtnCrearAyudantia_Click"/>
+                                <ListView x:Name="LstRamosDadosAyudantias" HorizontalAlignment="Left" Height="367" Margin="10,27,0,0" VerticalAlignment="Top" Width="230" GotFocus="LstRamosDados_GotFocus">
+                                    <ListView.View>
+                                        <GridView AllowsColumnReorder="true"
+                                            ColumnHeaderToolTip="Ramo" >
+                                            <GridViewColumn Header="ID" 
+                                                DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                            <GridViewColumn Header="Nombre" 
+                                                DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                            <GridViewColumn Header="Codigo" 
+                                                DisplayMemberBinding="{Binding Codigo}" Width="60"/>
+                                            <GridViewColumn Header="Seccion" 
+                                                DisplayMemberBinding="{Binding Seccion}" Width="50"/>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <DatePicker x:Name="SeleccioneFechaAyuda" HorizontalAlignment="Left" Margin="355,169,0,0" VerticalAlignment="Top" Width="189"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
         </TabControl>
         <TabControl HorizontalAlignment="Left" Height="445" Margin="731,10,0,0" VerticalAlignment="Top" Width="398">
             <TabItem Header="Notificaciones">

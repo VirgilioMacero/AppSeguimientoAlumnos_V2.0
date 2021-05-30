@@ -81,7 +81,7 @@
 										</GridView>
 									</ListView.View>
 								</ListView>
-								<Button Content="Mostrar calificaciones" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="-0.153,-1.173" Click="Button_Click"/>
+								<Button x:Name="BtnMostrarNotasAlumn" Content="Mostrar calificaciones" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="-0.153,-1.173" Click="BtnMostrarNotasAlumn_Click"/>
 								<ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="371" Margin="272,10,0,0" VerticalAlignment="Top" Width="155">
 									<ListView.View>
 										<GridView>
@@ -109,7 +109,7 @@
 				<Grid Background="#FFE5E5E5">
 					<Grid x:Name="gridPA" HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Background="#FFFBF2D2">
 						<Label x:Name="lblFichaNombreEst" Content="Nombre del estudiante" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-						<Label x:Name="lblFichaRut" Content="Rut" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.305,-0.339" Width="132"/>
+						<Label x:Name="lblFichaRut" Content="Rut" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.305,-0.339" Width="29"/>
 						<ListBox x:Name="lboxFichaPlanes" HorizontalAlignment="Left" Height="366" Margin="10,72,0,0" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.334,0.422">
 							<ListBoxItem Content="carrera 1"/>
 							<ListBoxItem Content="carrera 2 etc..."/>
@@ -117,7 +117,9 @@
 						<Grid HorizontalAlignment="Left" Height="366" Margin="183,72,0,0" VerticalAlignment="Top" Width="250" Background="#FFDFFFDE">
 							<TextBlock x:Name="tboxFichaAcademica" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="346" Width="230"><Run Text="Nombre plan de estudio"/><LineBreak/><Run Text="id"/><LineBreak/><Run Text="año"/></TextBlock>
 						</Grid>
-					</Grid>
+                        <Label x:Name="LblRUTAlumno" Content="" HorizontalAlignment="Left" Margin="44,41,0,0" VerticalAlignment="Top" Width="98"/>
+                        <Label x:Name="LblNombreAlumno" Content="" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Width="117"/>
+                    </Grid>
 				</Grid>
 			</TabItem>
 			<TabItem Header="Universidad" Margin="0">

@@ -33,13 +33,14 @@ namespace SeguimientoAlumnos
             this.cboxUniProfOrigen.SelectedIndex = 0;
             this.cboxUniProfRamo.SelectedIndex = 0;
             this.cboxUniProfEscuela.SelectedItem = 0;
-
+            this.LblRUTAlumno.Content = Alumnito.RUT;
+            this.LblNombreAlumno.Content = Alumnito.Nombre;
 
             MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
             ConexionDataBase.Open();
             MySqlCommand Consulta = new MySqlCommand();
             Consulta.Connection = ConexionDataBase;
-            Consulta.CommandText = ("SELECT * FROM ramo , alumno,lista_alumnos WHERE alumno.RUT ='" + Alumnito.RUT + "' and lista_alumnos.Alumno_Id=alumno.id and lista_alumnos.Ramo_Id = ramo.id");
+            Consulta.CommandText = ("SELECT * FROM ramo, alumno_por_ramo,alumno WHERE ramo.id=alumno_por_ramo.id_Ramo AND alumno_por_ramo.RUT_Alumno = alumno.RUT AND alumno.RUT='"+Alumnito2.RUT+"'");
 
             MySqlDataReader Leer = Consulta.ExecuteReader();
 
@@ -51,9 +52,9 @@ namespace SeguimientoAlumnos
                 {
                     var Ramo1 = new Ramo();
 
-                    Ramo1.Nombre = Leer.GetValue(1).ToString();
-                    Ramo1.Codigo = Leer.GetValue(5).ToString();
-                    Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(6));
+                    Ramo1.Nombre = Leer.GetValue(3).ToString();
+                    Ramo1.Codigo = Leer.GetValue(4).ToString();
+                    Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(5));
 
                     ListaRamos.Add(Ramo1);
                 }
@@ -104,8 +105,13 @@ namespace SeguimientoAlumnos
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+       
+ 
+        
+
+        private void BtnMostrarNotasAlumn_Click(object sender, RoutedEventArgs e)
         {
+
             MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
             ConexionDataBase.Open();
             MySqlCommand Consulta = new MySqlCommand();
@@ -119,7 +125,8 @@ namespace SeguimientoAlumnos
                 var Ramo1 = new Ramo();
                 Ramo1 = (Ramo)LstRamosActuales.SelectedItem;
 
-                Consulta.CommandText = ("SELECT * FROM nota,ramo,lista_alumnos,alumno WHERE nota.Lista_Alumnos_Id = lista_alumnos.id and ramo.id= lista_alumnos.Ramo_Id and alumno.id=lista_alumnos.Alumno_Id and ramo.Codigo='" + Ramo1.Codigo + "' and ramo.Seccion=" + Ramo1.Seccion + "");
+
+                Consulta.CommandText = ("SELECT * FROM nota,ramo,alumno_por_ramo WHERE nota.Id_Alumno_Por_Ramo=alumno_por_ramo.id AND alumno_por_ramo.id_Ramo = ramo.id AND ramo.Codigo='"+Ramo1.Codigo+"' AND ramo.Seccion = "+Ramo1.Seccion+" AND alumno_por_ramo.RUT_Alumno='"+LblRUTAlumno.Content+"'");
 
                 MySqlDataReader Leer = Consulta.ExecuteReader();
 
@@ -134,8 +141,8 @@ namespace SeguimientoAlumnos
                     {
 
                         var Nota1 = new Nota();
-                        Nota1.NumeroNota = Leer.GetValue(1).ToString();
-                        Nota1.Puntacion = Convert.ToDouble(Leer.GetValue(2));
+                        Nota1.NumeroNota = Leer.GetValue(2).ToString();
+                        Nota1.Puntacion = Convert.ToDouble(Leer.GetValue(3));
 
                         ListaNotas.Add(Nota1);
 
@@ -150,20 +157,7 @@ namespace SeguimientoAlumnos
                 }
 
                 ConexionDataBase.Close();
-            }
 
-            //private void lboxAtencion_SelectionChanged(object sender, SelectionChangedEventArgs e)
-            //{
-            //    foreach(Notificacion n in notificacionesAtencion)
-            //    {
-            //        if(n.getTitulo().Equals(this.lboxAtencion.SelectedItem))
-            //        {
-            //            this.txtbAtencionHora.Text = n.getHora();
-            //            this.txtbAtencionTitulo.Text = n.getTitulo();
-            //            this.txtbAtencionContenido.Text = n.getContenido();
-            //        }
-            //    }
-            //}
-        }
+        }   }
     }
 }
