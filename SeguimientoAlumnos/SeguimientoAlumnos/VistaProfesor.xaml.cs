@@ -15,7 +15,6 @@ namespace SeguimientoAlumnos
 
         public VistaProfesor(Profesor Profe)
         {
-
             InitializeComponent();
             LblNombreProfesor.Content = Profe.Nombre;
             LblRutProfesor.Content = Profe.RUT;

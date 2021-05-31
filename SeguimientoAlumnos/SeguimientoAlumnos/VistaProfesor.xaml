@@ -6,235 +6,393 @@
         xmlns:local="clr-namespace:SeguimientoAlumnos"
         mc:Ignorable="d"
         Title="VistaProfesor" Height="535.485" Width="1146.865">
-	<Grid>
-		<TabControl HorizontalAlignment="Left" Height="482" Margin="10,10,0,0" VerticalAlignment="Top" Width="716">
-			<TabItem Header="Ramos" Margin="54,0,-58,-2" FontSize="16">
-				<Grid Background="#FFD8F8FF">
-					<ListView x:Name="LstRamosDados" HorizontalAlignment="Left" Height="397" Margin="10,10,0,0" VerticalAlignment="Top" Width="230" GotFocus="LstRamosDados_GotFocus">
-						<ListView.View>
-							<GridView AllowsColumnReorder="true"
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="482" Margin="10,10,0,0" VerticalAlignment="Top" Width="716">
+            <TabItem Header="Ramos" Margin="54,0,-58,-2" FontSize="16">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFC7FFFA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFD8F8FF">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="153*"/>
+                        <ColumnDefinition Width="557*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView x:Name="LstRamosDados" HorizontalAlignment="Left" Height="397" Margin="10,10,0,0" VerticalAlignment="Top" Width="230" GotFocus="LstRamosDados_GotFocus" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="true"
               ColumnHeaderToolTip="Ramo" >
-								<GridViewColumn Header="ID" 
+                                <GridViewColumn Header="ID" 
                             DisplayMemberBinding="{Binding ID}" Width="30"/>
-								<GridViewColumn Header="Nombre" 
+                                <GridViewColumn Header="Nombre" 
                             DisplayMemberBinding="{Binding Nombre}" Width="80"/>
-								<GridViewColumn Header="Codigo" 
+                                <GridViewColumn Header="Codigo" 
                             DisplayMemberBinding="{Binding Codigo}" Width="60"/>
-								<GridViewColumn Header="Seccion" 
+                                <GridViewColumn Header="Seccion" 
                             DisplayMemberBinding="{Binding Seccion}" Width="50"/>
-							</GridView>
-						</ListView.View>
-					</ListView>
-					<ListView x:Name="LstAlumnosInscritos" HorizontalAlignment="Left" Height="397" Margin="245,10,0,0" VerticalAlignment="Top" Width="211">
-						<ListView.View>
-							<GridView AllowsColumnReorder="true"
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ListView x:Name="LstAlumnosInscritos" HorizontalAlignment="Left" Height="397" Margin="92,10,0,0" VerticalAlignment="Top" Width="211" Grid.Column="1">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="true"
                                 ColumnHeaderToolTip="Ramo" >
-								<GridViewColumn Header="ID" 
+                                <GridViewColumn Header="ID" 
                                     DisplayMemberBinding="{Binding ID}" Width="30"/>
-								<GridViewColumn Header="Nombre" 
+                                <GridViewColumn Header="Nombre" 
                                     DisplayMemberBinding="{Binding Nombre}" Width="80"/>
-								<GridViewColumn Header="RUT" 
+                                <GridViewColumn Header="RUT" 
                                     DisplayMemberBinding="{Binding RUTAlumno}" Width="80"/>
 
-							</GridView>
-						</ListView.View>
-					</ListView>
-					<ListView x:Name="LsvNotasAlumno" HorizontalAlignment="Left" Height="112" Margin="461,10,0,0" VerticalAlignment="Top" Width="239">
-						<ListView.View>
-							<GridView>
-								<GridViewColumn Header="Numero" 
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ListView x:Name="LsvNotasAlumno" HorizontalAlignment="Left" Height="112" Margin="308,10,0,0" VerticalAlignment="Top" Width="239" Grid.Column="1">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Numero" 
                             DisplayMemberBinding="{Binding NumeroNota}" Width="140"/>
-								<GridViewColumn Header="Puntuacion" 
+                                <GridViewColumn Header="Puntuacion" 
                             DisplayMemberBinding="{Binding Puntacion}" Width="70"/>
-							</GridView>
-						</ListView.View>
-					</ListView>
-					<GroupBox Header="Cambiar Nota" HorizontalAlignment="Left" Height="197" Margin="461,245,0,0" VerticalAlignment="Top" Width="239" Background="#FFE9FFF9">
-						<Grid Margin="0,0,-2,0">
-							<ComboBox x:Name="CmbSeleccionarNota" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="209"/>
-							<Label Content="Seleccionar número de evaluación" HorizontalAlignment="Left" VerticalAlignment="Top" Width="219" FontSize="14" Margin="10,0,0,0"/>
-							<TextBox x:Name="TxtNotaNueva" HorizontalAlignment="Left" Height="23" Margin="10,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209"/>
-							<Button x:Name="BtnModificarNota" Content="Modificar" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="209" Click="BtnModificarNota_Click" Height="32" Background="White"/>
-							<Label Content="Ingresar nueva calificación" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="209" FontSize="14"/>
-						</Grid>
-					</GroupBox>
-					<Button x:Name="BtnMostrarAlumnos" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Width="230" Height="32" Click="BtnMostrarAlumnos_Click" RenderTransformOrigin="4.92,0.797" Background="White" FontSize="16" Foreground="Black"/>
-					<Button x:Name="BtnMostrarNotas" Content="Mostrar Notas" HorizontalAlignment="Left" Margin="245,410,0,0" VerticalAlignment="Top" Width="211" Height="32" Click="BtnMostrarNotas_Click" FontSize="16" Foreground="Black" Background="White"/>
-					<GroupBox Header="Ingresar Nota" HorizontalAlignment="Left" Height="113" Margin="461,127,0,0" VerticalAlignment="Top" Width="239" Background="#FFFFFEEF">
-						<Grid Margin="0,0,-2,-3">
-							<TextBox x:Name="TxtNuevaNota" HorizontalAlignment="Left" Height="31" Margin="136,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
-							<Button x:Name="BtnSubirPuntuacion" Content="Subir" HorizontalAlignment="Left" Margin="152,52,0,0" VerticalAlignment="Top" Width="67" Click="BtnSubirPuntuacion_Click" Height="34" Background="White"/>
-							<Label Content="Ingrese Puntuacion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="0,10,0,0" FontSize="14" Height="31"/>
-							<DatePicker x:Name="DtpFechaNota" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="147" Height="34"/>
-						</Grid>
-					</GroupBox>
-				</Grid>
-			</TabItem>
-			<TabItem Header="Asistencia" HorizontalAlignment="Left" Width="81" Height="26" Margin="58,0,-58,0" VerticalAlignment="Top" FontSize="16">
-				<Grid Background="#FFE5E5E5">
-					<TabControl HorizontalAlignment="Left" Height="432" Margin="10,10,0,0" VerticalAlignment="Top" Width="690" RenderTransformOrigin="0.03,0.352">
-						<TabItem Header="Atención">
-							<Grid Background="#FFE5E5E5">
-								<Grid HorizontalAlignment="Left" Height="384" Margin="10,10,0,0" VerticalAlignment="Top" Width="664" Background="#FFFFF1D3">
-									<ListView x:Name="LstAsisAtencion" HorizontalAlignment="Left" Height="328" Margin="10,46,0,0" VerticalAlignment="Top" Width="300">
-										<ListView.View>
-											<GridView>
-												<GridViewColumn/>
-											</GridView>
-										</ListView.View>
-									</ListView>
-									<TextBlock HorizontalAlignment="Left" Margin="315,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="327" Width="339"><Run Text="Contenido de la notificación"/><LineBreak/><Run Text="-Mala asistencia de algún estudiante"/><LineBreak/><Run Text="-Datos de la asistencia del alumno"/><LineBreak/><Run Text="-Posibilidad de establecer contacto"/></TextBlock>
-									<Label Content="¡Notificaciones importantes recientes!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.115" Width="300" FontSize="16" HorizontalContentAlignment="Center"/>
-								</Grid>
-							</Grid>
-						</TabItem>
-						<TabItem Header="Consultar asistencia">
-							<Grid Background="#FFE5E5E5">
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="23*"/>
-									<ColumnDefinition Width="13*"/>
-									<ColumnDefinition Width="649*"/>
-								</Grid.ColumnDefinitions>
-								<Grid Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="384" Margin="10,10,0,0" VerticalAlignment="Top" Width="664" Background="#FFE2FBFF"/>
-							</Grid>
-						</TabItem>
-					</TabControl>
-				</Grid>
-			</TabItem>
-			<TabItem Header="Contacto" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="81" Margin="58,0,-58,-1" FontSize="16">
-				<Grid Background="#FFE5E5E5">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="69*"/>
-						<ColumnDefinition Width="641*"/>
-					</Grid.ColumnDefinitions>
-				</Grid>
-			</TabItem>
-			<TabItem Header="Inicio" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="54" Margin="-222,0,0,-1" FontSize="16">
-				<Grid Background="#FFDEFDE9">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="9*"/>
-						<ColumnDefinition Width="0*"/>
-						<ColumnDefinition Width="701*"/>
-					</Grid.ColumnDefinitions>
-					<Label Content="Bienvenido" Grid.Column="2" HorizontalAlignment="Left" Margin="2,62,0,0" VerticalAlignment="Top" Height="37" Width="114" FontSize="20"/>
-					<Label x:Name="LblNombreProfesor" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="94,60,0,0" VerticalAlignment="Top" Height="37" Width="239" FontSize="27" ForceCursor="True"/>
-					<Label Content="Rut" Grid.Column="2" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Height="44" Width="44" FontSize="20"/>
-					<Label x:Name="LblRutProfesor" Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="64,108,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="20" RenderTransformOrigin="0.5,0.5">
-						<Label.RenderTransform>
-							<TransformGroup>
-								<ScaleTransform/>
-								<SkewTransform AngleX="-3.111"/>
-								<RotateTransform/>
-								<TranslateTransform X="-1.196"/>
-							</TransformGroup>
-						</Label.RenderTransform>
-					</Label>
-					<Label Content="Seguimiento de estudiantes universitarios " Grid.Column="2" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Height="37" Width="681" FontSize="20" HorizontalContentAlignment="Center"/>
-				</Grid>
-			</TabItem>
-			<TabItem Header="Ayudantias" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="91" Margin="-164,0,0,0" FontSize="16">
-				<Grid Background="#FFE5E5E5">
-					<TabControl HorizontalAlignment="Left" Height="432" Margin="10,10,0,0" VerticalAlignment="Top" Width="690">
-						<TabItem Header="Ayudantias Pendientes" FontSize="16">
-							<TabItem.Background>
-								<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-									<GradientStop Color="#FFF0F0F0" Offset="0"/>
-									<GradientStop Color="#FFFFFCE9" Offset="1"/>
-								</LinearGradientBrush>
-							</TabItem.Background>
-							<Grid Background="#FFFDFFDE">
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="11*"/>
-									<ColumnDefinition Width="103*"/>
-								</Grid.ColumnDefinitions>
-								<Button x:Name="BtnMostrarAlumnosAyudantia" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Width="248" Height="38" Background="White" FontSize="16" Foreground="Black" Grid.ColumnSpan="2" />
-								<ListView x:Name="LstAlumnosInscritos_Copy" HorizontalAlignment="Left" Height="384" Margin="371.75,10,0,0" VerticalAlignment="Top" Width="236" Background="#FFFFFFF2" Grid.Column="1">
-									<ListView.View>
-										<GridView AllowsColumnReorder="true"
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <GroupBox Header="Cambiar Nota" HorizontalAlignment="Left" Height="197" Margin="308,245,0,0" VerticalAlignment="Top" Width="239" Background="#FFE9FFF9" Grid.Column="1">
+                        <Grid Margin="0,0,-2,0">
+                            <ComboBox x:Name="CmbSeleccionarNota" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="209"/>
+                            <Label Content="Seleccionar número de evaluación" HorizontalAlignment="Left" VerticalAlignment="Top" Width="219" FontSize="14" Margin="10,0,0,0"/>
+                            <TextBox x:Name="TxtNotaNueva" HorizontalAlignment="Left" Height="23" Margin="10,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209"/>
+                            <Button x:Name="BtnModificarNota" Content="Modificar" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="209" Click="BtnModificarNota_Click" Height="32" Background="White"/>
+                            <Label Content="Ingresar nueva calificación" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="209" FontSize="14"/>
+                        </Grid>
+                    </GroupBox>
+                    <Button x:Name="BtnMostrarAlumnos" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Width="230" Height="32" Click="BtnMostrarAlumnos_Click" RenderTransformOrigin="4.92,0.797" Background="White" FontSize="16" Foreground="Black" Grid.ColumnSpan="2"/>
+                    <Button x:Name="BtnMostrarNotas" Content="Mostrar Notas" HorizontalAlignment="Left" Margin="92,410,0,0" VerticalAlignment="Top" Width="211" Height="32" Click="BtnMostrarNotas_Click" FontSize="16" Foreground="Black" Background="White" Grid.Column="1"/>
+                    <GroupBox Header="Ingresar Nota" HorizontalAlignment="Left" Height="113" Margin="308,127,0,0" VerticalAlignment="Top" Width="239" Background="#FFFFFEEF" Grid.Column="1">
+                        <Grid Margin="0,0,-2,-3">
+                            <TextBox x:Name="TxtNuevaNota" HorizontalAlignment="Left" Height="31" Margin="136,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
+                            <Button x:Name="BtnSubirPuntuacion" Content="Subir" HorizontalAlignment="Left" Margin="152,52,0,0" VerticalAlignment="Top" Width="67" Click="BtnSubirPuntuacion_Click" Height="34" Background="White"/>
+                            <Label Content="Ingrese Puntuacion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="0,10,0,0" FontSize="14" Height="31"/>
+                            <DatePicker x:Name="DtpFechaNota" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="147" Height="34"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Asistencia" HorizontalAlignment="Left" Width="81" Height="26" Margin="58,0,-58,0" VerticalAlignment="Top" FontSize="16">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFFDFDC6" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFE5E5E5">
+                    <TabControl HorizontalAlignment="Left" Height="432" Margin="10,10,0,0" VerticalAlignment="Top" Width="690" RenderTransformOrigin="0.03,0.352">
+                        <TabItem Header="Atención">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FFFFFFD6" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="384" Margin="10,10,0,0" VerticalAlignment="Top" Width="664" Background="#FFFFF1D3">
+                                    <ListView x:Name="LstAsisAtencion" HorizontalAlignment="Left" Height="328" Margin="10,46,0,0" VerticalAlignment="Top" Width="300">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <TextBlock HorizontalAlignment="Left" Margin="315,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="327" Width="339"><Run Text="Contenido de la notificación"/><LineBreak/><Run Text="-Mala asistencia de algún estudiante"/><LineBreak/><Run Text="-Datos de la asistencia del alumno"/><LineBreak/><Run Text="-Posibilidad de establecer contacto"/></TextBlock>
+                                    <Label Content="¡Notificaciones importantes recientes!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.115" Width="300" FontSize="16" HorizontalContentAlignment="Center"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Consultar asistencia">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FFE2FFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Grid Background="#FFE5E5E5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="23*"/>
+                                    <ColumnDefinition Width="13*"/>
+                                    <ColumnDefinition Width="649*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="384" Margin="10,10,0,0" VerticalAlignment="Top" Width="664" Background="#FFE2FBFF">
+                                    <ListView x:Name="LsvAsistenciaRamos" HorizontalAlignment="Left" Height="324" Margin="10,50,0,0" VerticalAlignment="Top" Width="230" GotFocus="LstRamosDados_GotFocus">
+                                        <ListView.View>
+                                            <GridView AllowsColumnReorder="true"
+                                                ColumnHeaderToolTip="Ramo" >
+                                                <GridViewColumn Header="ID" 
+                                                    DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                                <GridViewColumn Header="Nombre" 
+                                                    DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                                <GridViewColumn Header="Codigo" 
+                                                    DisplayMemberBinding="{Binding Codigo}" Width="60"/>
+                                                <GridViewColumn Header="Seccion" 
+                                                    DisplayMemberBinding="{Binding Seccion}" Width="50"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <Label Content="Seleccionar ramo" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Height="37" Width="230" FontSize="20" HorizontalContentAlignment="Center"/>
+                                    <DatePicker x:Name="DtpAsistenciaFecha" HorizontalAlignment="Left" Margin="245,10,0,0" VerticalAlignment="Top" Width="203" Height="34"/>
+                                    <Button x:Name="BtnAsistenciaMostrar" Content="Mostrar asistencia" HorizontalAlignment="Left" Margin="464,12,0,0" VerticalAlignment="Top" Width="190" Height="32" Click="BtnMostrarNotas_Click" FontSize="16" Foreground="Black" Background="#FFE2FFE5" RenderTransformOrigin="0.863,-0.867"/>
+                                    <ListView x:Name="LsvAsistenciaPresentes" HorizontalAlignment="Left" Height="282" Margin="245,92,0,0" VerticalAlignment="Top" Width="203">
+                                        <ListView.View>
+                                            <GridView AllowsColumnReorder="true"
+                                                ColumnHeaderToolTip="Ramo" >
+                                                <GridViewColumn Header="ID" 
+                                                    DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                                <GridViewColumn Header="Nombre" 
+                                                    DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                                <GridViewColumn Header="RUT" 
+                                                    DisplayMemberBinding="{Binding RUTAlumno}" Width="80"/>
+
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <Label Content="Asistentes" HorizontalAlignment="Left" Margin="245,50,0,0" VerticalAlignment="Top" Height="37" Width="203" FontSize="20" HorizontalContentAlignment="Center"/>
+                                    <Label Content="Ausentes" HorizontalAlignment="Left" Margin="464,50,0,0" VerticalAlignment="Top" Height="37" Width="192" FontSize="20" HorizontalContentAlignment="Center"/>
+                                    <ListView x:Name="LsvAsistenciaAusentes" HorizontalAlignment="Left" Height="282" Margin="453,92,0,0" VerticalAlignment="Top" Width="203">
+                                        <ListView.View>
+                                            <GridView AllowsColumnReorder="true"
+                                                ColumnHeaderToolTip="Ramo" >
+                                                <GridViewColumn Header="ID" 
+                                                    DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                                <GridViewColumn Header="Nombre" 
+                                                    DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                                <GridViewColumn Header="RUT" 
+                                                    DisplayMemberBinding="{Binding RUTAlumno}" Width="80"/>
+
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Contacto" HorizontalAlignment="Right" Height="26" VerticalAlignment="Top" Width="81" Margin="0,0,-58,0" FontSize="16">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFCFFFBD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="69*"/>
+                        <ColumnDefinition Width="641*"/>
+                    </Grid.ColumnDefinitions>
+                    <TabControl HorizontalAlignment="Left" Height="427" Margin="10,10,0,0" VerticalAlignment="Top" Width="679" Grid.ColumnSpan="2">
+                        <TabItem Header="Soporte general">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FFD9F9AB" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="374" Margin="10,10,0,0" VerticalAlignment="Top" Width="653" Background="#FFE7FFDE">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="79*"/>
+                                        <ColumnDefinition Width="14*"/>
+                                        <ColumnDefinition Width="234*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Motivo de solicitud" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                                    <ComboBox x:Name="cboxSoporteMotivo" HorizontalAlignment="Left" Margin="5,46,0,0" VerticalAlignment="Top" Width="261" Grid.Column="2">
+                                        <ComboBoxItem Content="Problema con la aplicación" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="Dudas" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="Otro motivo" HorizontalAlignment="Left" Width="395"/>
+                                    </ComboBox>
+                                    <Label Content="Título de la solicitud" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                                    <TextBox x:Name="txtSoporteTItulo" HorizontalAlignment="Left" Height="26" Margin="10,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                                    <Label Content="Descripción" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                                    <TextBox x:Name="txtSoporteDesc" HorizontalAlignment="Left" Height="110" Margin="10,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="633" Grid.ColumnSpan="3"/>
+                                    <Button x:Name="btnSoporteEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="321,312,0,0" VerticalAlignment="Top" Width="137" RenderTransformOrigin="0.507,2.9" Click="btnSoporteEnviar_Click" Height="52" Grid.Column="2"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Apoyo de bienestar">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FFB7FCFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Grid Background="#FFE5E5E5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="28*"/>
+                                    <ColumnDefinition Width="27*"/>
+                                    <ColumnDefinition Width="630*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid HorizontalAlignment="Left" Height="374" Margin="10,10,0,0" VerticalAlignment="Top" Width="653" Background="#FFE0FFFC" Grid.ColumnSpan="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8*"/>
+                                        <ColumnDefinition Width="101*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Seleccione una categoría" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                                    <ComboBox x:Name="cboxApoyoCategoria" HorizontalAlignment="Left" Margin="142,46,0,0" VerticalAlignment="Top" Width="262" Grid.Column="1">
+                                        <ComboBoxItem Content="Tengo problemas para enseñar" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="No tengo acceso a ciertos servicios" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="Desmotivación" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="Otro" HorizontalAlignment="Left" Width="395"/>
+                                    </ComboBox>
+                                    <TextBox x:Name="txtApoyoMensaje" HorizontalAlignment="Left" Height="110" Margin="10,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="633" Grid.ColumnSpan="2"/>
+                                    <Label Content="Título de la solicitud" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                                    <TextBox x:Name="txtApoyoTitulo" HorizontalAlignment="Left" Height="26" Margin="10,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="633" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"/>
+                                    <Button x:Name="btnApoyoEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="459,312,0,0" VerticalAlignment="Top" Width="137" Height="52" Grid.Column="1"/>
+                                    <Label Content="Descripción" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.184,-0.038" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Inicio" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="54" Margin="-222,0,0,-1" FontSize="16">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFC9FBBE" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFDEFDE9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="701*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Bienvenido" Grid.Column="2" HorizontalAlignment="Left" Margin="2,62,0,0" VerticalAlignment="Top" Height="37" Width="114" FontSize="20"/>
+                    <Label x:Name="LblNombreProfesor" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="94,60,0,0" VerticalAlignment="Top" Height="37" Width="239" FontSize="27" ForceCursor="True"/>
+                    <Label Content="Rut" Grid.Column="2" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Height="44" Width="44" FontSize="20"/>
+                    <Label x:Name="LblRutProfesor" Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="64,108,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="20" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="-3.111"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-1.196"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label Content="Seguimiento de estudiantes universitarios " Grid.Column="2" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Height="37" Width="681" FontSize="20" HorizontalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ayudantias" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="91" Margin="-164,0,0,0" FontSize="16">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFFFFDCA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFE5E5E5">
+                    <TabControl HorizontalAlignment="Left" Height="432" Margin="10,10,0,0" VerticalAlignment="Top" Width="690">
+                        <TabItem Header="Ayudantias Pendientes" FontSize="16">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FFCEFBFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Grid Background="#FFD2FFFF">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="11*"/>
+                                    <ColumnDefinition Width="103*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="BtnMostrarAlumnosAyudantia" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Width="248" Height="38" Background="White" FontSize="16" Foreground="Black" Grid.ColumnSpan="2" />
+                                <ListView x:Name="LstAlumnosInscritos_Copy" HorizontalAlignment="Left" Height="384" Margin="371.75,10,0,0" VerticalAlignment="Top" Width="236" Background="#FFFFFFF2" Grid.Column="1">
+                                    <ListView.View>
+                                        <GridView AllowsColumnReorder="true"
                                             ColumnHeaderToolTip="Ramo" >
-											<GridViewColumn Header="ID" 
+                                            <GridViewColumn Header="ID" 
                                                 DisplayMemberBinding="{Binding ID}" Width="30"/>
-											<GridViewColumn Header="Nombre" 
+                                            <GridViewColumn Header="Nombre" 
                                                 DisplayMemberBinding="{Binding Nombre}" Width="80"/>
-											<GridViewColumn Header="RUT" 
+                                            <GridViewColumn Header="RUT" 
                                                 DisplayMemberBinding="{Binding RUTAlumno}" Width="80"/>
 
-										</GridView>
-									</ListView.View>
-								</ListView>
-								<ListView x:Name="LstRamosAyudantias" HorizontalAlignment="Left" Height="341" Margin="10,10,0,0" VerticalAlignment="Top" Width="248" Background="#FFFFFFF2" Grid.ColumnSpan="2"  >
-									<ListView.View>
-										<GridView AllowsColumnReorder="true"
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <ListView x:Name="LstRamosAyudantias" HorizontalAlignment="Left" Height="341" Margin="10,10,0,0" VerticalAlignment="Top" Width="248" Background="#FFFFFFF2" Grid.ColumnSpan="2"  >
+                                    <ListView.View>
+                                        <GridView AllowsColumnReorder="true"
                                             ColumnHeaderToolTip="Ramo" >
-											<GridViewColumn Header="ID" 
+                                            <GridViewColumn Header="ID" 
                                                 DisplayMemberBinding="{Binding ID}" Width="30"/>
-											<GridViewColumn Header="Ramo" 
+                                            <GridViewColumn Header="Ramo" 
                                                 DisplayMemberBinding="{Binding NombreRamo}" Width="80"/>
-											<GridViewColumn Header="Fecha" 
+                                            <GridViewColumn Header="Fecha" 
                                                 DisplayMemberBinding="{Binding Fecha}" Width="90"/>
 
-										</GridView>
-									</ListView.View>
-								</ListView>
-								<Button x:Name="BtnActualizarAyudantias" Content="Actualizar Ayudantias" HorizontalAlignment="Left" Margin="196.75,118,0,0" VerticalAlignment="Top" Width="170" Height="38" Click="BtnActualizarAyudantias_Click" Background="White" FontSize="16" Grid.Column="1"/>
-								<Button x:Name="BtnEliminarAyudantia" Content="Eliminar Ayudantia" HorizontalAlignment="Left" Margin="196.75,198,0,0" VerticalAlignment="Top" Width="170" Height="38" Click="BtnEliminarAyudantia_Click" FontSize="16" Background="White" Grid.Column="1"/>
-							</Grid>
-						</TabItem>
-						<TabItem Header="Crear  Ayudantia" FontSize="16">
-							<TabItem.Background>
-								<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-									<GradientStop Color="#FFF0F0F0" Offset="0"/>
-									<GradientStop Color="#FFE9F8FF" Offset="1"/>
-								</LinearGradientBrush>
-							</TabItem.Background>
-							<Grid Background="#FFE9F8FF">
-								<Label Content="Crear Ayudantia" HorizontalAlignment="Center" Margin="289,10,25,0" VerticalAlignment="Top" Height="45" Width="370" FontSize="21" ForceCursor="True" HorizontalContentAlignment="Center"/>
-								<Label Content="Seleccionar fecha de la ayudantía" HorizontalAlignment="Left" Margin="312,60,0,0" VerticalAlignment="Top" Width="244" Height="32" FontSize="16" HorizontalContentAlignment="Center"/>
-								<Button x:Name="BtnCrearAyudantia" Content="Registrar" HorizontalAlignment="Left" Margin="554,355,0,0" VerticalAlignment="Top" Width="120" Height="39" Click="BtnCrearAyudantia_Click" Background="White"/>
-								<ListView x:Name="LstRamosDadosAyudantias" HorizontalAlignment="Left" Height="334" Margin="10,60,0,0" VerticalAlignment="Top" Width="274" GotFocus="LstRamosDados_GotFocus">
-									<ListView.View>
-										<GridView AllowsColumnReorder="true"
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button x:Name="BtnActualizarAyudantias" Content="Actualizar Ayudantias" HorizontalAlignment="Left" Margin="196.75,118,0,0" VerticalAlignment="Top" Width="170" Height="38" Click="BtnActualizarAyudantias_Click" Background="White" FontSize="16" Grid.Column="1"/>
+                                <Button x:Name="BtnEliminarAyudantia" Content="Eliminar Ayudantia" HorizontalAlignment="Left" Margin="196.75,198,0,0" VerticalAlignment="Top" Width="170" Height="38" Click="BtnEliminarAyudantia_Click" FontSize="16" Background="White" Grid.Column="1"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Crear  Ayudantia" FontSize="16">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FFFFFCC7" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Grid Background="#FFFAFFE2">
+                                <Label Content="Crear Ayudantia" HorizontalAlignment="Center" Margin="302,10,25,0" VerticalAlignment="Top" Height="45" Width="357" FontSize="21" ForceCursor="True" HorizontalContentAlignment="Center"/>
+                                <Label Content="Seleccionar fecha de la ayudantía" HorizontalAlignment="Left" Margin="312,60,0,0" VerticalAlignment="Top" Width="347" Height="32" FontSize="16" HorizontalContentAlignment="Center"/>
+                                <Button x:Name="BtnCrearAyudantia" Content="Registrar" HorizontalAlignment="Left" Margin="554,355,0,0" VerticalAlignment="Top" Width="120" Height="39" Click="BtnCrearAyudantia_Click" Background="White"/>
+                                <ListView x:Name="LstRamosDadosAyudantias" HorizontalAlignment="Left" Height="334" Margin="10,60,0,0" VerticalAlignment="Top" Width="274" GotFocus="LstRamosDados_GotFocus">
+                                    <ListView.View>
+                                        <GridView AllowsColumnReorder="true"
                                             ColumnHeaderToolTip="Ramo" >
-											<GridViewColumn Header="ID" 
+                                            <GridViewColumn Header="ID" 
                                                 DisplayMemberBinding="{Binding ID}" Width="30"/>
-											<GridViewColumn Header="Nombre" 
+                                            <GridViewColumn Header="Nombre" 
                                                 DisplayMemberBinding="{Binding Nombre}" Width="80"/>
-											<GridViewColumn Header="Codigo" 
+                                            <GridViewColumn Header="Codigo" 
                                                 DisplayMemberBinding="{Binding Codigo}" Width="60"/>
-											<GridViewColumn Header="Seccion" 
+                                            <GridViewColumn Header="Seccion" 
                                                 DisplayMemberBinding="{Binding Seccion}" Width="50"/>
-										</GridView>
-									</ListView.View>
-								</ListView>
-								<DatePicker x:Name="SeleccioneFechaAyuda" HorizontalAlignment="Left" Margin="312,97,0,0" VerticalAlignment="Top" Width="189"/>
-								<Label Content="Ramos impartidos" HorizontalAlignment="Center" Margin="14,10,400,0" VerticalAlignment="Top" Height="45" Width="270" FontSize="21" ForceCursor="True" HorizontalContentAlignment="Center"/>
-								<Label Content="Ingresar una hora válida" HorizontalAlignment="Left" Margin="312,126,0,0" VerticalAlignment="Top" Width="189" Height="32" FontSize="16" HorizontalContentAlignment="Center"/>
-								<TextBox x:Name="txtHoraAyudantia" HorizontalAlignment="Left" Height="24" Margin="312,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
-							</Grid>
-						</TabItem>
-					</TabControl>
-				</Grid>
-			</TabItem>
-		</TabControl>
-		<TabControl HorizontalAlignment="Left" Height="482" Margin="731,10,0,0" VerticalAlignment="Top" Width="398">
-			<TabItem Header="Notificaciones">
-				<Grid Background="#FFFFFEEF">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="118*"/>
-						<ColumnDefinition Width="211*"/>
-					</Grid.ColumnDefinitions>
-					<ListView x:Name="LstNotifNotificaciones" HorizontalAlignment="Left" Height="434" Margin="10,10,0,0" VerticalAlignment="Top" Width="169" Grid.ColumnSpan="2">
-						<ListView.View>
-							<GridView>
-								<GridViewColumn/>
-							</GridView>
-						</ListView.View>
-					</ListView>
-					<TextBlock x:Name="txtbNotifFecha" Grid.Column="1" HorizontalAlignment="Left" Margin="43,10,0,0" TextWrapping="Wrap" Text="Fecha" VerticalAlignment="Top" Height="54" Width="80" FontSize="14"/>
-					<TextBlock x:Name="txtbNotifTitulo" Grid.Column="1" HorizontalAlignment="Left" Margin="128,10,0,0" TextWrapping="Wrap" Text="Título" VerticalAlignment="Top" Height="54" Width="113" FontSize="14"/>
-					<TextBlock x:Name="txtbNotifContenido" HorizontalAlignment="Left" Margin="43,69,0,0" TextWrapping="Wrap" Text="Contenido" VerticalAlignment="Top" Height="338" Width="198" FontSize="14" Grid.Column="1"/>
-				</Grid>
-			</TabItem>
-		</TabControl>
-	</Grid>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <DatePicker x:Name="SeleccioneFechaAyuda" HorizontalAlignment="Left" Margin="394,97,0,0" VerticalAlignment="Top" Width="189"/>
+                                <Label Content="Ramos impartidos" HorizontalAlignment="Center" Margin="14,10,400,0" VerticalAlignment="Top" Height="45" Width="270" FontSize="21" ForceCursor="True" HorizontalContentAlignment="Center"/>
+                                <Label Content="Ingresar una hora válida" HorizontalAlignment="Left" Margin="312,126,0,0" VerticalAlignment="Top" Width="347" Height="32" FontSize="16" HorizontalContentAlignment="Center"/>
+                                <TextBox x:Name="txtHoraAyudantia" HorizontalAlignment="Left" Height="24" Margin="394,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TabControl HorizontalAlignment="Left" Height="482" Margin="731,10,0,0" VerticalAlignment="Top" Width="398">
+            <TabItem Header="Notificaciones">
+                <Grid Background="#FFFFFEEF">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="118*"/>
+                        <ColumnDefinition Width="211*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView x:Name="LstNotifNotificaciones" HorizontalAlignment="Left" Height="434" Margin="10,10,0,0" VerticalAlignment="Top" Width="169" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBlock x:Name="txtbNotifFecha" Grid.Column="1" HorizontalAlignment="Left" Margin="43,10,0,0" TextWrapping="Wrap" Text="Fecha" VerticalAlignment="Top" Height="54" Width="80" FontSize="14"/>
+                    <TextBlock x:Name="txtbNotifTitulo" Grid.Column="1" HorizontalAlignment="Left" Margin="128,10,0,0" TextWrapping="Wrap" Text="Título" VerticalAlignment="Top" Height="54" Width="113" FontSize="14"/>
+                    <TextBlock x:Name="txtbNotifContenido" HorizontalAlignment="Left" Margin="43,69,0,0" TextWrapping="Wrap" Text="Contenido" VerticalAlignment="Top" Height="338" Width="198" FontSize="14" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>
