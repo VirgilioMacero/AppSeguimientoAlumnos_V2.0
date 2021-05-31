@@ -17,17 +17,18 @@ namespace SeguimientoAlumnos
         {
 
             InitializeComponent();
-
+            LblNombreProfesor.Content = Profe.Nombre;
+            LblRutProfesor.Content = Profe.RUT;
             MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
             ConexionDataBase.Open();
             MySqlCommand Consulta = new MySqlCommand();
             Consulta.Connection = ConexionDataBase;
-            Consulta.CommandText = ("SELECT * FROM ramo,profesor WHERE ramo.RUT_Profesor=profesor.RUT and ramo.RUT_Profesor ='"+Profe.RUT+"'");
+            Consulta.CommandText = ("SELECT * FROM ramo,profesor WHERE ramo.RUT_Profesor=profesor.RUT and ramo.RUT_Profesor ='" + Profe.RUT + "'");
 
             MySqlDataReader Leer = Consulta.ExecuteReader();
 
             ListaRamos = new List<Ramo>();
-
+            var ListaRamosAyudantias = new List<Ayudantia>();
 
             if (Leer.HasRows)
             {
@@ -54,6 +55,37 @@ namespace SeguimientoAlumnos
             }
 
             ConexionDataBase.Close();
+            ConexionDataBase.Open();
+            MySqlCommand Consulta2 = new MySqlCommand();
+            Consulta2.Connection = ConexionDataBase;
+            Consulta2.CommandText = "SELECT * FROM ayudantia,ramo WHERE ayudantia.id_Ramo=ramo.id AND ramo.RUT_Profesor='" + Profe.RUT + "'";
+
+
+            MySqlDataReader Leer2 = Consulta2.ExecuteReader();
+
+
+
+
+            while (Leer2.Read())
+            {
+                var Ayudantia1 = new Ayudantia();
+                Ayudantia1.ID = Convert.ToInt32(Leer2.GetValue(0));
+                Ayudantia1.NombreRamo = Leer2.GetValue(2).ToString();
+                Ayudantia1.Fecha = Convert.ToDateTime(Leer2.GetValue(3));
+
+                ListaRamosAyudantias.Add(Ayudantia1);
+
+            }
+
+            LstRamosAyudantias.ItemsSource = ListaRamosAyudantias;
+            
+
+
+            ConexionDataBase.Close();
+
+            
+
+
 
         }
 
@@ -269,7 +301,7 @@ namespace SeguimientoAlumnos
                 var Ramo1 = (Ramo)LstRamosDadosAyudantias.SelectedItem;
 
 
-                string Query = "INSERT INTO ayudantia (id,id_Ramo,Fecha) VALUES (NULL, "+Ramo1.ID+", '"+SeleccioneFechaAyuda.SelectedDate.Value.ToString("yyyy'-'MM'-'dd'")+"')";
+                string Query = "INSERT INTO ayudantia (id,id_Ramo,NombreRamo,Fecha) VALUES (NULL, "+Ramo1.ID+",'"+Ramo1.Nombre+"','"+SeleccioneFechaAyuda.SelectedDate.Value.ToString("u")+"')";
 
                 MySqlCommand CargarNota = new MySqlCommand(Query, ConexionDataBase);
 
@@ -292,6 +324,85 @@ namespace SeguimientoAlumnos
 
 
 
+        }
+
+
+
+        private void BtnActualizarAyudantias_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+            ConexionDataBase.Open();
+            MySqlCommand Consulta2 = new MySqlCommand();
+            Consulta2.Connection = ConexionDataBase;
+            Consulta2.CommandText = "SELECT * FROM ayudantia,ramo WHERE ayudantia.id_Ramo=ramo.id AND ramo.RUT_Profesor='" + LblRutProfesor.Content + "'";
+
+
+            MySqlDataReader Leer2 = Consulta2.ExecuteReader();
+
+            var ListaRamosAyudantias = new List<Ayudantia>();
+
+
+            while (Leer2.Read())
+            {
+
+                if (Convert.ToDateTime(Leer2.GetValue(3)) >= DateTime.Now)
+                {
+
+                    var Ayudantia1 = new Ayudantia();
+                    Ayudantia1.ID = Convert.ToInt32(Leer2.GetValue(0));
+                    Ayudantia1.NombreRamo = Leer2.GetValue(2).ToString();
+                    Ayudantia1.Fecha = Convert.ToDateTime(Leer2.GetValue(3));
+
+                    ListaRamosAyudantias.Add(Ayudantia1);
+
+
+                }
+
+
+            }
+
+            LstRamosAyudantias.ItemsSource = ListaRamosAyudantias;
+
+
+
+            ConexionDataBase.Close();
+
+
+
+        }
+
+        private void BtnEliminarAyudantia_Click(object sender, RoutedEventArgs e)
+        {
+            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+            ConexionDataBase.Open();
+
+            if (LstRamosAyudantias.SelectedItem != null)
+            {
+
+                var Ramo1 = (Ayudantia)LstRamosAyudantias.SelectedItem;
+
+
+                string Query = "DELETE FROM ayudantia WHERE ayudantia.id = " + Ramo1.ID + "";
+
+                MySqlCommand CargarNota = new MySqlCommand(Query, ConexionDataBase);
+
+                CargarNota.ExecuteNonQuery();
+
+                ConexionDataBase.Close();
+
+
+
+
+
+            }
+            else
+            {
+
+                MessageBox.Show("Debe seleccionar algun ramo y tomar mejores deciciones en la vida ");
+
+            }
         }
     }
 }

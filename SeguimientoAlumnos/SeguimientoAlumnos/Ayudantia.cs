@@ -13,6 +13,8 @@ namespace SeguimientoAlumnos
 
         public DateTime Fecha { get; set; }
 
+        public string NombreRamo { get; set;}
+
         public List<Alumno_Por_Ayudantia> ListaAlumnoPorAyudantia { get; set; }
 
 
