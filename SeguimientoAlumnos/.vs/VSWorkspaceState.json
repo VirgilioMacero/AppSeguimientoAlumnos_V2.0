@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SeguimientoAlumnos"
   ],
-  "SelectedNode": "\\SeguimientoAlumnos.sln",
+  "SelectedNode": "\\SeguimientoAlumnos\\VistaProfesor.xaml",
   "PreviewInSolutionExplorer": false
 }

@@ -89,7 +89,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 60 "..\..\VistaProfesor.xaml"
+        #line 61 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnMostrarAlumnos;
         
@@ -97,7 +97,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 61 "..\..\VistaProfesor.xaml"
+        #line 62 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnMostrarNotas;
         
@@ -105,7 +105,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 64 "..\..\VistaProfesor.xaml"
+        #line 65 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox TxtNuevaNota;
         
@@ -113,7 +113,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 65 "..\..\VistaProfesor.xaml"
+        #line 66 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnSubirPuntuacion;
         
@@ -121,7 +121,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 67 "..\..\VistaProfesor.xaml"
+        #line 68 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DatePicker DtpFechaNota;
         
@@ -129,7 +129,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 78 "..\..\VistaProfesor.xaml"
+        #line 79 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListView LstAsisAtencion;
         
@@ -137,7 +137,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 119 "..\..\VistaProfesor.xaml"
+        #line 120 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label LblNombreProfesor;
         
@@ -145,7 +145,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 121 "..\..\VistaProfesor.xaml"
+        #line 122 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label LblRutProfesor;
         
@@ -153,7 +153,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 129 "..\..\VistaProfesor.xaml"
+        #line 150 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnMostrarAlumnosAyudantia;
         
@@ -161,7 +161,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 130 "..\..\VistaProfesor.xaml"
+        #line 151 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListView LstAlumnosInscritos_Copy;
         
@@ -169,7 +169,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 144 "..\..\VistaProfesor.xaml"
+        #line 165 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListView LstRamosAyudantias;
         
@@ -177,7 +177,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 158 "..\..\VistaProfesor.xaml"
+        #line 179 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnActualizarAyudantias;
         
@@ -185,7 +185,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 159 "..\..\VistaProfesor.xaml"
+        #line 180 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnEliminarAyudantia;
         
@@ -193,7 +193,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 166 "..\..\VistaProfesor.xaml"
+        #line 193 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnCrearAyudantia;
         
@@ -201,7 +201,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 167 "..\..\VistaProfesor.xaml"
+        #line 194 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListView LstRamosDadosAyudantias;
         
@@ -209,7 +209,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 182 "..\..\VistaProfesor.xaml"
+        #line 209 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DatePicker SeleccioneFechaAyuda;
         
@@ -217,7 +217,15 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 196 "..\..\VistaProfesor.xaml"
+        #line 212 "..\..\VistaProfesor.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtHoraAyudantia;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 226 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListView LstNotifNotificaciones;
         
@@ -225,7 +233,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 203 "..\..\VistaProfesor.xaml"
+        #line 233 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock txtbNotifFecha;
         
@@ -233,7 +241,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 204 "..\..\VistaProfesor.xaml"
+        #line 234 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock txtbNotifTitulo;
         
@@ -241,7 +249,7 @@ namespace SeguimientoAlumnos {
         #line hidden
         
         
-        #line 205 "..\..\VistaProfesor.xaml"
+        #line 235 "..\..\VistaProfesor.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock txtbNotifContenido;
         
@@ -311,7 +319,7 @@ namespace SeguimientoAlumnos {
             case 7:
             this.BtnMostrarAlumnos = ((System.Windows.Controls.Button)(target));
             
-            #line 60 "..\..\VistaProfesor.xaml"
+            #line 61 "..\..\VistaProfesor.xaml"
             this.BtnMostrarAlumnos.Click += new System.Windows.RoutedEventHandler(this.BtnMostrarAlumnos_Click);
             
             #line default
@@ -320,7 +328,7 @@ namespace SeguimientoAlumnos {
             case 8:
             this.BtnMostrarNotas = ((System.Windows.Controls.Button)(target));
             
-            #line 61 "..\..\VistaProfesor.xaml"
+            #line 62 "..\..\VistaProfesor.xaml"
             this.BtnMostrarNotas.Click += new System.Windows.RoutedEventHandler(this.BtnMostrarNotas_Click);
             
             #line default
@@ -332,7 +340,7 @@ namespace SeguimientoAlumnos {
             case 10:
             this.BtnSubirPuntuacion = ((System.Windows.Controls.Button)(target));
             
-            #line 65 "..\..\VistaProfesor.xaml"
+            #line 66 "..\..\VistaProfesor.xaml"
             this.BtnSubirPuntuacion.Click += new System.Windows.RoutedEventHandler(this.BtnSubirPuntuacion_Click);
             
             #line default
@@ -362,7 +370,7 @@ namespace SeguimientoAlumnos {
             case 18:
             this.BtnActualizarAyudantias = ((System.Windows.Controls.Button)(target));
             
-            #line 158 "..\..\VistaProfesor.xaml"
+            #line 179 "..\..\VistaProfesor.xaml"
             this.BtnActualizarAyudantias.Click += new System.Windows.RoutedEventHandler(this.BtnActualizarAyudantias_Click);
             
             #line default
@@ -371,7 +379,7 @@ namespace SeguimientoAlumnos {
             case 19:
             this.BtnEliminarAyudantia = ((System.Windows.Controls.Button)(target));
             
-            #line 159 "..\..\VistaProfesor.xaml"
+            #line 180 "..\..\VistaProfesor.xaml"
             this.BtnEliminarAyudantia.Click += new System.Windows.RoutedEventHandler(this.BtnEliminarAyudantia_Click);
             
             #line default
@@ -380,7 +388,7 @@ namespace SeguimientoAlumnos {
             case 20:
             this.BtnCrearAyudantia = ((System.Windows.Controls.Button)(target));
             
-            #line 166 "..\..\VistaProfesor.xaml"
+            #line 193 "..\..\VistaProfesor.xaml"
             this.BtnCrearAyudantia.Click += new System.Windows.RoutedEventHandler(this.BtnCrearAyudantia_Click);
             
             #line default
@@ -389,7 +397,7 @@ namespace SeguimientoAlumnos {
             case 21:
             this.LstRamosDadosAyudantias = ((System.Windows.Controls.ListView)(target));
             
-            #line 167 "..\..\VistaProfesor.xaml"
+            #line 194 "..\..\VistaProfesor.xaml"
             this.LstRamosDadosAyudantias.GotFocus += new System.Windows.RoutedEventHandler(this.LstRamosDados_GotFocus);
             
             #line default
@@ -399,15 +407,18 @@ namespace SeguimientoAlumnos {
             this.SeleccioneFechaAyuda = ((System.Windows.Controls.DatePicker)(target));
             return;
             case 23:
-            this.LstNotifNotificaciones = ((System.Windows.Controls.ListView)(target));
+            this.txtHoraAyudantia = ((System.Windows.Controls.TextBox)(target));
             return;
             case 24:
-            this.txtbNotifFecha = ((System.Windows.Controls.TextBlock)(target));
+            this.LstNotifNotificaciones = ((System.Windows.Controls.ListView)(target));
             return;
             case 25:
-            this.txtbNotifTitulo = ((System.Windows.Controls.TextBlock)(target));
+            this.txtbNotifFecha = ((System.Windows.Controls.TextBlock)(target));
             return;
             case 26:
+            this.txtbNotifTitulo = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 27:
             this.txtbNotifContenido = ((System.Windows.Controls.TextBlock)(target));
             return;
             }
