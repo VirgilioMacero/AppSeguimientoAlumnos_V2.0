@@ -6,261 +6,271 @@
         xmlns:local="clr-namespace:SeguimientoAlumnos"
         mc:Ignorable="d"
         Title="VistaAlumno_v2" Height="537" Width="957.14">
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="482*"/>
-			<ColumnDefinition Width="467*"/>
-		</Grid.ColumnDefinitions>
-		<TabControl HorizontalAlignment="Left" Height="496" VerticalAlignment="Top" Width="469">
-			<TabItem Header="Seguimiento">
-				<Grid Background="#FFE5E5E5">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="191*"/>
-						<ColumnDefinition Width="41*"/>
-					</Grid.ColumnDefinitions>
-					<TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
-						<TabItem Header="Atención" Margin="55,0,-59,-2">
-							<Grid Background="#FFE5E5E5">
-								<Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFF2FDCA">
-									<ListBox x:Name="lboxAtencion" HorizontalAlignment="Left" Height="380" Margin="10,10,0,0" VerticalAlignment="Top" Width="134"/>
-									<TextBlock x:Name="txtbAtencionContenido" HorizontalAlignment="Left" Margin="149,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="321" Width="258"><Run Text="Contenido"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="Esta pestaña es un registro de las notificaciones relacionadas directamente con el seguimiento del estudiante."/><LineBreak/><Run Text=""/></TextBlock>
-									<TextBlock x:Name="txtbAtencionHora" HorizontalAlignment="Left" Margin="149,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="54" Width="89"><Run Text="##/##/####"/><LineBreak/><Run Text="Hora: ##:##"/></TextBlock>
-									<TextBlock x:Name="txtbAtencionTitulo" HorizontalAlignment="Left" Margin="243,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="164" Text="Título notificación"/>
-								</Grid>
-							</Grid>
-						</TabItem>
-						<TabItem Header="Asistencia" Margin="60,-2,-64,0">
-							<Grid Background="#FFE5E5E5">
-								<Grid HorizontalAlignment="Left" Height="313" Margin="10,10,0,0" VerticalAlignment="Top" Width="417">
-									<TabControl HorizontalAlignment="Left" Height="396" VerticalAlignment="Top" Width="417" RenderTransformOrigin="0.505,0.767" Margin="0,0,0,-83">
-										<TabItem Header="General">
-											<Grid Background="#FFE5E5E5">
-												<Grid HorizontalAlignment="Left" Height="348" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFEFE7FF">
-													<ListBox x:Name="lboxGeneralAsistencia" HorizontalAlignment="Left" Height="328" Margin="10,10,0,0" VerticalAlignment="Top" Width="371">
-														<ListBoxItem Content="Fecha - Ramo - Estado (Presente/Ausente)"/>
-														<ListBoxItem Content="01/05/2021 -- Taller de programación -- Presente"/>
-													</ListBox>
-												</Grid>
-											</Grid>
-										</TabItem>
-										<TabItem Header="Filtros" HorizontalAlignment="Left" Width="43">
-											<Grid Background="#FFE5E5E5">
-												<Grid HorizontalAlignment="Left" Height="348" Margin="10,10,0,0" VerticalAlignment="Top" Width="139" Background="#FFE4FFE0">
-													<Label Content="Fecha (##/##/####)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="119"/>
-													<TextBox x:Name="txtFiltroAsisFecha" HorizontalAlignment="Left" Height="23" Margin="12,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
-													<Label Content="Nombre ramo" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="117"/>
-													<TextBox x:Name="txtFiltroAsisRamo" HorizontalAlignment="Left" Height="23" Margin="12,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
-													<Label Content="Estado" HorizontalAlignment="Left" Margin="12,118,0,0" VerticalAlignment="Top" Width="117"/>
-													<ComboBox x:Name="cboxFiltroAsisEstado" HorizontalAlignment="Left" Margin="12,144,0,0" VerticalAlignment="Top" Width="119">
-														<ComboBoxItem Content="Ambos" HorizontalAlignment="Left" Width="117"/>
-														<ComboBoxItem Content="Presente" HorizontalAlignment="Left" Width="117"/>
-														<ComboBoxItem Content="Ausente" HorizontalAlignment="Left" Width="117"/>
-													</ComboBox>
-													<Button x:Name="btnFiltroAsisFiltrar" Content="Filtrar" HorizontalAlignment="Left" Margin="12,215,0,0" VerticalAlignment="Top" Width="117" Click="btnFiltroAsisFiltrar_Click"/>
-												</Grid>
-												<ListBox x:Name="lboxFiltroAsistencia" HorizontalAlignment="Left" Height="348" Margin="154,10,0,0" VerticalAlignment="Top" Width="247">
-													<ListBoxItem Content="Búsqueda correspondiente"/>
-												</ListBox>
-											</Grid>
-										</TabItem>
-									</TabControl>
-								</Grid>
-							</Grid>
-						</TabItem>
-						<TabItem Header="Calificaciones" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="87" Margin="65,0,-65,0">
-							<Grid Background="#FFE5E5E5">
-								<ListView x:Name="LstRamosActuales" HorizontalAlignment="Left" Height="371" Margin="10,10,0,0" VerticalAlignment="Top" Width="257">
-									<ListView.View>
-										<GridView>
-											<GridViewColumn Header="Nombre-Ramo" 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="482*"/>
+            <ColumnDefinition Width="467*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl HorizontalAlignment="Left" Height="496" VerticalAlignment="Top" Width="469">
+            <TabItem Header="Seguimiento">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="191*"/>
+                        <ColumnDefinition Width="41*"/>
+                    </Grid.ColumnDefinitions>
+                    <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
+                        <TabItem Header="Atención" Margin="55,0,-59,-2">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFF2FDCA">
+                                    <ListBox x:Name="lboxAtencion" HorizontalAlignment="Left" Height="380" Margin="10,10,0,0" VerticalAlignment="Top" Width="134"/>
+                                    <TextBlock x:Name="txtbAtencionContenido" HorizontalAlignment="Left" Margin="149,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="321" Width="258"><Run Text="Contenido"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="Esta pestaña es un registro de las notificaciones relacionadas directamente con el seguimiento del estudiante."/><LineBreak/><Run Text=""/></TextBlock>
+                                    <TextBlock x:Name="txtbAtencionHora" HorizontalAlignment="Left" Margin="149,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="54" Width="89"><Run Text="##/##/####"/><LineBreak/><Run Text="Hora: ##:##"/></TextBlock>
+                                    <TextBlock x:Name="txtbAtencionTitulo" HorizontalAlignment="Left" Margin="243,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="164" Text="Título notificación"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Asistencia" Margin="60,-2,-64,0">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="313" Margin="10,10,0,0" VerticalAlignment="Top" Width="417">
+                                    <TabControl HorizontalAlignment="Left" Height="396" VerticalAlignment="Top" Width="417" RenderTransformOrigin="0.505,0.767" Margin="0,0,0,-83">
+                                        <TabItem Header="General">
+                                            <Grid Background="#FFE5E5E5">
+                                                <Grid HorizontalAlignment="Left" Height="348" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFEFE7FF">
+                                                    <ListBox x:Name="lboxGeneralAsistencia" HorizontalAlignment="Left" Height="328" Margin="10,10,0,0" VerticalAlignment="Top" Width="371">
+                                                        <ListBoxItem Content="Fecha - Ramo - Estado (Presente/Ausente)"/>
+                                                        <ListBoxItem Content="01/05/2021 -- Taller de programación -- Presente"/>
+                                                    </ListBox>
+                                                </Grid>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem Header="Filtros" HorizontalAlignment="Left" Width="43">
+                                            <Grid Background="#FFE5E5E5">
+                                                <Grid HorizontalAlignment="Left" Height="348" Margin="10,10,0,0" VerticalAlignment="Top" Width="139" Background="#FFE4FFE0">
+                                                    <Label Content="Fecha (##/##/####)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="119"/>
+                                                    <TextBox x:Name="txtFiltroAsisFecha" HorizontalAlignment="Left" Height="23" Margin="12,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+                                                    <Label Content="Nombre ramo" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="117"/>
+                                                    <TextBox x:Name="txtFiltroAsisRamo" HorizontalAlignment="Left" Height="23" Margin="12,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+                                                    <Label Content="Estado" HorizontalAlignment="Left" Margin="12,118,0,0" VerticalAlignment="Top" Width="117"/>
+                                                    <ComboBox x:Name="cboxFiltroAsisEstado" HorizontalAlignment="Left" Margin="12,144,0,0" VerticalAlignment="Top" Width="119">
+                                                        <ComboBoxItem Content="Ambos" HorizontalAlignment="Left" Width="117"/>
+                                                        <ComboBoxItem Content="Presente" HorizontalAlignment="Left" Width="117"/>
+                                                        <ComboBoxItem Content="Ausente" HorizontalAlignment="Left" Width="117"/>
+                                                    </ComboBox>
+                                                    <Button x:Name="btnFiltroAsisFiltrar" Content="Filtrar" HorizontalAlignment="Left" Margin="12,215,0,0" VerticalAlignment="Top" Width="117" Click="btnFiltroAsisFiltrar_Click"/>
+                                                </Grid>
+                                                <ListBox x:Name="lboxFiltroAsistencia" HorizontalAlignment="Left" Height="348" Margin="154,10,0,0" VerticalAlignment="Top" Width="247">
+                                                    <ListBoxItem Content="Búsqueda correspondiente"/>
+                                                </ListBox>
+                                            </Grid>
+                                        </TabItem>
+                                    </TabControl>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Calificaciones" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="87" Margin="65,0,-65,0">
+                            <Grid Background="#FFE5E5E5">
+                                <ListView x:Name="LstRamosActuales" HorizontalAlignment="Left" Height="371" Margin="10,10,0,0" VerticalAlignment="Top" Width="257">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Nombre-Ramo" 
 												DisplayMemberBinding="{Binding Nombre}" Width="90"/>
-											<GridViewColumn Header="Codigo" 
+                                            <GridViewColumn Header="Codigo" 
 												DisplayMemberBinding="{Binding Codigo}" Width="80"/>
-											<GridViewColumn Header="Seccion" 
+                                            <GridViewColumn Header="Seccion" 
 												DisplayMemberBinding="{Binding Seccion}" Width="80"/>
-										</GridView>
-									</ListView.View>
-								</ListView>
-								<Button x:Name="BtnMostrarNotasAlumn" Content="Mostrar calificaciones" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="-0.153,-1.173" Click="BtnMostrarNotasAlumn_Click"/>
-								<ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="371" Margin="272,10,0,0" VerticalAlignment="Top" Width="155">
-									<ListView.View>
-										<GridView>
-											<GridViewColumn Header="Numero Nota" 
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button x:Name="BtnMostrarNotasAlumn" Content="Mostrar calificaciones" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="-0.153,-1.173" Click="BtnMostrarNotasAlumn_Click"/>
+                                <ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="371" Margin="272,10,0,0" VerticalAlignment="Top" Width="155">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Numero Nota" 
 												DisplayMemberBinding="{Binding NumeroNota}" Width="80"/>
-											<GridViewColumn Header="Puntaje" 
+                                            <GridViewColumn Header="Puntaje" 
 												DisplayMemberBinding="{Binding Puntacion}" Width="70"/>
-										</GridView>
-									</ListView.View>
-								</ListView>
-							</Grid>
-						</TabItem>
-						<TabItem Header="Inicio" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" Margin="-211,0,0,0">
-							<Grid Background="#FFE5E5E5">
-								<Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFDAFDFF">
-									<Label x:Name="lblBienvenido" Content="Bienvenido " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="397" Height="43" FontSize="20" HorizontalContentAlignment="Center"/>
-									<TextBlock x:Name="txtbInicio" HorizontalAlignment="Left" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="139" Width="397" Background="#FFE6FFFC"/>
-								</Grid>
-							</Grid>
-						</TabItem>
-					</TabControl>
-				</Grid>
-			</TabItem>
-			<TabItem Header="Ficha académica">
-				<Grid Background="#FFE5E5E5">
-					<Grid x:Name="gridPA" HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Background="#FFFBF2D2">
-						<Label x:Name="lblFichaNombreEst" Content="Nombre del estudiante" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-						<Label x:Name="lblFichaRut" Content="Rut" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.305,-0.339" Width="29"/>
-						<ListBox x:Name="lboxFichaPlanes" HorizontalAlignment="Left" Height="366" Margin="10,72,0,0" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.334,0.422">
-							<ListBoxItem Content="carrera 1"/>
-							<ListBoxItem Content="carrera 2 etc..."/>
-						</ListBox>
-						<Grid HorizontalAlignment="Left" Height="366" Margin="183,72,0,0" VerticalAlignment="Top" Width="250" Background="#FFDFFFDE">
-							<TextBlock x:Name="tboxFichaAcademica" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="346" Width="230"><Run Text="Nombre plan de estudio"/><LineBreak/><Run Text="id"/><LineBreak/><Run Text="año"/></TextBlock>
-						</Grid>
-						<Label x:Name="LblRUTAlumno" Content="" HorizontalAlignment="Left" Margin="44,41,0,0" VerticalAlignment="Top" Width="98"/>
-						<Label x:Name="LblNombreAlumno" Content="" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Width="117"/>
-					</Grid>
-				</Grid>
-			</TabItem>
-			<TabItem Header="Universidad" Margin="0">
-				<Grid Background="#FFE5E5E5">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="213*"/>
-						<ColumnDefinition Width="145*"/>
-					</Grid.ColumnDefinitions>
-					<TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
-						<TabItem Header="Profesores">
-							<Grid Background="#FFE5E5E5">
-								<Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFECFFDC">
-									<Label Content="Origen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" HorizontalContentAlignment="Center" RenderTransformOrigin="0.543,-0.231"/>
-									<ComboBox x:Name="cboxUniProfOrigen" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="134">
-										<ComboBoxItem Content="Mis profesores" HorizontalAlignment="Left" Width="118"/>
-										<ComboBoxItem Content="Todos los profesores" HorizontalAlignment="Left" Width="118"/>
-									</ComboBox>
-									<ComboBox x:Name="cboxUniProfEscuela" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="134">
-										<ComboBoxItem Content="Facultad de ciencias" HorizontalAlignment="Left" Width="132"/>
-									</ComboBox>
-									<Label Content="Escuela" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="134" HorizontalContentAlignment="Center"/>
-									<Label Content="Ramo" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.231" Width="234" HorizontalContentAlignment="Center"/>
-									<ComboBox x:Name="cboxUniProfRamo" HorizontalAlignment="Left" Margin="173,36,0,0" VerticalAlignment="Top" Width="234">
-										<ComboBoxItem Content="Programación I" HorizontalAlignment="Left" Width="232"/>
-										<ComboBoxItem Content="Algebra VI" HorizontalAlignment="Left" Width="232"/>
-									</ComboBox>
-									<Button x:Name="btnUniProfBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="332,86,0,0" VerticalAlignment="Top" Width="75"/>
-									<ListBox x:Name="lboxUniProfList" HorizontalAlignment="Left" Height="159" VerticalAlignment="Top" Width="397" Margin="10,111,0,0">
-										<ListBoxItem Content="Luis Torres --- Facultad de ciencias --- Programación I"/>
-										<ListBoxItem Content="Alejando magno --- Facultad de ciencias --- Programación I"/>
-									</ListBox>
-									<TextBlock x:Name="txtbUniProfDatos" HorizontalAlignment="Left" Margin="10,275,0,0" TextWrapping="Wrap" Text="Acá se podrá consultar sobre los profesores disponibles en la universidad, para establecer un oportuno contacto para tratar cualquier situación que requiera un contacto rápido y directo entre profesor y alumno" VerticalAlignment="Top" Height="88" Width="397"/>
-									<Button x:Name="btnUniProfContacto" Content="Contacto" HorizontalAlignment="Left" Margin="332,370,0,0" VerticalAlignment="Top" Width="75"/>
-								</Grid>
-							</Grid>
-						</TabItem>
-						<TabItem Header="Ayudantías" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="72" Margin="-2,-2,-16,0">
-							<Grid Background="#FFE5E5E5">
-								<TabControl HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417">
-									<TabItem Header="Mis ayudantías">
-										<Grid Background="#FFE5E5E5">
-											<Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFDBD8FF">
-												<ListBox x:Name="lboxMisAyudantias" HorizontalAlignment="Left" Height="166" Margin="10,10,0,0" VerticalAlignment="Top" Width="371">
-													<ListBoxItem Content="##/##/#### // ##:## - ##:## // Ramo"/>
-													<ListBoxItem Content="31/10/2021 // 12:00 - 13:20 // Programación I"/>
-													<ListBoxItem Content="04/05/2021 // 15:30 - 16:50 // Algebra VI"/>
-												</ListBox>
-												<TextBlock x:Name="txtbMisAyudInfo" HorizontalAlignment="Left" Margin="10,181,0,0" TextWrapping="Wrap" Text="Info ayudantia selecionada" VerticalAlignment="Top" Height="161" Width="371"/>
-											</Grid>
-										</Grid>
-									</TabItem>
-									<TabItem Header="Inscripciones">
-										<Grid Background="#FFE5E5E5">
-											<Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFE5FFE2">
-												<Label Content="Seleccionar ramo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="371" HorizontalContentAlignment="Center"/>
-												<ComboBox x:Name="CmbAyudantiasDiponibles" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="371">
-													<ComboBoxItem Content="Programación I" HorizontalAlignment="Left" Width="369"/>
-													<ComboBoxItem Content="Algebra VI" HorizontalAlignment="Left" Width="369"/>
-												</ComboBox>
-												<ListBox x:Name="lboxAyudInsRamo" HorizontalAlignment="Left" Height="109" Margin="10,68,0,0" VerticalAlignment="Top" Width="371"/>
-												<TextBlock x:Name="txtbAyudInscInfo" HorizontalAlignment="Left" Margin="10,182,0,0" TextWrapping="Wrap" Text="Acá se mostrará información sobre las ayudantías disponibles según los ramos que estén en la carga académica del estudiante que ingresó a la app" VerticalAlignment="Top" Height="115" Width="371"/>
-												<Button x:Name="btnAyudInscEnviar" Content="Enviar solicitud" HorizontalAlignment="Left" Margin="290,323,0,0" VerticalAlignment="Top" Width="91"/>
-											</Grid>
-										</Grid>
-									</TabItem>
-								</TabControl>
-							</Grid>
-						</TabItem>
-					</TabControl>
-				</Grid>
-			</TabItem>
-			<TabItem Header="Contacto" Margin="1,0,-1,0">
-				<Grid Background="#FFE5E5E5">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="271*"/>
-						<ColumnDefinition Width="192*"/>
-					</Grid.ColumnDefinitions>
-					<TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
-						<TabItem Header="Soporte general">
-							<Grid Background="#FFE5E5E5">
-								<Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFD0F9F9">
-									<Label Content="Motivo de solicitud" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="178"/>
-									<ComboBox x:Name="cboxSoporteMotivo" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="397">
-										<ComboBoxItem Content="Problema con la aplicación" HorizontalAlignment="Left" Width="395"/>
-										<ComboBoxItem Content="Dudas" HorizontalAlignment="Left" Width="395"/>
-										<ComboBoxItem Content="Otro motivo" HorizontalAlignment="Left" Width="395"/>
-									</ComboBox>
-									<Label Content="Título de la solicitud" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
-									<TextBox x:Name="txtSoporteTItulo" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
-									<Label Content="Descripción" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top"/>
-									<TextBox x:Name="txtSoporteDesc" HorizontalAlignment="Left" Height="203" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
-									<Button x:Name="btnSoporteEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="290,356,0,0" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.507,2.9" Click="btnSoporteEnviar_Click" Height="34"/>
-								</Grid>
-							</Grid>
-						</TabItem>
-						<TabItem Header="Apoyo estudiantil">
-							<Grid Background="#FFE5E5E5">
-								<Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFECFFD5">
-									<Label Content="Seleccione una categoría" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="397"/>
-									<ComboBox x:Name="cboxApoyoCategoria" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="397">
-										<ComboBoxItem Content="Tengo problemas para estudiar" HorizontalAlignment="Left" Width="395"/>
-										<ComboBoxItem Content="No tengo acceso a ciertos servicios" HorizontalAlignment="Left" Width="395"/>
-										<ComboBoxItem Content="Desmotivación" HorizontalAlignment="Left" Width="395"/>
-										<ComboBoxItem Content="Otro" HorizontalAlignment="Left" Width="395"/>
-									</ComboBox>
-									<TextBox x:Name="txtApoyoMensaje" HorizontalAlignment="Left" Height="217" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
-									<Label Content="Título de la solicitud" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="125"/>
-									<TextBox x:Name="txtApoyoTitulo" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
-									<Button x:Name="btnApoyoEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="332,370,0,0" VerticalAlignment="Top" Width="75"/>
-									<Label Content="Descripción" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.184,-0.038" Width="165"/>
-								</Grid>
-							</Grid>
-						</TabItem>
-					</TabControl>
-				</Grid>
-			</TabItem>
-		</TabControl>
-		<TabControl HorizontalAlignment="Left" Height="496" Margin="2,0,0,0" VerticalAlignment="Top" Width="455" Grid.Column="1">
-			<TabItem Header="Notificaciones">
-				<Grid Background="#FFE5E5E5">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="108*"/>
-						<ColumnDefinition Width="341*"/>
-					</Grid.ColumnDefinitions>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="0*"/>
-						<RowDefinition/>
-					</Grid.RowDefinitions>
-					<Label Content="Notificaciones" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="429" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-					<TextBlock x:Name="TxtBNotificacion" HorizontalAlignment="Left" Margin="41,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="358" Width="290" Grid.RowSpan="2" Grid.Column="1"><Run Text="Contenido."/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-					<ListBox x:Name="lboxNotificaciones" HorizontalAlignment="Left" Height="414" Margin="10,44,0,0" VerticalAlignment="Top" Width="134" Grid.RowSpan="2" Grid.ColumnSpan="2">
-						<ListBoxItem Content="Nuevas ayudantías"/>
-						<ListBoxItem Content="Ausencia injustificada"/>
-						<ListBoxItem Content="Recordatorio ayudantía"/>
-						<ListBoxItem Content="Entrega de trabajo"/>
-						<ListBoxItem Content="etc..."/>
-					</ListBox>
-					<TextBlock x:Name="txtbHora" HorizontalAlignment="Left" Margin="41,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="74" Grid.RowSpan="2" Grid.Column="1"><Run Text="##/##/####"/><LineBreak/><Run Text="Hora: ##:##"/></TextBlock>
-					<TextBlock x:Name="txtbTituloNotificacion" HorizontalAlignment="Left" Margin="120,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="51" Width="211" Grid.RowSpan="2" Grid.Column="1"><Run Text="Origen(escuela, ramo, nombre docente)"/><LineBreak/><Run Text="Título notificación"/></TextBlock>
-				</Grid>
-			</TabItem>
-		</TabControl>
-	</Grid>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Inicio" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" Margin="-211,0,0,0">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFDAFDFF">
+                                    <Label x:Name="lblBienvenido" Content="Bienvenido " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="397" Height="43" FontSize="20" HorizontalContentAlignment="Center"/>
+                                    <TextBlock x:Name="txtbInicio" HorizontalAlignment="Left" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="139" Width="397" Background="#FFE6FFFC"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ficha académica">
+                <Grid Background="#FFE5E5E5">
+                    <Grid x:Name="gridPA" HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Background="#FFFBF2D2">
+                        <Label x:Name="lblFichaNombreEst" Content="Nombre del estudiante" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lblFichaRut" Content="Rut" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.305,-0.339" Width="29"/>
+                        <ListBox x:Name="lboxFichaPlanes" HorizontalAlignment="Left" Height="366" Margin="10,72,0,0" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.334,0.422">
+                            <ListBoxItem Content="carrera 1"/>
+                            <ListBoxItem Content="carrera 2 etc..."/>
+                        </ListBox>
+                        <Grid HorizontalAlignment="Left" Height="366" Margin="183,72,0,0" VerticalAlignment="Top" Width="250" Background="#FFDFFFDE">
+                            <TextBlock x:Name="tboxFichaAcademica" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="346" Width="230"><Run Text="Nombre plan de estudio"/><LineBreak/><Run Text="id"/><LineBreak/><Run Text="año"/></TextBlock>
+                        </Grid>
+                        <Label x:Name="LblRUTAlumno" Content="" HorizontalAlignment="Left" Margin="44,41,0,0" VerticalAlignment="Top" Width="98"/>
+                        <Label x:Name="LblNombreAlumno" Content="" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Width="117"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Universidad" Margin="0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="213*"/>
+                        <ColumnDefinition Width="145*"/>
+                    </Grid.ColumnDefinitions>
+                    <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
+                        <TabItem Header="Profesores">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFECFFDC">
+                                    <Label Content="Origen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" HorizontalContentAlignment="Center" RenderTransformOrigin="0.543,-0.231"/>
+                                    <ComboBox x:Name="cboxUniProfOrigen" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="134">
+                                        <ComboBoxItem Content="Mis profesores" HorizontalAlignment="Left" Width="118"/>
+                                        <ComboBoxItem Content="Todos los profesores" HorizontalAlignment="Left" Width="118"/>
+                                    </ComboBox>
+                                    <ComboBox x:Name="cboxUniProfEscuela" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="134">
+                                        <ComboBoxItem Content="Facultad de ciencias" HorizontalAlignment="Left" Width="132"/>
+                                    </ComboBox>
+                                    <Label Content="Escuela" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="134" HorizontalContentAlignment="Center"/>
+                                    <Label Content="Ramo" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.231" Width="234" HorizontalContentAlignment="Center"/>
+                                    <ComboBox x:Name="cboxUniProfRamo" HorizontalAlignment="Left" Margin="173,36,0,0" VerticalAlignment="Top" Width="234">
+                                        <ComboBoxItem Content="Programación I" HorizontalAlignment="Left" Width="232"/>
+                                        <ComboBoxItem Content="Algebra VI" HorizontalAlignment="Left" Width="232"/>
+                                    </ComboBox>
+                                    <Button x:Name="btnUniProfBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="332,86,0,0" VerticalAlignment="Top" Width="75"/>
+                                    <ListBox x:Name="lboxUniProfList" HorizontalAlignment="Left" Height="159" VerticalAlignment="Top" Width="397" Margin="10,111,0,0">
+                                        <ListBoxItem Content="Luis Torres --- Facultad de ciencias --- Programación I"/>
+                                        <ListBoxItem Content="Alejando magno --- Facultad de ciencias --- Programación I"/>
+                                    </ListBox>
+                                    <TextBlock x:Name="txtbUniProfDatos" HorizontalAlignment="Left" Margin="10,275,0,0" TextWrapping="Wrap" Text="Acá se podrá consultar sobre los profesores disponibles en la universidad, para establecer un oportuno contacto para tratar cualquier situación que requiera un contacto rápido y directo entre profesor y alumno" VerticalAlignment="Top" Height="88" Width="397"/>
+                                    <Button x:Name="btnUniProfContacto" Content="Contacto" HorizontalAlignment="Left" Margin="332,370,0,0" VerticalAlignment="Top" Width="75"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Ayudantías" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="72" Margin="-2,-2,-16,0">
+                            <Grid Background="#FFE5E5E5">
+                                <TabControl HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417">
+                                    <TabItem Header="Mis ayudantías">
+                                        <Grid Background="#FFE5E5E5">
+                                            <Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFDBD8FF">
+                                                <ListBox x:Name="lboxMisAyudantias" HorizontalAlignment="Left" Height="166" Margin="10,10,0,0" VerticalAlignment="Top" Width="371">
+                                                    <ListBoxItem Content="##/##/#### // ##:## - ##:## // Ramo"/>
+                                                    <ListBoxItem Content="31/10/2021 // 12:00 - 13:20 // Programación I"/>
+                                                    <ListBoxItem Content="04/05/2021 // 15:30 - 16:50 // Algebra VI"/>
+                                                </ListBox>
+                                                <TextBlock x:Name="txtbMisAyudInfo" HorizontalAlignment="Left" Margin="10,181,0,0" TextWrapping="Wrap" Text="Info ayudantia selecionada" VerticalAlignment="Top" Height="161" Width="371"/>
+                                            </Grid>
+                                        </Grid>
+                                    </TabItem>
+                                    <TabItem Header="Inscripciones">
+                                        <Grid Background="#FFE5E5E5">
+                                            <Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFE5FFE2">
+                                                <Label Content="Seleccionar ramo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="371" HorizontalContentAlignment="Center"/>
+                                                <TextBlock x:Name="txtbAyudInscInfo" HorizontalAlignment="Left" Margin="10,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="115" Width="371"><Run Text="Acá "/><Run Text="Puedes seleccionar la ayudantía de el ramo en el que estés inscrito dependiendo de si tu profesor lo permite"/></TextBlock>
+                                                <Button x:Name="btnAyudInscEnviar" Content="Registrar" HorizontalAlignment="Left" Margin="272,302,0,0" VerticalAlignment="Top" Width="109" Height="41" Click="btnAyudInscEnviar_Click"/>
+                                                <ListView x:Name="LstAyudantiasDisponibles" HorizontalAlignment="Left" Height="114" Margin="10,68,0,0" VerticalAlignment="Top" Width="371">
+                                                    <ListView.View>
+                                                        <GridView AllowsColumnReorder="true"
+                                            ColumnHeaderToolTip="Ramo" >
+                                                            <GridViewColumn Header="ID" 
+                                                DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                                            <GridViewColumn Header="Ramo" 
+                                                DisplayMemberBinding="{Binding NombreRamo}" Width="100"/>
+                                                            <GridViewColumn Header="Fecha" 
+                                                DisplayMemberBinding="{Binding Fecha}" Width="90"/>
+
+                                                        </GridView>
+                                                    </ListView.View>
+                                                </ListView>
+                                                <ComboBox x:Name="CmbRamosRegistroAyudantias" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="371" Height="22" SelectionChanged="CmbRamosRegistroAyudantias_SelectionChanged"/>
+                                            </Grid>
+                                        </Grid>
+                                    </TabItem>
+                                </TabControl>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Contacto" Margin="1,0,-1,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="271*"/>
+                        <ColumnDefinition Width="192*"/>
+                    </Grid.ColumnDefinitions>
+                    <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
+                        <TabItem Header="Soporte general">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFD0F9F9">
+                                    <Label Content="Motivo de solicitud" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="178"/>
+                                    <ComboBox x:Name="cboxSoporteMotivo" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="397">
+                                        <ComboBoxItem Content="Problema con la aplicación" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="Dudas" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="Otro motivo" HorizontalAlignment="Left" Width="395"/>
+                                    </ComboBox>
+                                    <Label Content="Título de la solicitud" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtSoporteTItulo" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
+                                    <Label Content="Descripción" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtSoporteDesc" HorizontalAlignment="Left" Height="203" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
+                                    <Button x:Name="btnSoporteEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="290,356,0,0" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.507,2.9" Click="btnSoporteEnviar_Click" Height="34"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Apoyo estudiantil">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFECFFD5">
+                                    <Label Content="Seleccione una categoría" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="397"/>
+                                    <ComboBox x:Name="cboxApoyoCategoria" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="397">
+                                        <ComboBoxItem Content="Tengo problemas para estudiar" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="No tengo acceso a ciertos servicios" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="Desmotivación" HorizontalAlignment="Left" Width="395"/>
+                                        <ComboBoxItem Content="Otro" HorizontalAlignment="Left" Width="395"/>
+                                    </ComboBox>
+                                    <TextBox x:Name="txtApoyoMensaje" HorizontalAlignment="Left" Height="217" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
+                                    <Label Content="Título de la solicitud" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="125"/>
+                                    <TextBox x:Name="txtApoyoTitulo" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
+                                    <Button x:Name="btnApoyoEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="332,370,0,0" VerticalAlignment="Top" Width="75"/>
+                                    <Label Content="Descripción" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.184,-0.038" Width="165"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TabControl HorizontalAlignment="Left" Height="496" Margin="2,0,0,0" VerticalAlignment="Top" Width="455" Grid.Column="1">
+            <TabItem Header="Notificaciones">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="108*"/>
+                        <ColumnDefinition Width="341*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Notificaciones" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="429" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="TxtBNotificacion" HorizontalAlignment="Left" Margin="41,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="358" Width="290" Grid.RowSpan="2" Grid.Column="1"><Run Text="Contenido."/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+                    <ListBox x:Name="lboxNotificaciones" HorizontalAlignment="Left" Height="414" Margin="10,44,0,0" VerticalAlignment="Top" Width="134" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                        <ListBoxItem Content="Nuevas ayudantías"/>
+                        <ListBoxItem Content="Ausencia injustificada"/>
+                        <ListBoxItem Content="Recordatorio ayudantía"/>
+                        <ListBoxItem Content="Entrega de trabajo"/>
+                        <ListBoxItem Content="etc..."/>
+                    </ListBox>
+                    <TextBlock x:Name="txtbHora" HorizontalAlignment="Left" Margin="41,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="74" Grid.RowSpan="2" Grid.Column="1"><Run Text="##/##/####"/><LineBreak/><Run Text="Hora: ##:##"/></TextBlock>
+                    <TextBlock x:Name="txtbTituloNotificacion" HorizontalAlignment="Left" Margin="120,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="51" Width="211" Grid.RowSpan="2" Grid.Column="1"><Run Text="Origen(escuela, ramo, nombre docente)"/><LineBreak/><Run Text="Título notificación"/></TextBlock>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

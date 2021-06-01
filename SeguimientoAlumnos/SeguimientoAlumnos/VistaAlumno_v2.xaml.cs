@@ -57,8 +57,14 @@ namespace SeguimientoAlumnos
                     Ramo1.Seccion = Convert.ToInt32(Leer.GetValue(5));
 
                     ListaRamos.Add(Ramo1);
+
+                    string ContenidoCmb = Leer.GetValue(0).ToString() + "_ "+Ramo1.Nombre+" _ "+Ramo1.Codigo+" _ "+Ramo1.Seccion;
+
+                    CmbRamosRegistroAyudantias.Items.Add(ContenidoCmb);
+
                 }
                 LstRamosActuales.ItemsSource = ListaRamos;
+                
             }
             else
             {
@@ -66,6 +72,9 @@ namespace SeguimientoAlumnos
             }
 
             ConexionDataBase.Close();
+            
+
+
         }
         //public void cargarNotificacionesAtencion()//Código para mostrar el prototipo, las verdaderas notificaciones se cargarán desde la base de datos
         //{
@@ -159,5 +168,108 @@ namespace SeguimientoAlumnos
                 ConexionDataBase.Close();
 
         }   }
+
+        private void CmbRamosRegistroAyudantias_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var Valorseleccionado = CmbRamosRegistroAyudantias.SelectedItem.ToString();
+
+            var valorSeparado = Valorseleccionado.Split('_');
+
+            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+            ConexionDataBase.Open();
+            MySqlCommand Consulta2 = new MySqlCommand();
+            Consulta2.Connection = ConexionDataBase;
+            Consulta2.CommandText = "SELECT * FROM ayudantia,ramo WHERE ayudantia.id_Ramo=ramo.id AND ramo.id ="+valorSeparado[0]+"";
+            MySqlDataReader Leer = Consulta2.ExecuteReader();
+            var ListaAyudantias = new List<Ayudantia>();
+
+            while (Leer.Read())
+            {
+
+                if (Convert.ToDateTime(Leer.GetValue(3)) >= DateTime.Now)
+                {
+
+                    var Ayudantia1 = new Ayudantia();
+                    Ayudantia1.ID = Convert.ToInt32(Leer.GetValue(0));
+                    Ayudantia1.NombreRamo = Leer.GetValue(2).ToString();
+                    Ayudantia1.Fecha = Convert.ToDateTime(Leer.GetValue(3));
+
+                    ListaAyudantias.Add(Ayudantia1);
+
+
+                }
+
+
+
+            }
+
+            LstAyudantiasDisponibles.ItemsSource = ListaAyudantias;
+
+            ConexionDataBase.Close();
+
+
+        }
+
+        private void btnAyudInscEnviar_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
+
+            ConexionDataBase.Open();
+            var Valorseleccionado = CmbRamosRegistroAyudantias.SelectedItem.ToString();
+            var valorSeparado = Valorseleccionado.Split('_');
+            MySqlCommand Consulta2 = new MySqlCommand();
+            Consulta2.Connection = ConexionDataBase;
+            Consulta2.CommandText = "SELECT * FROM alumno_por_ramo,ramo WHERE ramo.id = alumno_por_ramo.id_Ramo and alumno_por_ramo.RUT_Alumno ='"+ LblRUTAlumno.Content +"' AND ramo.id = "+valorSeparado[0]+"";
+            MySqlDataReader Leer = Consulta2.ExecuteReader();
+
+            var IdAlumno_Por_Ramo =0;
+
+            while (Leer.Read())
+            {
+
+            IdAlumno_Por_Ramo = Convert.ToInt32(Leer.GetValue(0));
+
+            }
+
+
+
+            ConexionDataBase.Close();
+
+            ConexionDataBase.Open();
+
+            if (LstAyudantiasDisponibles.SelectedItem != null)
+            {
+
+                var Ayudantia1 = (Ayudantia)LstAyudantiasDisponibles.SelectedItem;
+
+
+                string Query = "INSERT INTO alumno_por_ayudantia (id,id_ayudantia,id_Alumno_Por_Ramo) VALUES (NULL, " + Ayudantia1.ID + ",'" + IdAlumno_Por_Ramo + "')";
+
+                MySqlCommand CargarNota = new MySqlCommand(Query, ConexionDataBase);
+
+                CargarNota.ExecuteNonQuery();
+
+                ConexionDataBase.Close();
+
+
+
+
+
+            }
+            else
+            {
+
+                MessageBox.Show("Debe seleccionar alguna ayudantia y tomar mejores deciciones en la vida ");
+
+            }
+
+
+
+
+
+        }
     }
 }

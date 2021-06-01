@@ -215,7 +215,7 @@
                                     <TextBox x:Name="txtSoporteTItulo" HorizontalAlignment="Left" Height="26" Margin="10,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
                                     <Label Content="Descripción" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="633" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
                                     <TextBox x:Name="txtSoporteDesc" HorizontalAlignment="Left" Height="110" Margin="10,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="633" Grid.ColumnSpan="3"/>
-                                    <Button x:Name="btnSoporteEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="321,312,0,0" VerticalAlignment="Top" Width="137" RenderTransformOrigin="0.507,2.9" Click="btnSoporteEnviar_Click" Height="52" Grid.Column="2"/>
+                                    <Button x:Name="btnSoporteEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="321,312,0,0" VerticalAlignment="Top" Width="137" RenderTransformOrigin="0.507,2.9"  Height="52" Grid.Column="2"/>
                                 </Grid>
                             </Grid>
                         </TabItem>

@@ -36,6 +36,7 @@ namespace SeguimientoAlumnos
                 while (Leer.Read())
                 {
 
+
                     var Ramo1 = new Ramo();
                     Ramo1.ID = Convert.ToInt32(Leer.GetValue(0));
                     Ramo1.Nombre = Leer.GetValue(3).ToString();
@@ -67,12 +68,20 @@ namespace SeguimientoAlumnos
 
             while (Leer2.Read())
             {
+
+
+                if (Convert.ToDateTime(Leer.GetValue(3)) >= DateTime.Now)
+                {
+
                 var Ayudantia1 = new Ayudantia();
                 Ayudantia1.ID = Convert.ToInt32(Leer2.GetValue(0));
                 Ayudantia1.NombreRamo = Leer2.GetValue(2).ToString();
                 Ayudantia1.Fecha = Convert.ToDateTime(Leer2.GetValue(3));
 
                 ListaRamosAyudantias.Add(Ayudantia1);
+
+                }
+
 
             }
 
