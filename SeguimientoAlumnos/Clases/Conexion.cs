@@ -26,6 +26,10 @@ namespace Clases
 
         //--------------------------Metodos Inicio de Sesion--------------------------------------------------
 
+        //###################################Inicio Sesion Profesor################################################
+
+        //En el siguiente codigo se toman los valores de el metodo LeerBaseDeDatos y se toman los valores retornados
+        //para convertirlo en un objeto de la clase Profesor
         public Profesor Inicio_Sesion_Profesor(string sql)
         {
 
@@ -41,6 +45,11 @@ namespace Clases
                 Profesor1.RUT = (Leer.GetValue(0).ToString());
                 Profesor1.Telefono = Leer.GetValue(5).ToString();
 
+               // string query = "SELECT * FROM ramo,profesor WHERE ramo.RUT_Profesor=profesor.RUT and ramo.RUT_Profesor ='" + Profesor1.RUT + "'";
+
+               // MySqlDataReader LeerRamosProfe = LeerBaseDeDatos(query).ExecuteReader();
+
+
 
                 return Profesor1;
 
@@ -53,18 +62,15 @@ namespace Clases
 
 
         }
+        //#######################################Inicio de Sesion Alumno########################################
 
+        //En este metodo se usa el codigo retornado por el metodo LeerBaseDeDatos y se crea un objeto del tipo 
+        //Alumno el cual se retorna a la vista de Alumno
         public Alumno Inicio_Sesion_Alumno(string sql)
         {
 
 
-            
-            ConexionDataBase.Open();
-            MySqlCommand Consulta = new MySqlCommand();
-            Consulta.Connection = ConexionDataBase;
-            Consulta.CommandText = (sql);
-
-            MySqlDataReader Leer = Consulta.ExecuteReader();
+            MySqlDataReader Leer = LeerBaseDeDatos(sql).ExecuteReader();
 
             if (Leer.Read())
             {
@@ -87,6 +93,18 @@ namespace Clases
             return null;
 
         }
+
+        //###################################Inicio de Sesion Administrador#########################################
+
+
+
+
+
+
+
+
+
+
 
 
     }

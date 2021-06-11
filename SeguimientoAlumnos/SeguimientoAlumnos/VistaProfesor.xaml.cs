@@ -14,6 +14,7 @@ namespace SeguimientoAlumnos
         public List<Ramo> ListaRamos { get; set; }
         public List<Alumno_Por_Ramo> ListaAlumnos { get; set; }
 
+        public Profesor Profe1 = new Profesor();
         public VistaProfesor(Profesor Profe)
         {
             InitializeComponent();
@@ -92,7 +93,7 @@ namespace SeguimientoAlumnos
 
             ConexionDataBase.Close();
 
-            
+            Profe1 = Profe;
 
 
 
@@ -104,6 +105,8 @@ namespace SeguimientoAlumnos
         {
             ListaAlumnos = new List<Alumno_Por_Ramo>();
 
+            var Profe2 = Profe1;
+            
 
             MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
             ConexionDataBase.Open();

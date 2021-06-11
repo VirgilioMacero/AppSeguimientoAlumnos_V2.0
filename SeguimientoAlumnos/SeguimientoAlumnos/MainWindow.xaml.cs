@@ -8,7 +8,7 @@ namespace SeguimientoAlumnos
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string fuente  =  "datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento";
+   
 
         public MainWindow()
         {

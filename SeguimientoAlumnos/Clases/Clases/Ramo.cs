@@ -21,13 +21,7 @@ namespace Clases
 
         public List<Ayudantia> ListaAyudantias { get; set;}
 
-        public int SacarPromedio(Alumno_Por_Ramo Ramo) //se agrego SacarPromedio Alumno Por Ramo
-        {
-            int numero = 0;
 
-
-            return numero;
-        }
 
 
 
