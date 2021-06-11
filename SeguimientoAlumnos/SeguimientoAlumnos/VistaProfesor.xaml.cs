@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using Clases;
 
 namespace SeguimientoAlumnos
 {
@@ -70,7 +71,7 @@ namespace SeguimientoAlumnos
             {
 
 
-                if (Convert.ToDateTime(Leer.GetValue(3)) >= DateTime.Now)
+                if (Convert.ToDateTime(Leer2.GetValue(3)) >= DateTime.Now)
                 {
 
                 var Ayudantia1 = new Ayudantia();

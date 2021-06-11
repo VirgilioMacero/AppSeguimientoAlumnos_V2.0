@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using System;
 
-namespace SeguimientoAlumnos
+namespace Clases
 {
     public class Alumno : Persona
     {

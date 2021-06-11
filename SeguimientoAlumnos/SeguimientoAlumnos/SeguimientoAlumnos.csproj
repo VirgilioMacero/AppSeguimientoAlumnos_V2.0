@@ -58,18 +58,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Administrador.cs" />
-    <Compile Include="Alumno.cs" />
-    <Compile Include="Alumno_Por_Ayudantia.cs" />
-    <Compile Include="Ayudantia.cs" />
-    <Compile Include="Escuela.cs" />
-    <Compile Include="Alumno_Por_Ramo.cs" />
-    <Compile Include="Mensaje.cs" />
-    <Compile Include="Plan_De_Estudio.cs" />
-    <Compile Include="Profesor.cs" />
-    <Compile Include="Ramo.cs" />
-    <Compile Include="Seguimiento.cs" />
-    <Compile Include="Semestre.cs" />
     <Compile Include="VistaAlumno_v2.xaml.cs">
       <DependentUpon>VistaAlumno_v2.xaml</DependentUpon>
     </Compile>
@@ -98,8 +86,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Nota.cs" />
-    <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -127,6 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clases\Clases.csproj">
+      <Project>{c18d2ecb-1648-4603-b2c2-07093acf26e7}</Project>
+      <Name>Clases</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

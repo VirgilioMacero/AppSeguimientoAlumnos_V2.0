@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SeguimientoAlumnos
+namespace Clases
 {
     public class Nota
     {

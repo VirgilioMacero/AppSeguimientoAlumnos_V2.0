@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeguimientoAlumnos
+namespace Clases
 {
     public class Seguimiento  //agregue la clase seguimiento
     {

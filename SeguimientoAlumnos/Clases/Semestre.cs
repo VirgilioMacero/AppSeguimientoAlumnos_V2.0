@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SeguimientoAlumnos
+namespace Clases
 {
     public class Semestre
     {

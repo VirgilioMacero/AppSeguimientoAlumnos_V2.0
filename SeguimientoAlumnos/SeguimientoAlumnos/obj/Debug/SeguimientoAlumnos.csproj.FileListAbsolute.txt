@@ -108,3 +108,5 @@ C:\Taller_Programacion\AppSeguimientoAlumnos_V2.0\SeguimientoAlumnos\Seguimiento
 C:\Taller_Programacion\AppSeguimientoAlumnos_V2.0\SeguimientoAlumnos\SeguimientoAlumnos\obj\Debug\SeguimientoAlumnos.csproj.CopyComplete
 C:\Taller_Programacion\AppSeguimientoAlumnos_V2.0\SeguimientoAlumnos\SeguimientoAlumnos\obj\Debug\SeguimientoAlumnos.exe
 C:\Taller_Programacion\AppSeguimientoAlumnos_V2.0\SeguimientoAlumnos\SeguimientoAlumnos\obj\Debug\SeguimientoAlumnos.pdb
+C:\Taller_Programacion\AppSeguimientoAlumnos_V2.0\SeguimientoAlumnos\SeguimientoAlumnos\bin\Debug\Clases.dll
+C:\Taller_Programacion\AppSeguimientoAlumnos_V2.0\SeguimientoAlumnos\SeguimientoAlumnos\bin\Debug\Clases.pdb
