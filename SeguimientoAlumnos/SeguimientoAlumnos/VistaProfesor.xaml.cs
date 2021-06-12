@@ -12,7 +12,8 @@ namespace SeguimientoAlumnos
     public partial class VistaProfesor : Window
     {
         public List<Ramo> ListaRamos { get; set; }
-        public List<Alumno_Por_Ramo> ListaAlumnos { get; set; }
+
+        public List<Alumno_Por_Ramo> ListaAlumnos = new List<Alumno_Por_Ramo>();
 
         public Profesor ProfeAux = new Profesor();
         public VistaProfesor(Profesor Profe)
@@ -26,8 +27,9 @@ namespace SeguimientoAlumnos
 
            
                 LstRamosDados.ItemsSource = Profe.ListaRamosDados;
+                LstRamosDados_Seguimiento.ItemsSource = Profe.ListaRamosDados;
                 LstRamosDadosAyudantias.ItemsSource = Profe.ListaRamosDados;
-
+                
             var ListaAyudantias = new List<Ayudantia>();
 
             foreach (var Ramo in Profe.ListaRamosDados)
@@ -57,9 +59,9 @@ namespace SeguimientoAlumnos
         private void BtnMostrarAlumnos_Click(object sender, RoutedEventArgs e)
         {
 
-            var ListaAlumnosRamo = new List<Alumno_Por_Ramo>();
-
             var Profe2 = ProfeAux;
+            LstAlumnosInscritos.ItemsSource = null;
+            ListaAlumnos.Clear();
 
             if (LstRamosDados.SelectedItem != null)
             {
@@ -73,62 +75,86 @@ namespace SeguimientoAlumnos
                 foreach (var Alumno1 in Ramo1.ListaAlumnos)
                 {
 
-                    ListaAlumnosRamo.Add(Alumno1);
+                    ListaAlumnos.Add(Alumno1);
 
                 }
                 }
 
             }
 
-            LstAlumnosInscritos.ItemsSource = ListaAlumnosRamo;
+            LstAlumnosInscritos.ItemsSource = ListaAlumnos;
 
             }
 
 
         }
-
-        private void BtnMostrarNotas_Click(object sender, RoutedEventArgs e)
+        private void BtnMostrarAlumnos_Seguimientos_Click(object sender, RoutedEventArgs e)
         {
-            var ListaModificacionesNota = new List<string>();
-            var ListaNotas = new List<Nota>();
-            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
-            ConexionDataBase.Open();
-            MySqlCommand ConsultaNotas = new MySqlCommand();
-            ConsultaNotas.Connection = ConexionDataBase;
 
-            if (LstAlumnosInscritos.SelectedItem != null)
+            var Profe2 = ProfeAux;
+            LstAlumnosInscritos_Seguimiento.ItemsSource = null;
+            ListaAlumnos.Clear();
+
+            if (LstRamosDados_Seguimiento.SelectedItem != null)
             {
 
-                var Persona1 = new Alumno_Por_Ramo();
+                var RamoLsv = (Ramo)LstRamosDados_Seguimiento.SelectedItem;
 
-                Persona1 = (Alumno_Por_Ramo)LstAlumnosInscritos.SelectedItem;
-
-                var Ramo1 = new Ramo();
-                Ramo1 = (Ramo)LstRamosDados.SelectedItem;
-
-                ConsultaNotas.CommandText = ("SELECT * FROM nota,alumno_por_ramo,ramo WHERE nota.Id_Alumno_Por_Ramo = alumno_por_ramo.id AND ramo.id = alumno_por_ramo.id_Ramo AND ramo.Codigo = '"+ Ramo1.Codigo +"' AND ramo.Seccion = "+ Ramo1.Seccion +" AND alumno_por_ramo.RUT_Alumno ='"+Persona1.RUTAlumno+"'");
-                MySqlDataReader LeerNotas = ConsultaNotas.ExecuteReader();
-
-               
-                while (LeerNotas.Read())
+                foreach (var Ramo1 in Profe2.ListaRamosDados)
                 {
+                    if (Ramo1.ID == RamoLsv.ID)
+                    {
+                        foreach (var Alumno1 in Ramo1.ListaAlumnos)
+                        {
 
-                    var Nota2 = new Nota();
-                    
-                    Nota2.NumeroNota = LeerNotas.GetValue(2).ToString();
-                    Nota2.Puntacion = Convert.ToDouble(LeerNotas.GetValue(3));
+                            ListaAlumnos.Add(Alumno1);
 
-                    ListaNotas.Add(Nota2);
-                    ListaModificacionesNota.Add(Nota2.NumeroNota);
+                        }
+                    }
 
                 }
 
-                LsvNotasAlumno.ItemsSource = ListaNotas;
-                CmbSeleccionarNota.ItemsSource = ListaModificacionesNota;
+                LstAlumnosInscritos_Seguimiento.ItemsSource = ListaAlumnos;
 
             }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un Ramo");
+            }
 
-            ConexionDataBase.Close();
+        }
+
+        private void BtnMostrarNotas_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var ListaDeNotas = new List<Nota>();
+            var Profe1 = ProfeAux;
+
+            if (LstAlumnosInscritos.SelectedItem != null)
+            {
+            var Seleccion = (Alumno_Por_Ramo)LstAlumnosInscritos.SelectedItem;
+
+
+            foreach (var Alumno1 in ListaAlumnos)
+            {
+                if (Alumno1.RUTAlumno == Seleccion.RUTAlumno)
+                {
+                foreach (var Nota in Alumno1.ListaNotas)
+                {
+                    ListaDeNotas.Add(Nota);
+
+                }
+
+                }
+            }
+
+                LsvNotasAlumno.ItemsSource = ListaDeNotas;
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un valor");
+            }
 
 
 
@@ -323,6 +349,54 @@ namespace SeguimientoAlumnos
                 MessageBox.Show("Debe seleccionar algun ramo y tomar mejores deciciones en la vida ");
 
             }
+        }
+
+        private void BtnsubirSeguimiento_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (LstAlumnosInscritos_Seguimiento.SelectedItem != null)
+            {
+
+                if (TxtCausaSeguimiento.Text != string.Empty && TxtMensajeSeguimiento.Text != string.Empty && DtpFechaSeguimiento.SelectedDate != null )
+                {
+                    var Seguimiento1 = new Seguimiento();
+
+                    Seguimiento1.Causa = TxtCausaSeguimiento.Text;
+                    Seguimiento1.Mensaje = TxtMensajeSeguimiento.Text;
+                    Seguimiento1.Fecha = DtpFechaSeguimiento.SelectedDate.Value;
+                    var AlumnoSelec = (Alumno_Por_Ramo)LstAlumnosInscritos_Seguimiento.SelectedItem;
+                    Seguimiento1.SubirSeguimiento(AlumnoSelec.ID);
+
+                    MessageBox.Show("Se Envio de Manera Correcta");
+
+                    TxtCausaSeguimiento.Text = string.Empty;
+                    TxtMensajeSeguimiento.Text = string.Empty;
+                    DtpFechaSeguimiento.SelectedDate = null;
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Debe Ingresar todos los campos del Seguimiento");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar a un alumnos");
+            }
+
+
+        }
+
+        private void BtnLimpiarSeguimiento_Click(object sender, RoutedEventArgs e)
+        {
+
+            TxtCausaSeguimiento.Text = string.Empty;
+            TxtMensajeSeguimiento.Text = string.Empty;
+            DtpFechaSeguimiento.SelectedDate = null;
+
+
         }
     }
 }

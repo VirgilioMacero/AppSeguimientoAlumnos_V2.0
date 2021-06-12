@@ -49,9 +49,9 @@ namespace SeguimientoAlumnos
         private void BtnIniciarAlumno_Click(object sender, RoutedEventArgs e)
         {
 
-            var Conexion1 = new Conexion();
-            Conexion1.NombreConexion = "InicioSeseionAlumno";
-            var Inicio = Conexion1.Inicio_Sesion_Alumno("select * FROM alumno where RUT ='" + this.TxtUsuarioAlumno.Text + "' and Contrasenia ='" + this.TxtContraseniaAlumno.Text + " ' ");
+            var Alumnno1 = new Alumno();
+           
+            var Inicio = Alumnno1.Inicio_Sesion_Alumno("select * FROM alumno where RUT ='" + this.TxtUsuarioAlumno.Text + "' and Contrasenia ='" + this.TxtContraseniaAlumno.Text + " ' ");
 
 
 

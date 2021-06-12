@@ -50,7 +50,6 @@
     <Compile Include="Clases\Alumno_Por_Ayudantia.cs" />
     <Compile Include="Clases\Alumno_Por_Ramo.cs" />
     <Compile Include="Clases\Ayudantia.cs" />
-    <Compile Include="Conexion.cs" />
     <Compile Include="Clases\Escuela.cs" />
     <Compile Include="Clases\Mensaje.cs" />
     <Compile Include="Clases\Nota.cs" />
