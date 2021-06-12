@@ -59,7 +59,7 @@ namespace Clases
                 Alumnito2.RUT = Leer.GetString(0);
                 Alumnito2.Clave = Leer.GetString(3);
                 Alumnito2.Telefono = Leer.GetString(4);
-                Alumnito2.ListaPlan_De_Estudio = Cargar_Plan_De_Estudio_Alumno(Alumnito2.RUT);
+                Cargar_Plan_De_Estudio_Alumno(Alumnito2.RUT);
                 return Alumnito2;
 
             }
@@ -71,7 +71,7 @@ namespace Clases
 
         }
 
-        public List<Plan_De_Estudio> Cargar_Plan_De_Estudio_Alumno(string Rut)
+        public void Cargar_Plan_De_Estudio_Alumno(string Rut)
         {
 
             ConexionDataBase.Close();
@@ -86,13 +86,13 @@ namespace Clases
                 var PlanAux = new Plan_De_Estudio();
                 PlanAux.ID = LeerPlanesDeEstudio.GetInt32(0);
                 PlanAux.anio = LeerPlanesDeEstudio.GetInt32(1);
-                PlanAux.ListaSemestre = PlanAux.Cargar_Semestres(PlanAux.ID,Rut);
+                PlanAux.Cargar_Semestres(PlanAux.ID,Rut);
 
                 ListaDePlanes.Add(PlanAux);
 
             }
 
-            return ListaDePlanes;
+            this.ListaPlan_De_Estudio = ListaDePlanes;
 
         }
     }

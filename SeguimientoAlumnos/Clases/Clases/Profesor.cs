@@ -107,9 +107,9 @@ namespace Clases
                 RamoAux.RUTProfesor = LeerRamosProfe.GetString(2);
                 RamoAux.Seccion = LeerRamosProfe.GetInt32(5);
                 
-                RamoAux.ListaAlumnos = RamoAux.Cargar_Alumnos_Por_Ramo(RamoAux.ID);
+                RamoAux.Cargar_Alumnos_Por_Ramo(RamoAux.ID);
                 
-                RamoAux.ListaAyudantias = RamoAux.Cargar_Ayudantias_Por_Ramo(RamoAux.ID);
+                RamoAux.Cargar_Ayudantias_Por_Ramo(RamoAux.ID);
                 
                 ListaDeRamos.Add(RamoAux);
 

@@ -23,7 +23,7 @@ namespace Clases
 
         }
 
-        public List<Semestre> Cargar_Semestres(int id , string Rut)
+        public void Cargar_Semestres(int id , string Rut)
         {
 
             ConexionDataBase.Close();
@@ -39,13 +39,13 @@ namespace Clases
                 SemestreAux.ID = LeerSemestres.GetInt32(0);
                 SemestreAux.Numero = LeerSemestres.GetInt32(2);
 
-                SemestreAux.ListaRamos = SemestreAux.Cargar_Ramos_Alumno(Rut);
+                SemestreAux.Cargar_Ramos_Alumno(Rut);
 
                 ListaSemestres.Add(SemestreAux);
                 
             }
 
-            return ListaSemestres;
+            this.ListaSemestre = ListaSemestres;
 
 
         }

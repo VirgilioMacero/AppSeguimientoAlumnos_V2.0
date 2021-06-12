@@ -25,7 +25,7 @@ namespace Clases
 
         }
 
-        public Alumno_Por_Ramo Cargar_Alumno_Por_Ayudantia(int IdAlumno)
+        public void Cargar_Alumno_Por_Ayudantia(int IdAlumno)
         {
             ConexionDataBase.Close();
             string query = "SELECT * FROM alumno_por_ramo WHERE alumno_por_ramo.id = "+IdAlumno+"";
@@ -37,13 +37,13 @@ namespace Clases
 
             AlumnoAux.ID = IdAlumno;
             AlumnoAux.RUTAlumno = LeerAlumnosPorRamo.GetString(1);
-            AlumnoAux.Nombre = AlumnoAux.Cargar_Nombre_Alumno(AlumnoAux.RUTAlumno);
+            AlumnoAux.Cargar_Nombre_Alumno(AlumnoAux.RUTAlumno);
 
-            return AlumnoAux;
+            this.AlumnoInscritoAyudantia = AlumnoAux;
 
             }
 
-            return null;
+            this.AlumnoInscritoAyudantia = null;
 
 
         }

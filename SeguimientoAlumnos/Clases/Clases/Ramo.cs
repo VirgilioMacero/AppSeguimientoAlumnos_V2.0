@@ -38,7 +38,7 @@ namespace Clases
 
         //#####################Metodo para cargar los Alumnos por Ramo del Profesor o Administrador#############################
 
-        public List<Alumno_Por_Ramo> Cargar_Alumnos_Por_Ramo(int id)
+        public void Cargar_Alumnos_Por_Ramo(int id)
         {
             ConexionDataBase.Close();
             var ListaAlumnos2 = new List<Alumno_Por_Ramo>();
@@ -51,20 +51,20 @@ namespace Clases
                 Alumno1.ID = LeerAlumnosPorRamo.GetInt32(0);
                 Alumno1.RUTAlumno = LeerAlumnosPorRamo.GetString(1);
                 
-                Alumno1.Nombre = Alumno1.Cargar_Nombre_Alumno(Alumno1.RUTAlumno);
+                 Alumno1.Cargar_Nombre_Alumno(Alumno1.RUTAlumno);
                 
-                Alumno1.ListaNotas = Alumno1.Cargar_Notas_Por_Alumno(id,Alumno1.ID);
+                 Alumno1.Cargar_Notas_Por_Alumno(id,Alumno1.ID);
                 
-                Alumno1.Seguimientos = Alumno1.Cargar_Seguimientos_Por_Alumno(id,Alumno1.ID);
+                 Alumno1.Cargar_Seguimientos_Por_Alumno(id,Alumno1.ID);
 
                 ListaAlumnos2.Add(Alumno1);
 
             }
 
-            return ListaAlumnos2;
+            this.ListaAlumnos = ListaAlumnos2;
 
         }
-        public List<Ayudantia> Cargar_Ayudantias_Por_Ramo(int IdRamo)
+        public void Cargar_Ayudantias_Por_Ramo(int IdRamo)
         {
             ConexionDataBase.Close();
             var ListaAyudantias = new List<Ayudantia>();
@@ -90,7 +90,7 @@ namespace Clases
 
             }
 
-            return ListaAyudantias;
+            this.ListaAyudantias = ListaAyudantias;
 
         }
 

@@ -428,8 +428,41 @@
                                 <Button x:Name="BtnLimpiarSeguimiento" Content="Limpiar" HorizontalAlignment="Left" Margin="476,374,0,0" VerticalAlignment="Top" Width="86" Height="30" Click="BtnLimpiarSeguimiento_Click"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="TabItem">
-                            <Grid Background="#FFE5E5E5"/>
+                        <TabItem Header="Listas de Seguimientos">
+                            <Grid Background="#FFE5E5E5">
+                                <ListView x:Name="LstRamosDadosEscogidos_Seguimiento" HorizontalAlignment="Left" Height="364" Margin="10,10,0,0" VerticalAlignment="Top" Width="245">
+                                    <ListView.View>
+                                        <GridView AllowsColumnReorder="true"
+                                            ColumnHeaderToolTip="Ramo" >
+                                            <GridViewColumn Header="ID" 
+                                                DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                            <GridViewColumn Header="Nombre" 
+                                                DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                            <GridViewColumn Header="Codigo" 
+                                                DisplayMemberBinding="{Binding Codigo}" Width="60"/>
+                                            <GridViewColumn Header="Seccion" 
+                                                DisplayMemberBinding="{Binding Seccion}" Width="60"/>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button x:Name="BtnMostrarAlumnosEscogidos_Seguimientos" Content="Mostrar alumnos" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="245" Height="35" Click="BtnMostrarAlumnosEscogidos_Seguimientos_Click"/>
+                                <ListView x:Name="LstAlumnosEscogidos_Seguimiento" HorizontalAlignment="Left" Height="364" Margin="260,10,0,0" VerticalAlignment="Top" Width="211">
+                                    <ListView.View>
+                                        <GridView AllowsColumnReorder="true"
+                                            ColumnHeaderToolTip="Ramo" >
+                                            <GridViewColumn Header="ID" 
+                                                DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                            <GridViewColumn Header="Nombre" 
+                                                DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                            <GridViewColumn Header="RUT" 
+                                                DisplayMemberBinding="{Binding RUTAlumno}" Width="80"/>
+
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button x:Name="BtnMostrarGrafico_Seguimiento" Content="Grafico" HorizontalAlignment="Left" Margin="260,374,0,0" VerticalAlignment="Top" Width="105" Height="35" Click="BtnMostrarGrafico_Seguimiento_Click"/>
+                                <Button x:Name="BtnMostrar_Seguimientos" Content="Seguimientos" HorizontalAlignment="Left" Margin="365,374,0,0" VerticalAlignment="Top" Width="106" Height="35"/>
+                            </Grid>
                         </TabItem>
                     </TabControl>
                 </Grid>

@@ -23,7 +23,7 @@ namespace Clases
 
         }
 
-        public List<Ramo> Cargar_Ramos_Alumno(string Rut)
+        public void Cargar_Ramos_Alumno(string Rut)
         {
             ConexionDataBase.Close();
             var ListaRamos = new List<Ramo>();
@@ -45,7 +45,7 @@ namespace Clases
 
             }
 
-            return ListaRamos;
+            this.ListaRamos = ListaRamos;
 
 
         }

@@ -45,7 +45,7 @@ namespace Clases
                 AlumnoPorAyudantia.ID = LeerAlumnosPorAyudantias.GetInt32(0);
                 
                 int IdAlumno = LeerAlumnosPorAyudantias.GetInt32(2);
-                AlumnoPorAyudantia.AlumnoInscritoAyudantia = AlumnoPorAyudantia.Cargar_Alumno_Por_Ayudantia(IdAlumno);
+               AlumnoPorAyudantia.Cargar_Alumno_Por_Ayudantia(IdAlumno);
                 
 
                 ListaAlumnosAyudantia.Add(AlumnoPorAyudantia);

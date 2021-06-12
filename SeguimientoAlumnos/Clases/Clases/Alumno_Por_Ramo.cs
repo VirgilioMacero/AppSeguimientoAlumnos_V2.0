@@ -31,7 +31,7 @@ namespace Clases
 
         }
 
-        public List<Nota> Cargar_Notas_Por_Alumno(int IdRamo,int IdAlumno)
+        public void Cargar_Notas_Por_Alumno(int IdRamo,int IdAlumno)
         {
             ConexionDataBase.Close();
             var ListaDeNotas = new List<Nota>();
@@ -51,10 +51,10 @@ namespace Clases
 
             }
 
-            return ListaDeNotas;
+            this.ListaNotas = ListaDeNotas;
 
         }
-        public List<Seguimiento> Cargar_Seguimientos_Por_Alumno(int IdRamo ,int IdAlumno)
+        public void Cargar_Seguimientos_Por_Alumno(int IdRamo ,int IdAlumno)
         {
             ConexionDataBase.Close();
             var ListaSeguimientos = new List<Seguimiento>();
@@ -73,25 +73,28 @@ namespace Clases
 
             }
             ConexionDataBase.Close();
-            return ListaSeguimientos;
+            this.Seguimientos=ListaSeguimientos;
 
         }
-        public string Cargar_Nombre_Alumno(string Rut)
+        public void Cargar_Nombre_Alumno(string Rut)
         {
             ConexionDataBase.Close();
             var ListaSeguimientos = new List<Seguimiento>();
             string query = "SELECT * FROM alumno WHERE alumno.RUT='" + Rut + "'";
             MySqlDataReader LeerNombreAlumno = LeerBaseDeDatos(query).ExecuteReader();
 
-            if (LeerNombreAlumno.Read()){     
+            if (LeerNombreAlumno.Read()) {
 
-            string NombreAlum = LeerNombreAlumno.GetString(2);
+                string NombreAlum = LeerNombreAlumno.GetString(2);
 
-            return NombreAlum;
+                this.Nombre = NombreAlum;
 
             }
+            else
+            {
+            this.Nombre = null;
+            }
 
-            return null;
 
         }
 

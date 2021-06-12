@@ -11,9 +11,9 @@ namespace SeguimientoAlumnos
     /// </summary>
     public partial class VistaProfesor : Window
     {
-        public List<Ramo> ListaRamos { get; set; }
+        private List<Ramo> ListaRamos = new List<Ramo>();
 
-        public List<Alumno_Por_Ramo> ListaAlumnos = new List<Alumno_Por_Ramo>();
+        private List<Alumno_Por_Ramo> ListaAlumnos = new List<Alumno_Por_Ramo>();
 
         public Profesor ProfeAux = new Profesor();
         public VistaProfesor(Profesor Profe)
@@ -34,6 +34,7 @@ namespace SeguimientoAlumnos
 
             foreach (var Ramo in Profe.ListaRamosDados)
             {
+                ListaRamos.Add(Ramo); 
 
                 foreach (var Ayudantia in Ramo.ListaAyudantias)
                 {
@@ -46,7 +47,7 @@ namespace SeguimientoAlumnos
             }
 
             LstRamosAyudantias.ItemsSource = ListaAyudantias;
-           
+            LstRamosDadosEscogidos_Seguimiento.ItemsSource = ListaRamos; 
 
             ProfeAux = Profe;
 
@@ -106,7 +107,7 @@ namespace SeguimientoAlumnos
                     {
                         foreach (var Alumno1 in Ramo1.ListaAlumnos)
                         {
-
+                            Alumno1.Cargar_Nombre_Alumno(Alumno1.RUTAlumno);
                             ListaAlumnos.Add(Alumno1);
 
                         }
@@ -395,6 +396,74 @@ namespace SeguimientoAlumnos
             TxtCausaSeguimiento.Text = string.Empty;
             TxtMensajeSeguimiento.Text = string.Empty;
             DtpFechaSeguimiento.SelectedDate = null;
+
+
+        }
+
+
+        private void BtnMostrarGrafico_Seguimiento_Click(object sender, RoutedEventArgs e)
+        {
+            if (LstRamosDadosEscogidos_Seguimiento.SelectedItem != null)
+            {
+                if (LstAlumnosEscogidos_Seguimiento.SelectedItem !=null)
+                {
+            var Alumno1 = (Alumno_Por_Ramo)LstAlumnosEscogidos_Seguimiento.SelectedItem;
+            var Ramo1 = (Ramo)LstRamosDadosEscogidos_Seguimiento.SelectedItem;
+            Alumno1.Cargar_Notas_Por_Alumno(Ramo1.ID,Alumno1.ID);
+            Alumno1.Cargar_Seguimientos_Por_Alumno(Ramo1.ID,Alumno1.ID);
+ 
+
+            var ventana = new VistaGrafico(Alumno1);
+
+            ventana.Show();
+
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar el alumno al cual se mostrara el grafico");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un Ramo para Mostrar el grafico");
+            }
+        }
+
+        private void BtnMostrarAlumnosEscogidos_Seguimientos_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            var Profe2 = ProfeAux;
+            LstAlumnosEscogidos_Seguimiento.ItemsSource = null;
+            ListaAlumnos.Clear();
+
+            if (LstRamosDadosEscogidos_Seguimiento.SelectedItem != null)
+            {
+
+                var RamoLsv = (Ramo)LstRamosDadosEscogidos_Seguimiento.SelectedItem;
+
+                foreach (var Ramo1 in Profe2.ListaRamosDados)
+                {
+                    if (Ramo1.ID == RamoLsv.ID)
+                    {
+                        foreach (var Alumno1 in Ramo1.ListaAlumnos)
+                        {
+
+                            ListaAlumnos.Add(Alumno1);
+
+                        }
+                    }
+
+                }
+
+                LstAlumnosEscogidos_Seguimiento.ItemsSource = ListaAlumnos;
+
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un Ramo");
+            }
 
 
         }
