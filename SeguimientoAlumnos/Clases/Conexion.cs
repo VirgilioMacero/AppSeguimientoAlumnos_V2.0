@@ -44,24 +44,58 @@ namespace Clases
                 Profesor1.Nombre = (Leer.GetValue(2)).ToString();
                 Profesor1.RUT = (Leer.GetValue(0).ToString());
                 Profesor1.Telefono = Leer.GetValue(5).ToString();
+                ConexionDataBase.Close();
+                Profesor1.ListaRamosDados = Cargar_Ramos_Profesor(Profesor1.RUT);
 
-               // string query = "SELECT * FROM ramo,profesor WHERE ramo.RUT_Profesor=profesor.RUT and ramo.RUT_Profesor ='" + Profesor1.RUT + "'";
-
-               // MySqlDataReader LeerRamosProfe = LeerBaseDeDatos(query).ExecuteReader();
-
-
+               
 
                 return Profesor1;
 
             }
 
 
-            ConexionDataBase.Close();
+            
 
             return null;
 
 
         }
+
+        //###################################Metodo para cargar Ramos Profesor###################################### 
+
+        public List<Ramo> Cargar_Ramos_Profesor(string Rut)
+        {
+            var ListaDeRamos = new List<Ramo>();
+            string query = "SELECT * FROM ramo,profesor WHERE ramo.RUT_Profesor=profesor.RUT and ramo.RUT_Profesor ='" + Rut + "'";
+
+            MySqlDataReader LeerRamosProfe = LeerBaseDeDatos(query).ExecuteReader();
+
+            while (LeerRamosProfe.Read())
+            {
+                var RamoAux = new Ramo();
+                RamoAux.ID = Convert.ToInt32(LeerRamosProfe.GetValue(0));
+                RamoAux.Codigo = LeerRamosProfe.GetString(4);
+                RamoAux.Nombre = LeerRamosProfe.GetString(3);
+                RamoAux.RUTProfesor = LeerRamosProfe.GetString(2);
+                RamoAux.Seccion = LeerRamosProfe.GetInt32(5);
+                ConexionDataBase.Close();
+              //  RamoAux.ListaAlumnos;
+                ConexionDataBase.Close();
+                
+                ListaDeRamos.Add(RamoAux);
+
+            }
+
+            return ListaDeRamos;
+
+        }
+
+
+
+
+
+
+
         //#######################################Inicio de Sesion Alumno########################################
 
         //En este metodo se usa el codigo retornado por el metodo LeerBaseDeDatos y se crea un objeto del tipo 
@@ -105,7 +139,6 @@ namespace Clases
 
 
 
-
-
+        //--------------------------------------------------------------------------------------------------------
     }
 }

@@ -20,9 +20,9 @@ namespace SeguimientoAlumnos
         {
 
 
-            var Conexion1 = new Conexion();
-            Conexion1.NombreConexion = "InicioSesionProfesor";
-            var Inicio = Conexion1.Inicio_Sesion_Profesor("select * FROM profesor where RUT ='" + this.TxtUsuarioProfesor.Text + "' and Contrasenia ='" + this.TxtContraseniaProfesor.Text + " ' ");
+            var Profesor1 = new Profesor();
+            
+            var Inicio = Profesor1.Inicio_Sesion_Profesor("select * FROM profesor where RUT ='" + this.TxtUsuarioProfesor.Text + "' and Contrasenia ='" + this.TxtContraseniaProfesor.Text + " ' ");
 
             if (Inicio != null)
             {

@@ -20,7 +20,7 @@
                         <ColumnDefinition Width="153*"/>
                         <ColumnDefinition Width="557*"/>
                     </Grid.ColumnDefinitions>
-                    <ListView x:Name="LstRamosDados" HorizontalAlignment="Left" Height="397" Margin="10,10,0,0" VerticalAlignment="Top" Width="230" GotFocus="LstRamosDados_GotFocus" Grid.ColumnSpan="2">
+                    <ListView x:Name="LstRamosDados" HorizontalAlignment="Left" Height="397" Margin="10,10,0,0" VerticalAlignment="Top" Width="230" Grid.ColumnSpan="2">
                         <ListView.View>
                             <GridView AllowsColumnReorder="true"
               ColumnHeaderToolTip="Ramo" >
@@ -124,7 +124,7 @@
                                     <ColumnDefinition Width="649*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="384" Margin="10,10,0,0" VerticalAlignment="Top" Width="664" Background="#FFE2FBFF">
-                                    <ListView x:Name="LsvAsistenciaRamos" HorizontalAlignment="Left" Height="324" Margin="10,50,0,0" VerticalAlignment="Top" Width="230" GotFocus="LstRamosDados_GotFocus">
+                                    <ListView x:Name="LsvAsistenciaRamos" HorizontalAlignment="Left" Height="324" Margin="10,50,0,0" VerticalAlignment="Top" Width="230">
                                         <ListView.View>
                                             <GridView AllowsColumnReorder="true"
                                                 ColumnHeaderToolTip="Ramo" >
@@ -349,7 +349,7 @@
                                 <Label Content="Crear Ayudantia" HorizontalAlignment="Center" Margin="302,10,25,0" VerticalAlignment="Top" Height="45" Width="357" FontSize="21" ForceCursor="True" HorizontalContentAlignment="Center"/>
                                 <Label Content="Seleccionar fecha de la ayudantía" HorizontalAlignment="Left" Margin="312,60,0,0" VerticalAlignment="Top" Width="347" Height="32" FontSize="16" HorizontalContentAlignment="Center"/>
                                 <Button x:Name="BtnCrearAyudantia" Content="Registrar" HorizontalAlignment="Left" Margin="554,355,0,0" VerticalAlignment="Top" Width="120" Height="39" Click="BtnCrearAyudantia_Click" Background="White"/>
-                                <ListView x:Name="LstRamosDadosAyudantias" HorizontalAlignment="Left" Height="334" Margin="10,60,0,0" VerticalAlignment="Top" Width="274" GotFocus="LstRamosDados_GotFocus">
+                                <ListView x:Name="LstRamosDadosAyudantias" HorizontalAlignment="Left" Height="334" Margin="10,60,0,0" VerticalAlignment="Top" Width="274">
                                     <ListView.View>
                                         <GridView AllowsColumnReorder="true"
                                             ColumnHeaderToolTip="Ramo" >
