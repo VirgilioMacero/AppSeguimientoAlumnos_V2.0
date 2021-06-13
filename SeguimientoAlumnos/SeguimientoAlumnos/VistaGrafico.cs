@@ -22,11 +22,11 @@ namespace SeguimientoAlumnos
 
             AlumnoAux = Alumno1;
         }
-
+        
         private void VistaGrafico_Load(object sender, EventArgs e)
         {
             
-
+            //Aqui se Carga el grafico con los datos de el Objeto AlumnoAux
             GraficoSeguimiento.Palette = ChartColorPalette.EarthTones;
 
             GraficoSeguimiento.Titles.Add("Notas de "+AlumnoAux.Nombre);
@@ -39,7 +39,59 @@ namespace SeguimientoAlumnos
                 serie.Points.Add(Nota.Puntacion);
 
             }
+            //En este apartado se Carga el Lisview de Seguimientos
 
+            LstSeguimientos.Columns.Add("Id", 30, HorizontalAlignment.Center);
+            LstSeguimientos.Columns.Add("Causa",220,HorizontalAlignment.Center);
+            LstSeguimientos.Columns.Add("Fecha",180,HorizontalAlignment.Center);
+
+            foreach (var SeguimientoAux in AlumnoAux.Seguimientos)
+            {
+
+                ListViewItem Fila = new ListViewItem(SeguimientoAux.ID.ToString());
+                ListViewItem.ListViewSubItem Causa = new ListViewItem.ListViewSubItem(Fila, SeguimientoAux.Causa);
+                ListViewItem.ListViewSubItem Fecha = new ListViewItem.ListViewSubItem(Fila, SeguimientoAux.Fecha.ToString("MMMM dd, yyyy"));
+
+                Fila.SubItems.Add(Causa);
+                Fila.SubItems.Add(Fecha);
+                LstSeguimientos.Items.Add(Fila);
+            }
+
+
+
+        }
+
+        private void LstSeguimientos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+                if (LstSeguimientos.SelectedItems.Count > 0)
+                {
+                    ListViewItem listItem = LstSeguimientos.SelectedItems[0];
+                    int  Id = Convert.ToInt32(listItem.Text);
+
+
+                foreach (var SeguimientoAux in AlumnoAux.Seguimientos)
+                {
+                    if (SeguimientoAux.ID == Id)
+                    {
+                        TxtLeerMensaje.Text = string.Empty;
+
+                        TxtLeerMensaje.Text = SeguimientoAux.Mensaje;
+
+                    }
+
+
+
+                }
+                    
+
+
+
+                }
+
+            
+
+            LstSeguimientos.SelectedItems.Clear();
 
         }
     }

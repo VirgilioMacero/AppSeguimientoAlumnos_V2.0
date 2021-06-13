@@ -404,7 +404,7 @@
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <ListView x:Name="LstAlumnosInscritos_Seguimiento" HorizontalAlignment="Left" Height="399" Margin="260,10,0,0" VerticalAlignment="Top" Width="211">
+                                <ListView x:Name="LstAlumnosInscritos_Seguimiento" HorizontalAlignment="Left" Height="176" Margin="260,10,0,0" VerticalAlignment="Top" Width="211">
                                     <ListView.View>
                                         <GridView AllowsColumnReorder="true"
                                             ColumnHeaderToolTip="Ramo" >
@@ -426,6 +426,21 @@
                                 <DatePicker x:Name="DtpFechaSeguimiento" HorizontalAlignment="Left" Margin="476,256,0,0" VerticalAlignment="Top" Width="218"/>
                                 <Button x:Name="BtnsubirSeguimiento" Content="Enviar" HorizontalAlignment="Left" Margin="609,374,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="BtnsubirSeguimiento_Click"/>
                                 <Button x:Name="BtnLimpiarSeguimiento" Content="Limpiar" HorizontalAlignment="Left" Margin="476,374,0,0" VerticalAlignment="Top" Width="86" Height="30" Click="BtnLimpiarSeguimiento_Click"/>
+                                <Button x:Name="BtnMostrar_Ayudantias" Content="Mostrar Ayudantias" HorizontalAlignment="Left" Margin="260,186,0,0" VerticalAlignment="Top" Width="211" Height="32"/>
+                                <ListView x:Name="LstRamosAyudantias_Copy" HorizontalAlignment="Left" Height="186" Margin="260,223,0,0" VerticalAlignment="Top" Width="211" Background="#FFFFFFF2"  >
+                                    <ListView.View>
+                                        <GridView AllowsColumnReorder="true"
+                                            ColumnHeaderToolTip="Ramo" >
+                                            <GridViewColumn Header="ID" 
+                                                DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                            <GridViewColumn Header="Ramo" 
+                                                DisplayMemberBinding="{Binding NombreRamo}" Width="80"/>
+                                            <GridViewColumn Header="Fecha" 
+                                                DisplayMemberBinding="{Binding Fecha}" Width="90"/>
+
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Listas de Seguimientos">

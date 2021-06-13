@@ -17,6 +17,7 @@ namespace Clases
 
         public List<Nota> ListaNotas { get; set; }
 
+        public List<Ayudantia> ListaAyudantiasInscritas {get; set;}
 
         public List<Seguimiento> Seguimientos { get; set; } //se agrego List Seguimiento
 
@@ -97,6 +98,32 @@ namespace Clases
 
 
         }
+        public void CargarAyudantiasInscritas(int IdRamo,int IdAlumno)
+        {
+            ConexionDataBase.Close();
+            var ListaSeguimientos = new List<Seguimiento>();
+            string query = "SELECT * FROM ayudantia,ramo,alumno_por_ayudantia WHERE ayudantia.id_Ramo=ramo.id AND alumno_por_ayudantia.id_ayudantia = ayudantia.id AND ramo.id = "+IdRamo+" AND alumno_por_ayudantia.id_Alumno_Por_Ramo ="+IdAlumno+"";
+            MySqlDataReader LeerAyudantiasPorAlumno = LeerBaseDeDatos(query).ExecuteReader();
+
+            var ListaAyudantiaAux = new List<Ayudantia>();
+
+            while (LeerAyudantiasPorAlumno.Read())
+            {
+
+                var AyudantiaAux = new Ayudantia();
+
+                AyudantiaAux.ID = LeerAyudantiasPorAlumno.GetInt32(0);
+                AyudantiaAux.NombreRamo = LeerAyudantiasPorAlumno.GetString(2);
+                AyudantiaAux.Fecha = LeerAyudantiasPorAlumno.GetDateTime(3);
+
+                ListaAyudantiaAux.Add(AyudantiaAux);
+
+            }
+
+            this.ListaAyudantiasInscritas = ListaAyudantiaAux;
+
+        }
+
 
 
 

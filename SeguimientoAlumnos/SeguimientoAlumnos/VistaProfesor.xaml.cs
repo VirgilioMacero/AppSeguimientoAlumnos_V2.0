@@ -411,7 +411,7 @@ namespace SeguimientoAlumnos
             var Ramo1 = (Ramo)LstRamosDadosEscogidos_Seguimiento.SelectedItem;
             Alumno1.Cargar_Notas_Por_Alumno(Ramo1.ID,Alumno1.ID);
             Alumno1.Cargar_Seguimientos_Por_Alumno(Ramo1.ID,Alumno1.ID);
- 
+            Alumno1.CargarAyudantiasInscritas(Ramo1.ID,Alumno1.ID);
 
             var ventana = new VistaGrafico(Alumno1);
 

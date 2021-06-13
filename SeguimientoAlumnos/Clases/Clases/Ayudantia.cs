@@ -29,7 +29,7 @@ namespace Clases
 
         }
 
-        public List<Alumno_Por_Ayudantia> Cargar_Alumnos_Por_Ayudantia(int IdAyudantia)
+        public void Cargar_Alumnos_Por_Ayudantia(int IdAyudantia)
         {
             ConexionDataBase.Close();
             var ListaAlumnosAyudantia = new List<Alumno_Por_Ayudantia>();
@@ -53,7 +53,7 @@ namespace Clases
             }
             }
 
-            return ListaAlumnosAyudantia;
+            this.ListaAlumnoPorAyudantia = ListaAlumnosAyudantia;
 
 
         }

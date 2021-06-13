@@ -57,6 +57,8 @@ namespace Clases
                 
                  Alumno1.Cargar_Seguimientos_Por_Alumno(id,Alumno1.ID);
 
+                Alumno1.CargarAyudantiasInscritas(id,Alumno1.ID);
+
                 ListaAlumnos2.Add(Alumno1);
 
             }
@@ -81,7 +83,7 @@ namespace Clases
                 AyudantiaAux.NombreRamo = LeerAyudantiasPorRamo.GetString(2);
                 AyudantiaAux.Fecha = LeerAyudantiasPorRamo.GetDateTime(3);
                 
-                AyudantiaAux.ListaAlumnoPorAyudantia = AyudantiaAux.Cargar_Alumnos_Por_Ayudantia(AyudantiaAux.ID);
+                 AyudantiaAux.Cargar_Alumnos_Por_Ayudantia(AyudantiaAux.ID);
                 
 
                 ListaAyudantias.Add(AyudantiaAux);
