@@ -57,6 +57,23 @@ namespace SeguimientoAlumnos
                 LstSeguimientos.Items.Add(Fila);
             }
 
+            //En este apartado se Carga el ListView de ayudantias
+
+            LstAyudantias.Columns.Add("Id", 30, HorizontalAlignment.Center);
+            LstAyudantias.Columns.Add("Ramo",220,HorizontalAlignment.Center);
+            LstAyudantias.Columns.Add("Fecha",180,HorizontalAlignment.Center);
+
+            foreach (var AyudantiaAux in AlumnoAux.ListaAyudantiasInscritas)
+            {
+
+                ListViewItem Fila = new ListViewItem(AyudantiaAux.ID.ToString());
+                ListViewItem.ListViewSubItem Nombre = new ListViewItem.ListViewSubItem(Fila, AyudantiaAux.NombreRamo);
+                ListViewItem.ListViewSubItem Fecha = new ListViewItem.ListViewSubItem(Fila, AyudantiaAux.Fecha.ToString("MMMM dd, yyyy"));
+
+                Fila.SubItems.Add(Nombre);
+                Fila.SubItems.Add(Fecha);
+                LstAyudantias.Items.Add(Fila);
+            }
 
 
         }
@@ -80,16 +97,9 @@ namespace SeguimientoAlumnos
 
                     }
 
-
-
-                }
-                    
-
-
-
                 }
 
-            
+                }
 
             LstSeguimientos.SelectedItems.Clear();
 
