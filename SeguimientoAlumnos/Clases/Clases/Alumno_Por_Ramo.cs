@@ -144,18 +144,10 @@ namespace Clases
 
 
 
+        
 
 
 
-        public List<string> MostrarSeguimiento(List<Seguimiento> Seg,List<Nota> Not)
-        {
-
-            var Lista = new List<string>();
-
-
-            return Lista;
-
-        }
 
 
     }

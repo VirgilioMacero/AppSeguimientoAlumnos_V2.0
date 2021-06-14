@@ -194,9 +194,9 @@
                         <ColumnDefinition Width="701*"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="Bienvenido" Grid.Column="2" HorizontalAlignment="Left" Margin="2,62,0,0" VerticalAlignment="Top" Height="37" Width="114" FontSize="20"/>
-                    <Label x:Name="LblNombreProfesor" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="94,60,0,0" VerticalAlignment="Top" Height="37" Width="239" FontSize="27" ForceCursor="True"/>
+                    <Label x:Name="LblNombreProfesor" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="116,62,0,0" VerticalAlignment="Top" Height="37" Width="239" FontSize="20" ForceCursor="True"/>
                     <Label Content="Rut" Grid.Column="2" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Height="44" Width="44" FontSize="20"/>
-                    <Label x:Name="LblRutProfesor" Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="64,108,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="20" RenderTransformOrigin="0.5,0.5">
+                    <Label x:Name="LblRutProfesor" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="96,104,0,0" VerticalAlignment="Top" Height="44" Width="174" FontSize="20" RenderTransformOrigin="0.5,0.5">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -230,22 +230,22 @@
                                     <ColumnDefinition Width="11*"/>
                                     <ColumnDefinition Width="103*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button x:Name="BtnMostrarAlumnosAyudantia" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="10,435,0,0" VerticalAlignment="Top" Width="248" Height="38" Background="White" FontSize="16" Foreground="Black" Grid.ColumnSpan="2" />
-                                <ListView x:Name="LstAlumnosInscritos_Copy" HorizontalAlignment="Left" Height="463" Margin="372,10,0,0" VerticalAlignment="Top" Width="236" Background="#FFFFFFF2" Grid.Column="1">
+                                <Button x:Name="BtnMostrarAlumnosAyudantia" Content="Mostrar Alumnos" HorizontalAlignment="Left" Margin="10,435,0,0" VerticalAlignment="Top" Width="212" Height="38" Background="White" FontSize="16" Foreground="Black" Grid.ColumnSpan="2" Click="BtnMostrarAlumnosAyudantia_Click" />
+                                <ListView x:Name="LstAlumnosInscritos_Ayudantia_Todos" HorizontalAlignment="Left" Height="463" Margin="372,10,0,0" VerticalAlignment="Top" Width="236" Background="#FFFBFBE7" Grid.Column="1">
                                     <ListView.View>
                                         <GridView AllowsColumnReorder="true"
                                             ColumnHeaderToolTip="Ramo" >
                                             <GridViewColumn Header="ID" 
                                                 DisplayMemberBinding="{Binding ID}" Width="30"/>
                                             <GridViewColumn Header="Nombre" 
-                                                DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                                DisplayMemberBinding="{Binding Nombre}" Width="100"/>
                                             <GridViewColumn Header="RUT" 
-                                                DisplayMemberBinding="{Binding RUTAlumno}" Width="80"/>
+                                                DisplayMemberBinding="{Binding RUTAlumno}" Width="96"/>
 
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <ListView x:Name="LstRamosAyudantias" HorizontalAlignment="Left" Height="425" Margin="10,10,0,0" VerticalAlignment="Top" Width="248" Background="#FFFFFFF2" Grid.ColumnSpan="2"  >
+                                <ListView x:Name="LstRamosAyudantias" HorizontalAlignment="Left" Height="425" Margin="10,10,0,0" VerticalAlignment="Top" Width="212" Background="#FFFBFBE7" Grid.ColumnSpan="2"  >
                                     <ListView.View>
                                         <GridView AllowsColumnReorder="true"
                                             ColumnHeaderToolTip="Ramo" >
@@ -259,8 +259,7 @@
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <Button x:Name="BtnActualizarAyudantias" Content="Actualizar Ayudantias" HorizontalAlignment="Left" Margin="196.75,118,0,0" VerticalAlignment="Top" Width="170" Height="38" Click="BtnActualizarAyudantias_Click" Background="White" FontSize="16" Grid.Column="1"/>
-                                <Button x:Name="BtnEliminarAyudantia" Content="Eliminar Ayudantia" HorizontalAlignment="Left" Margin="196.75,198,0,0" VerticalAlignment="Top" Width="170" Height="38" Click="BtnEliminarAyudantia_Click" FontSize="16" Background="White" Grid.Column="1"/>
+                                <Button x:Name="BtnEliminarAyudantia" Content="Eliminar Ayudantia" HorizontalAlignment="Left" Margin="176,155,0,0" VerticalAlignment="Top" Width="173" Height="38" Click="BtnEliminarAyudantia_Click" FontSize="16" Background="White" Grid.Column="1"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Crear  Ayudantia" FontSize="16">
@@ -273,7 +272,7 @@
                             <Grid Background="#FFFAFFE2">
                                 <Label Content="Crear Ayudantia" HorizontalAlignment="Center" Margin="302,10,25,0" VerticalAlignment="Top" Height="45" Width="357" FontSize="21" ForceCursor="True" HorizontalContentAlignment="Center"/>
                                 <Label Content="Seleccionar fecha de la ayudantía" HorizontalAlignment="Left" Margin="312,60,0,0" VerticalAlignment="Top" Width="347" Height="32" FontSize="16" HorizontalContentAlignment="Center"/>
-                                <Button x:Name="BtnCrearAyudantia" Content="Registrar" HorizontalAlignment="Left" Margin="554,355,0,0" VerticalAlignment="Top" Width="120" Height="39" Click="BtnCrearAyudantia_Click" Background="White"/>
+                                <Button x:Name="BtnCrearAyudantia" Content="Registrar" HorizontalAlignment="Left" Margin="539,355,0,0" VerticalAlignment="Top" Width="120" Height="39" Click="BtnCrearAyudantia_Click" Background="White"/>
                                 <ListView x:Name="LstRamosDadosAyudantias" HorizontalAlignment="Left" Height="334" Margin="10,60,0,0" VerticalAlignment="Top" Width="274">
                                     <ListView.View>
                                         <GridView AllowsColumnReorder="true"
@@ -281,15 +280,15 @@
                                             <GridViewColumn Header="ID" 
                                                 DisplayMemberBinding="{Binding ID}" Width="30"/>
                                             <GridViewColumn Header="Nombre" 
-                                                DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                                DisplayMemberBinding="{Binding Nombre}" Width="105"/>
                                             <GridViewColumn Header="Codigo" 
-                                                DisplayMemberBinding="{Binding Codigo}" Width="60"/>
+                                                DisplayMemberBinding="{Binding Codigo}" Width="80"/>
                                             <GridViewColumn Header="Seccion" 
                                                 DisplayMemberBinding="{Binding Seccion}" Width="50"/>
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <DatePicker x:Name="SeleccioneFechaAyuda" HorizontalAlignment="Left" Margin="394,97,0,0" VerticalAlignment="Top" Width="189"/>
+                                <DatePicker x:Name="DtpFechaAyuda" HorizontalAlignment="Left" Margin="394,97,0,0" VerticalAlignment="Top" Width="189"/>
                                 <Label Content="Ramos impartidos" HorizontalAlignment="Center" Margin="14,10,400,0" VerticalAlignment="Top" Height="45" Width="270" FontSize="21" ForceCursor="True" HorizontalContentAlignment="Center"/>
                             </Grid>
                         </TabItem>

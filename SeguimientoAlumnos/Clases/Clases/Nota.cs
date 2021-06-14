@@ -25,6 +25,17 @@ namespace Clases
 
         }
 
+        public void SubirNota(int AlumnoId , string NumeroNota,string PuntuacionAux,DateTime Fecha2)
+        {
+            ConexionDataBase.Close();
+            ConexionDataBase.Open();
+            string query = "INSERT INTO nota (id, Id_Alumno_Por_Ramo, NumeroNota, Puntuacion, Fecha) VALUES (NULL, " + AlumnoId + ", '" + NumeroNota + "', '" + PuntuacionAux + "', '" + Fecha2.ToString("u") + "')";
+            MySqlCommand SubirNota = new MySqlCommand(query, ConexionDataBase);
+
+            SubirNota.ExecuteNonQuery();
+
+        }
+
         public void CambiarNota(int IdNota,string Valor)
         {
             ConexionDataBase.Close();

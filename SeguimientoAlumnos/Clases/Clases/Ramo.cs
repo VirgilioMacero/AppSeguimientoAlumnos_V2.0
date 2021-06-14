@@ -41,6 +41,7 @@ namespace Clases
         public void Cargar_Alumnos_Por_Ramo(int id)
         {
             ConexionDataBase.Close();
+            
             var ListaAlumnos2 = new List<Alumno_Por_Ramo>();
             string query = "SELECT * FROM alumno_por_ramo, ramo WHERE alumno_por_ramo.id_Ramo = ramo.id and ramo.id = "+id+"";
             MySqlDataReader LeerAlumnosPorRamo = LeerBaseDeDatos(query).ExecuteReader();
@@ -69,6 +70,7 @@ namespace Clases
         public void Cargar_Ayudantias_Por_Ramo(int IdRamo)
         {
             ConexionDataBase.Close();
+            
             var ListaAyudantias = new List<Ayudantia>();
             string query = "SELECT * FROM ayudantia,ramo WHERE ayudantia.id_Ramo=ramo.id AND ramo.id ="+IdRamo+"";
             MySqlDataReader LeerAyudantiasPorRamo = LeerBaseDeDatos(query).ExecuteReader();

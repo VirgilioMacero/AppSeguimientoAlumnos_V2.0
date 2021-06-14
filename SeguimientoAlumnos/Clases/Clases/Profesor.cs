@@ -43,6 +43,7 @@ namespace Clases
 
         public MySqlCommand LeerBaseDeDatos(string sql)
         {
+            
             ConexionDataBase.Open();
             MySqlCommand Consulta = new MySqlCommand();
             Consulta.Connection = ConexionDataBase;
@@ -95,6 +96,7 @@ namespace Clases
         //###################################Metodo para cargar Ramos Profesor###################################### 
         public List<Ramo> Cargar_Ramos_Profesor(string Rut)
         {
+            ConexionDataBase.Close();
             var ListaDeRamos = new List<Ramo>();
             string query = "SELECT * FROM ramo,profesor_por_ramo,profesor WHERE ramo.id = profesor_por_ramo.id_Ramo and profesor.RUT = profesor_por_ramo.RUT_Porfesor AND profesor.RUT='"+Rut+"'";
             MySqlDataReader LeerRamosProfe = LeerBaseDeDatos(query).ExecuteReader();
@@ -115,20 +117,11 @@ namespace Clases
                 ListaDeRamos.Add(RamoAux);
 
             }
-
+            
             return ListaDeRamos;
         }
 
 
-
-            public Nota IngresarNotaAlumno()
-             {
-
-
-            var Notita = new Nota();
-
-            return Notita;
-             }
 
     }
 }

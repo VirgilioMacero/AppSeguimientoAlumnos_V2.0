@@ -22,7 +22,7 @@ namespace SeguimientoAlumnos
 
             var Profesor1 = new Profesor();
             
-            var Inicio = Profesor1.Inicio_Sesion_Profesor("select * FROM profesor where RUT ='" + this.TxtUsuarioProfesor.Text + "' and Contrasenia ='" + this.TxtContraseniaProfesor.Text + " ' ");
+            var Inicio = Profesor1.Inicio_Sesion_Profesor("select * FROM profesor where RUT ='" + this.TxtUsuarioProfesor.Text + "' and Contrasenia ='" + this.TxtContraseniaProfesor.Password + " ' ");
 
             if (Inicio != null)
             {
@@ -51,7 +51,7 @@ namespace SeguimientoAlumnos
 
             var Alumnno1 = new Alumno();
            
-            var Inicio = Alumnno1.Inicio_Sesion_Alumno("select * FROM alumno where RUT ='" + this.TxtUsuarioAlumno.Text + "' and Contrasenia ='" + this.TxtContraseniaAlumno.Text + " ' ");
+            var Inicio = Alumnno1.Inicio_Sesion_Alumno("select * FROM alumno where RUT ='" + this.TxtUsuarioAlumno.Text + "' and Contrasenia ='" + this.TxtContraseniaAlumno.Password + " ' ");
 
 
 

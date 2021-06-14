@@ -58,6 +58,60 @@ namespace Clases
 
         }
 
+        public void EliminarAyudantia()
+        {
+
+            if (this.ListaAlumnoPorAyudantia.Count == 0)
+            {
+
+                ConexionDataBase.Close();
+                ConexionDataBase.Open();
+
+                string query = "DELETE FROM ayudantia WHERE ayudantia.id ="+this.ID+"";
+
+                MySqlCommand EliminarAyudantia = new MySqlCommand(query, ConexionDataBase);
+
+                EliminarAyudantia.ExecuteNonQuery();
+
+                ConexionDataBase.Close();
+            }
+            else
+            {
+
+                ConexionDataBase.Close();
+                ConexionDataBase.Open();
+                foreach (var AlumnoAyudantia in this.ListaAlumnoPorAyudantia)
+                {
+
+                    AlumnoAyudantia.EliminarDeAyudantia();
+
+                }
+
+                string query = "DELETE FROM ayudantia WHERE ayudantia.id =" + this.ID + "";
+
+                MySqlCommand EliminarAyudantia = new MySqlCommand(query, ConexionDataBase);
+
+               EliminarAyudantia.ExecuteNonQuery();
+
+                ConexionDataBase.Close();
+
+            }
+
+        }
+        public void SubirAyudantia(int IdRamo,DateTime Fecha)
+        {
+            ConexionDataBase.Close();
+            ConexionDataBase.Open();
+            string query = "INSERT INTO ayudantia (id, id_Ramo, Fecha) VALUES(NULL, "+IdRamo+", '"+Fecha.ToString("u")+"')";
+
+            MySqlCommand SubirAyudantia = new MySqlCommand(query, ConexionDataBase);
+
+            SubirAyudantia.ExecuteNonQuery();
+
+            ConexionDataBase.Close();
+
+        }
+
 
     }
 }

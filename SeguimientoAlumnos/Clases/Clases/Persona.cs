@@ -52,6 +52,7 @@ namespace Clases
         public void CargarMensajes(string Destinatario)
         {
             ConexionDataBase.Close();
+            
             var ListaMensajes = new List<Mensaje>();
             string query = "SELECT * FROM mensaje WHERE mensaje.Destinatario = '"+Destinatario+"'";
             MySqlDataReader LeerMensajes = LeerBaseDeDatos(query).ExecuteReader();

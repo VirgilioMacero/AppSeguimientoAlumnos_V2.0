@@ -26,9 +26,6 @@ namespace SeguimientoAlumnos
             var ListaRamosAyudantias = new List<Ayudantia>();
 
            
-                LstRamosDados.ItemsSource = Profe.ListaRamosDados;
-                LstRamosDados_Seguimiento.ItemsSource = Profe.ListaRamosDados;
-                LstRamosDadosAyudantias.ItemsSource = Profe.ListaRamosDados;
                 
             var ListaAyudantias = new List<Ayudantia>();
 
@@ -46,6 +43,10 @@ namespace SeguimientoAlumnos
 
             }
 
+            LstRamosDados.ItemsSource = Profe.ListaRamosDados;
+            LstRamosDados_Seguimiento.ItemsSource = Profe.ListaRamosDados;
+            LstRamosDadosAyudantias.ItemsSource = Profe.ListaRamosDados;
+            LstRamosAyudantias.ItemsSource = ListaAyudantias;
             LstRamosAyudantias.ItemsSource = ListaAyudantias;
             LstRamosDadosEscogidos_Seguimiento.ItemsSource = ListaRamos;
             LstNotificaciones.ItemsSource = Profe.Mensajes;
@@ -128,19 +129,24 @@ namespace SeguimientoAlumnos
 
         private void BtnMostrarNotas_Click(object sender, RoutedEventArgs e)
         {
-            
+            MostrarNotas();
+        }
+        public void MostrarNotas()
+        {
+
             var ListaDeNotas = new List<Nota>();
             var Profe1 = ProfeAux;
 
             if (LstAlumnosInscritos.SelectedItem != null)
             {
             var Seleccion = (Alumno_Por_Ramo)LstAlumnosInscritos.SelectedItem;
-
+            var RamoEscogido = (Ramo)LstRamosDados.SelectedItem;
 
             foreach (var Alumno1 in ListaAlumnos)
             {
                 if (Alumno1.RUTAlumno == Seleccion.RUTAlumno)
                 {
+                    Alumno1.Cargar_Notas_Por_Alumno(RamoEscogido.ID,Alumno1.ID);
                 foreach (var Nota in Alumno1.ListaNotas)
                 {
                     ListaDeNotas.Add(Nota);
@@ -158,9 +164,6 @@ namespace SeguimientoAlumnos
                 MessageBox.Show("Debe seleccionar un valor");
             }
 
-
-
-
         }
 
         private void BtnModificarNota_Click(object sender, RoutedEventArgs e)
@@ -174,8 +177,10 @@ namespace SeguimientoAlumnos
                 var Nota1 = (Nota)LsvNotasAlumno.SelectedItem;
 
                 Nota1.CambiarNota(Nota1.ID,TxtNotaNueva.Text);
-
+                
                 MessageBox.Show("Se modifico la nota");
+                    MostrarNotas();
+                    TxtNotaNueva.Text = string.Empty;
                 }
                 else
                 {
@@ -194,29 +199,29 @@ namespace SeguimientoAlumnos
 
         private void BtnSubirPuntuacion_Click(object sender, RoutedEventArgs e)
         {
-
-            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
-            ConexionDataBase.Open();
             
 
             if (LstAlumnosInscritos.SelectedItem != null)
             {
 
-                var Ramo1 = (Ramo)LstRamosDados.SelectedItem;
-
+                if (TxtNuevaNota.Text != string.Empty && DtpFechaNota.SelectedDate != null)
+                {
                 var Alumno1 = (Alumno_Por_Ramo)LstAlumnosInscritos.SelectedItem;
 
                 string Nota1 = "Nota "+(LsvNotasAlumno.Items.Count + 1);
 
+                var NotaAux = new Nota();
+                NotaAux.SubirNota(Alumno1.ID,Nota1,TxtNuevaNota.Text,DtpFechaNota.SelectedDate.Value);
+                    MessageBox.Show("Se ha subido la nota satisfactoriamente");
+                    TxtNuevaNota.Text = string.Empty;
+                    DtpFechaNota.SelectedDate = null;
+                    MostrarNotas();
 
-
-                string Query = "INSERT INTO nota (id, Id_Alumno_Por_Ramo, NumeroNota, Puntuacion, Fecha) VALUES (NULL, " + Alumno1.ID + ", '"+Nota1+"', " + TxtNuevaNota.Text + ", '"+DtpFechaNota.SelectedDate.Value+"')";
-
-                MySqlCommand CargarNota = new MySqlCommand(Query,ConexionDataBase);
-
-                CargarNota.ExecuteNonQuery();
-
-                ConexionDataBase.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar Todos Los Valores");
+                }
 
             }
             else
@@ -236,32 +241,33 @@ namespace SeguimientoAlumnos
         private void BtnCrearAyudantia_Click(object sender, RoutedEventArgs e)
         {
 
-            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
-            ConexionDataBase.Open();
 
             if (LstRamosDadosAyudantias.SelectedItem != null)
             {
 
-                var Ramo1 = (Ramo)LstRamosDadosAyudantias.SelectedItem;
+                if (DtpFechaAyuda.SelectedDate != null)
+                {
 
+                    var RamoSeleccionado = (Ramo)LstRamosDadosAyudantias.SelectedItem;
 
-                string Query = "INSERT INTO ayudantia (id,id_Ramo,NombreRamo,Fecha) VALUES (NULL, "+Ramo1.ID+",'"+Ramo1.Nombre+"','"+SeleccioneFechaAyuda.SelectedDate.Value.ToString("u")+"')";
+                    var AyudantiaAux = new Ayudantia();
 
-                MySqlCommand CargarNota = new MySqlCommand(Query, ConexionDataBase);
+                    AyudantiaAux.SubirAyudantia(RamoSeleccionado.ID,DtpFechaAyuda.SelectedDate.Value);
 
-                CargarNota.ExecuteNonQuery();
-
-                ConexionDataBase.Close();
-
-
-
-
+                    MessageBox.Show("Se agrego la ayudantia exitosamente");
+                    DtpFechaAyuda.SelectedDate = null;
+                    ActualizarAyudantias();
+                }
+                else
+                {
+                    MessageBox.Show("Debe Seleccionar una Fecha");
+                }
 
             }
             else
             {
 
-                MessageBox.Show("Debe seleccionar algun ramo y tomar mejores deciciones en la vida ");
+                MessageBox.Show("Debe seleccionar algun ramo");
 
             }
 
@@ -270,83 +276,46 @@ namespace SeguimientoAlumnos
 
         }
 
-
-
-        private void BtnActualizarAyudantias_Click(object sender, RoutedEventArgs e)
+        public void ActualizarAyudantias()
         {
 
-
-            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
-            ConexionDataBase.Open();
-            MySqlCommand Consulta2 = new MySqlCommand();
-            Consulta2.Connection = ConexionDataBase;
-            Consulta2.CommandText = "SELECT * FROM ayudantia,ramo WHERE ayudantia.id_Ramo=ramo.id AND ramo.RUT_Profesor='" + LblRutProfesor.Content + "'";
-
-
-            MySqlDataReader Leer2 = Consulta2.ExecuteReader();
-
-            var ListaRamosAyudantias = new List<Ayudantia>();
-
-
-            while (Leer2.Read())
+            
+            var ListaAyudantias = new List<Ayudantia>();
+            foreach (var Ramo1 in ProfeAux.ListaRamosDados)
             {
-
-                if (Convert.ToDateTime(Leer2.GetValue(3)) >= DateTime.Now)
+                Ramo1.Cargar_Ayudantias_Por_Ramo(Ramo1.ID);
+                foreach (var Ayudantia1 in Ramo1.ListaAyudantias)
                 {
 
-                    var Ayudantia1 = new Ayudantia();
-                    Ayudantia1.ID = Convert.ToInt32(Leer2.GetValue(0));
-                    Ayudantia1.NombreRamo = Leer2.GetValue(2).ToString();
-                    Ayudantia1.Fecha = Convert.ToDateTime(Leer2.GetValue(3));
-
-                    ListaRamosAyudantias.Add(Ayudantia1);
-
+                    ListaAyudantias.Add(Ayudantia1);
 
                 }
 
-
             }
 
-            LstRamosAyudantias.ItemsSource = ListaRamosAyudantias;
-
-
-
-            ConexionDataBase.Close();
-
-
+            LstRamosAyudantias.ItemsSource = ListaAyudantias;
 
         }
 
         private void BtnEliminarAyudantia_Click(object sender, RoutedEventArgs e)
         {
-            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
-            ConexionDataBase.Open();
-
             if (LstRamosAyudantias.SelectedItem != null)
             {
 
-                var Ramo1 = (Ayudantia)LstRamosAyudantias.SelectedItem;
+                var AyudantiaEscogida = (Ayudantia)LstRamosAyudantias.SelectedItem;
+                AyudantiaEscogida.Cargar_Alumnos_Por_Ayudantia(AyudantiaEscogida.ID);
+                AyudantiaEscogida.EliminarAyudantia();
 
-
-                string Query = "DELETE FROM ayudantia WHERE ayudantia.id = " + Ramo1.ID + "";
-
-                MySqlCommand CargarNota = new MySqlCommand(Query, ConexionDataBase);
-
-                CargarNota.ExecuteNonQuery();
-
-                ConexionDataBase.Close();
-
-
-
-
+                ActualizarAyudantias();
+                LstAlumnosInscritos_Ayudantia_Todos.ItemsSource = null;
 
             }
             else
             {
-
-                MessageBox.Show("Debe seleccionar algun ramo y tomar mejores deciciones en la vida ");
-
+                MessageBox.Show("Debe seleccionar una Ayudantia para Eliminarla");
             }
+
+
         }
 
         private void BtnsubirSeguimiento_Click(object sender, RoutedEventArgs e)
@@ -593,6 +562,35 @@ namespace SeguimientoAlumnos
             {
                 MessageBox.Show("Debe seleccionar un alumno");
             }
+
+
+        }
+
+        private void BtnMostrarAlumnosAyudantia_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (LstRamosAyudantias.SelectedItem != null)
+            {
+                var ListaAlumnosPorRamo = new List<Alumno_Por_Ramo>();
+                var Ayudantia2 = (Ayudantia)LstRamosAyudantias.SelectedItem;
+                Ayudantia2.Cargar_Alumnos_Por_Ayudantia(Ayudantia2.ID);
+
+                foreach (var AlumnoAux in Ayudantia2.ListaAlumnoPorAyudantia)
+                {
+
+                    ListaAlumnosPorRamo.Add(AlumnoAux.AlumnoInscritoAyudantia);
+
+                }
+
+                LstAlumnosInscritos_Ayudantia_Todos.ItemsSource = ListaAlumnosPorRamo;
+
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar una ayudantia");
+            }
+
+
 
 
         }

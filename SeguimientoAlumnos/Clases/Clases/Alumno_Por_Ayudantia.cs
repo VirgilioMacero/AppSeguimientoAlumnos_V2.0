@@ -31,7 +31,7 @@ namespace Clases
             string query = "SELECT * FROM alumno_por_ramo WHERE alumno_por_ramo.id = "+IdAlumno+"";
             MySqlDataReader LeerAlumnosPorRamo = LeerBaseDeDatos(query).ExecuteReader();
 
-            while (LeerAlumnosPorRamo.Read())
+            if(LeerAlumnosPorRamo.Read())
             {
             var AlumnoAux = new Alumno_Por_Ramo();
 
@@ -43,9 +43,23 @@ namespace Clases
 
             }
 
-            this.AlumnoInscritoAyudantia = null;
+           
 
 
+        }
+        public void EliminarDeAyudantia()
+        {
+
+            ConexionDataBase.Close();
+            ConexionDataBase.Open();
+
+            string query = "DELETE FROM alumno_por_ayudantia WHERE alumno_por_ayudantia.id ="+this.ID+"";
+
+            MySqlCommand EliminarAlumnoAyudantia = new MySqlCommand(query, ConexionDataBase);
+
+            EliminarAlumnoAyudantia.ExecuteNonQuery();
+
+            ConexionDataBase.Close();
         }
 
 
