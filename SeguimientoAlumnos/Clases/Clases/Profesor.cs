@@ -76,6 +76,7 @@ namespace Clases
                 ConexionDataBase.Close();
                 Profesor1.ListaRamosDados = Cargar_Ramos_Profesor(Profesor1.RUT);
                 ConexionDataBase.Close();
+                Profesor1.CargarMensajes(Profesor1.Correo);
                 
 
 
@@ -95,17 +96,17 @@ namespace Clases
         public List<Ramo> Cargar_Ramos_Profesor(string Rut)
         {
             var ListaDeRamos = new List<Ramo>();
-            string query = "SELECT * FROM ramo,profesor WHERE ramo.RUT_Profesor=profesor.RUT and ramo.RUT_Profesor ='" + Rut + "'";
+            string query = "SELECT * FROM ramo,profesor_por_ramo,profesor WHERE ramo.id = profesor_por_ramo.id_Ramo and profesor.RUT = profesor_por_ramo.RUT_Porfesor AND profesor.RUT='"+Rut+"'";
             MySqlDataReader LeerRamosProfe = LeerBaseDeDatos(query).ExecuteReader();
 
             while (LeerRamosProfe.Read())
             {
                 var RamoAux = new Ramo();
                 RamoAux.ID = Convert.ToInt32(LeerRamosProfe.GetValue(0));
-                RamoAux.Codigo = LeerRamosProfe.GetString(4);
-                RamoAux.Nombre = LeerRamosProfe.GetString(3);
-                RamoAux.RUTProfesor = LeerRamosProfe.GetString(2);
-                RamoAux.Seccion = LeerRamosProfe.GetInt32(5);
+                RamoAux.Codigo = LeerRamosProfe.GetString(3);
+                RamoAux.Nombre = LeerRamosProfe.GetString(2);
+                RamoAux.RUTProfesor = LeerRamosProfe.GetString(6);
+                RamoAux.Seccion = LeerRamosProfe.GetInt32(4);
                 
                 RamoAux.Cargar_Alumnos_Por_Ramo(RamoAux.ID);
                 

@@ -34,7 +34,7 @@ namespace SeguimientoAlumnos
             foreach (var Nota in AlumnoAux.ListaNotas)
             {
 
-                Series serie = GraficoSeguimiento.Series.Add(Nota.NumeroNota +"_"+ Nota.Fecha.ToString("MMMM dd, yyyy"));
+                Series serie = GraficoSeguimiento.Series.Add(Nota.NumeroNota +" \nFecha : "+ Nota.Fecha.ToString("MMMM dd, yyyy")+"\n");
                 serie.Label = Nota.Puntacion.ToString();
                 serie.Points.Add(Nota.Puntacion);
 
@@ -104,5 +104,7 @@ namespace SeguimientoAlumnos
             LstSeguimientos.SelectedItems.Clear();
 
         }
+
+
     }
 }

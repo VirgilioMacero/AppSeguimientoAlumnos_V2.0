@@ -19,7 +19,7 @@
                         <ColumnDefinition Width="41*"/>
                     </Grid.ColumnDefinitions>
                     <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
-                        <TabItem Header="Atención" Margin="55,0,-59,-2">
+                        <TabItem Header="Atención" Margin="63,0,-67,-2">
                             <Grid Background="#FFE5E5E5">
                                 <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFF2FDCA">
                                     <ListBox x:Name="lboxAtencion" HorizontalAlignment="Left" Height="380" Margin="10,10,0,0" VerticalAlignment="Top" Width="134"/>
@@ -29,45 +29,7 @@
                                 </Grid>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Asistencia" Margin="60,-2,-64,0">
-                            <Grid Background="#FFE5E5E5">
-                                <Grid HorizontalAlignment="Left" Height="313" Margin="10,10,0,0" VerticalAlignment="Top" Width="417">
-                                    <TabControl HorizontalAlignment="Left" Height="396" VerticalAlignment="Top" Width="417" RenderTransformOrigin="0.505,0.767" Margin="0,0,0,-83">
-                                        <TabItem Header="General">
-                                            <Grid Background="#FFE5E5E5">
-                                                <Grid HorizontalAlignment="Left" Height="348" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFEFE7FF">
-                                                    <ListBox x:Name="lboxGeneralAsistencia" HorizontalAlignment="Left" Height="328" Margin="10,10,0,0" VerticalAlignment="Top" Width="371">
-                                                        <ListBoxItem Content="Fecha - Ramo - Estado (Presente/Ausente)"/>
-                                                        <ListBoxItem Content="01/05/2021 -- Taller de programación -- Presente"/>
-                                                    </ListBox>
-                                                </Grid>
-                                            </Grid>
-                                        </TabItem>
-                                        <TabItem Header="Filtros" HorizontalAlignment="Left" Width="43">
-                                            <Grid Background="#FFE5E5E5">
-                                                <Grid HorizontalAlignment="Left" Height="348" Margin="10,10,0,0" VerticalAlignment="Top" Width="139" Background="#FFE4FFE0">
-                                                    <Label Content="Fecha (##/##/####)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="119"/>
-                                                    <TextBox x:Name="txtFiltroAsisFecha" HorizontalAlignment="Left" Height="23" Margin="12,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
-                                                    <Label Content="Nombre ramo" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="117"/>
-                                                    <TextBox x:Name="txtFiltroAsisRamo" HorizontalAlignment="Left" Height="23" Margin="12,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
-                                                    <Label Content="Estado" HorizontalAlignment="Left" Margin="12,118,0,0" VerticalAlignment="Top" Width="117"/>
-                                                    <ComboBox x:Name="cboxFiltroAsisEstado" HorizontalAlignment="Left" Margin="12,144,0,0" VerticalAlignment="Top" Width="119">
-                                                        <ComboBoxItem Content="Ambos" HorizontalAlignment="Left" Width="117"/>
-                                                        <ComboBoxItem Content="Presente" HorizontalAlignment="Left" Width="117"/>
-                                                        <ComboBoxItem Content="Ausente" HorizontalAlignment="Left" Width="117"/>
-                                                    </ComboBox>
-                                                    <Button x:Name="btnFiltroAsisFiltrar" Content="Filtrar" HorizontalAlignment="Left" Margin="12,215,0,0" VerticalAlignment="Top" Width="117" Click="btnFiltroAsisFiltrar_Click"/>
-                                                </Grid>
-                                                <ListBox x:Name="lboxFiltroAsistencia" HorizontalAlignment="Left" Height="348" Margin="154,10,0,0" VerticalAlignment="Top" Width="247">
-                                                    <ListBoxItem Content="Búsqueda correspondiente"/>
-                                                </ListBox>
-                                            </Grid>
-                                        </TabItem>
-                                    </TabControl>
-                                </Grid>
-                            </Grid>
-                        </TabItem>
-                        <TabItem Header="Calificaciones" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="87" Margin="65,0,-65,0">
+                        <TabItem Header="Calificaciones" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="87" Margin="67,0,-67,0">
                             <Grid Background="#FFE5E5E5">
                                 <ListView x:Name="LstRamosActuales" HorizontalAlignment="Left" Height="371" Margin="10,10,0,0" VerticalAlignment="Top" Width="257">
                                     <ListView.View>
@@ -94,7 +56,7 @@
                                 </ListView>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Inicio" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" Margin="-211,0,0,0">
+                        <TabItem Header="Inicio" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="64" Margin="-146,0,0,0">
                             <Grid Background="#FFE5E5E5">
                                 <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFDAFDFF">
                                     <Label x:Name="lblBienvenido" Content="Bienvenido " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="397" Height="43" FontSize="20" HorizontalContentAlignment="Center"/>

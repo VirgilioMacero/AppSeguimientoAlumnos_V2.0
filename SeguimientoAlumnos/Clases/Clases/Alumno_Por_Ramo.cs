@@ -113,14 +113,32 @@ namespace Clases
                 var AyudantiaAux = new Ayudantia();
 
                 AyudantiaAux.ID = LeerAyudantiasPorAlumno.GetInt32(0);
-                AyudantiaAux.NombreRamo = LeerAyudantiasPorAlumno.GetString(2);
-                AyudantiaAux.Fecha = LeerAyudantiasPorAlumno.GetDateTime(3);
+                AyudantiaAux.NombreRamo = LeerAyudantiasPorAlumno.GetString(5);
+                AyudantiaAux.Fecha = LeerAyudantiasPorAlumno.GetDateTime(2);
 
                 ListaAyudantiaAux.Add(AyudantiaAux);
 
             }
 
             this.ListaAyudantiasInscritas = ListaAyudantiaAux;
+
+        }
+        public string MostrarCorreo(string Rut)
+        {
+            ConexionDataBase.Close();
+            var ListaSeguimientos = new List<Seguimiento>();
+            string query = "SELECT Correo FROM alumno,alumno_por_ramo WHERE alumno_por_ramo.RUT_Alumno=alumno.RUT AND alumno_por_ramo.RUT_Alumno ='"+Rut+"'";
+            MySqlDataReader LeerCorreoAlumno = LeerBaseDeDatos(query).ExecuteReader();
+
+            if (LeerCorreoAlumno.Read())
+            {
+
+                string Correo = LeerCorreoAlumno.GetString(0);
+
+                return Correo;
+            }
+
+            return null;
 
         }
 

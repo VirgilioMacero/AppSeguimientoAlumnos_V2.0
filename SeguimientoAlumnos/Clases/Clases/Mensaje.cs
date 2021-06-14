@@ -12,7 +12,7 @@ namespace Clases
     {
 
         //Se agrego estos atributos 
-
+        MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
         public int ID { get; set; } 
 
         public string Remitente { get; set; }
@@ -27,5 +27,33 @@ namespace Clases
 
         public bool Leido { get; set; }
 
+        public MySqlCommand LeerBaseDeDatos(string sql)
+        {
+            ConexionDataBase.Open();
+            MySqlCommand Consulta = new MySqlCommand();
+            Consulta.Connection = ConexionDataBase;
+            Consulta.CommandText = (sql);
+
+            return Consulta;
+
+        }
+
+        public void SeLeyo(int Id)
+        {
+            ConexionDataBase.Close();
+            ConexionDataBase.Open();
+            string query = "UPDATE mensaje SET Leido = 1 WHERE mensaje.id ="+Id+"";
+            MySqlCommand CargarSeLeyo = new MySqlCommand(query, ConexionDataBase);
+
+            CargarSeLeyo.ExecuteNonQuery();
+
+
+        }
+
     }
+
+    
+
+
+
 }

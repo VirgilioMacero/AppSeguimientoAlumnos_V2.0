@@ -78,7 +78,7 @@ namespace Clases
 
             var ListaDePlanes = new List<Plan_De_Estudio>();
 
-            string query = "SELECT * FROM plan_de_estudio,alumno WHERE plan_de_estudio.RUT_Alumno = alumno.RUT AND plan_de_estudio.RUT_Alumno = '"+Rut+"'";
+            string query = "SELECT * FROM plan_de_estudio,alumno_por_plan_de_estudio,alumno WHERE alumno.RUT=alumno_por_plan_de_estudio.RUT_Alumno AND plan_de_estudio.id = alumno_por_plan_de_estudio.Id_Plan_Estudio AND alumno.RUT='"+Rut+"'";
             MySqlDataReader LeerPlanesDeEstudio = LeerBaseDeDatos(query).ExecuteReader();
 
             while (LeerPlanesDeEstudio.Read())

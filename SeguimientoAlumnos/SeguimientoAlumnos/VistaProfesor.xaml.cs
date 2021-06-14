@@ -47,8 +47,9 @@ namespace SeguimientoAlumnos
             }
 
             LstRamosAyudantias.ItemsSource = ListaAyudantias;
-            LstRamosDadosEscogidos_Seguimiento.ItemsSource = ListaRamos; 
-
+            LstRamosDadosEscogidos_Seguimiento.ItemsSource = ListaRamos;
+            LstNotificaciones.ItemsSource = Profe.Mensajes;
+            LstRamosDados_Mensaje.ItemsSource = ListaRamos;
             ProfeAux = Profe;
 
 
@@ -164,34 +165,30 @@ namespace SeguimientoAlumnos
 
         private void BtnModificarNota_Click(object sender, RoutedEventArgs e)
         {
-            var ListaModificacionesNota = new List<string>();
-            var ListaNotas = new List<Nota>();
-            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
-            ConexionDataBase.Open();
-            MySqlCommand ConsultaNotas = new MySqlCommand();
-            ConsultaNotas.Connection = ConexionDataBase;
 
-            if (CmbSeleccionarNota.SelectedItem != null)
+            if (LsvNotasAlumno.SelectedItem != null)
             {
-                var Ramo1 = new Ramo();
-                Ramo1 = (Ramo)LstRamosDados.SelectedItem;
+                if (TxtNotaNueva.Text != null)
+                {
 
-                var Persona1 = new Alumno_Por_Ramo();
-                Persona1 = (Alumno_Por_Ramo)LstAlumnosInscritos.SelectedItem;
+                var Nota1 = (Nota)LsvNotasAlumno.SelectedItem;
 
-                var Nota1 = CmbSeleccionarNota.SelectedItem.ToString();
-                string Nota = TxtNotaNueva.Text;
+                Nota1.CambiarNota(Nota1.ID,TxtNotaNueva.Text);
 
-                ConsultaNotas.CommandText = $"UPDATE nota,lista_alumnos,ramo,alumno SET nota.Puntuacion ={Nota} WHERE nota.Lista_Alumnos_Id= lista_alumnos.id and ramo.Codigo ='{Ramo1.Codigo}' and ramo.Seccion ={Ramo1.Seccion} and alumno.RUT ='{Persona1.RUTAlumno}' and nota.NumeroNota='{Nota1}'";
-                MySqlDataReader LeerNotas = ConsultaNotas.ExecuteReader();
-
-                LeerNotas.Read();
+                MessageBox.Show("Se modifico la nota");
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar un valor en la barra de texto");
+                }
 
             }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una nota para Cambiarla");
+            }
 
-
-            ConexionDataBase.Close();
-
+          
 
         }
 
@@ -463,6 +460,138 @@ namespace SeguimientoAlumnos
             else
             {
                 MessageBox.Show("Debe Seleccionar un Ramo");
+            }
+
+
+        }
+
+        private void LstNotificaciones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+            if (LstNotificaciones.SelectedItem != null)
+            {
+
+            var NotificacionAux = (Mensaje)LstNotificaciones.SelectedItem;
+
+                foreach (var Noti in ProfeAux.Mensajes)
+                {
+
+                    if (Noti.ID == NotificacionAux.ID)
+                    {
+
+                        TxtbNotifContenido.Text = Noti.Cuerpo;
+                        LblAsuntoMensaje.Content = Noti.Titulo;
+                        LblRemitenteMensaje.Content = Noti.Remitente;
+                        LblFechaMensaje.Content = Noti.Fecha.ToString("MMMM dd, yyyy");
+                        Noti.SeLeyo(Noti.ID);
+
+                    }
+
+                }
+
+            }
+
+
+            
+
+
+        }
+
+        private void BtnEnviarMensaje_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (LstRamosDados_Mensaje.SelectedItem != null)
+            {
+
+                if (CmbDestinatario.SelectedItem != null && TxtAsunto.Text != string.Empty && TxtMensajeRemitente.Text != string.Empty)
+                {
+                    
+                    ProfeAux.EnviarMensaje(ProfeAux.Correo,CmbDestinatario.SelectedItem.ToString(),TxtAsunto.Text,TxtMensajeRemitente.Text,DateTime.Now,false);
+
+                    MessageBox.Show("El mensaje se envio con esxito");
+
+                    CmbDestinatario.ItemsSource = null;
+                    TxtAsunto.Text = string.Empty;
+                    TxtMensajeRemitente.Text = string.Empty;
+
+                }
+                else
+                {
+                    MessageBox.Show("Debe Ingresar todos los Valores");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un Ramo");
+            }
+
+
+        }
+
+        private void LstRamosDados_Mensaje_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+
+            if (LstRamosDados_Mensaje.SelectedItem != null)
+            {
+
+                var ListaCorreos = new List<string>();
+                var Seleccionado = (Ramo)LstRamosDados_Mensaje.SelectedItem;
+
+                foreach (var Ramo1 in ListaRamos)
+                {
+                    if (Seleccionado.ID == Ramo1.ID)
+                    {
+
+                        foreach (var Alumno1 in Ramo1.ListaAlumnos)
+                        {
+
+                            ListaCorreos.Add(Alumno1.MostrarCorreo(Alumno1.RUTAlumno));
+
+                        }
+
+                    }
+
+
+                }
+
+                CmbDestinatario.ItemsSource = ListaCorreos;
+
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un Ramo");
+            }
+
+
+
+
+        }
+
+        private void BtnLimpiarControlesMensaje_Click(object sender, RoutedEventArgs e)
+        {
+            CmbDestinatario.ItemsSource = null;
+            TxtAsunto.Text = string.Empty;
+            TxtMensajeRemitente.Text = string.Empty;
+        }
+
+        private void BtnMostrar_Ayudantias_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (LstAlumnosInscritos_Seguimiento.SelectedItem != null)
+            {
+                var RamoSeleccionado = (Ramo)LstRamosDados_Seguimiento.SelectedItem;
+                var AlumnoSeleccionado = (Alumno_Por_Ramo)LstAlumnosInscritos_Seguimiento.SelectedItem;
+
+                AlumnoSeleccionado.CargarAyudantiasInscritas(RamoSeleccionado.ID,AlumnoSeleccionado.ID);
+
+                LstRamosAyudantias_Para_Seguimiento.ItemsSource = AlumnoSeleccionado.ListaAyudantiasInscritas;
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un alumno");
             }
 
 

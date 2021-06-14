@@ -75,13 +75,13 @@ namespace Clases
 
             while (LeerAyudantiasPorRamo.Read())
             {
-                if (LeerAyudantiasPorRamo.GetDateTime(3) >= DateTime.Now)
+                if (LeerAyudantiasPorRamo.GetDateTime(2) >= DateTime.Now)
                 {
 
                 var AyudantiaAux = new Ayudantia();
                 AyudantiaAux.ID = LeerAyudantiasPorRamo.GetInt32(0);
-                AyudantiaAux.NombreRamo = LeerAyudantiasPorRamo.GetString(2);
-                AyudantiaAux.Fecha = LeerAyudantiasPorRamo.GetDateTime(3);
+                AyudantiaAux.NombreRamo = LeerAyudantiasPorRamo.GetString(5);
+                AyudantiaAux.Fecha = LeerAyudantiasPorRamo.GetDateTime(2);
                 
                  AyudantiaAux.Cargar_Alumnos_Por_Ayudantia(AyudantiaAux.ID);
                 

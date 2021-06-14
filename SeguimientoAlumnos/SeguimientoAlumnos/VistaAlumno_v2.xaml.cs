@@ -25,7 +25,7 @@ namespace SeguimientoAlumnos
         {
             InitializeComponent();
             var Alumnito = new Alumno(Alumnito2);
-            this.cboxFiltroAsisEstado.SelectedIndex = 0;
+           // this.cboxFiltroAsisEstado.SelectedIndex = 0;
             //Ventana Seguimiento/Inicio
             this.lblBienvenido.Content = "Bienvenido " + Alumnito2.Nombre;
             this.txtbInicio.Text = "";
@@ -77,31 +77,7 @@ namespace SeguimientoAlumnos
 
 
         }
-        //public void cargarNotificacionesAtencion()//Código para mostrar el prototipo, las verdaderas notificaciones se cargarán desde la base de datos
-        //{
-        //    Notificacion n1 = new Notificacion();
-        //    n1.setContenido(1);
-        //    Notificacion n2 = new Notificacion();
-        //    n2.setContenido(2);
-        //    this.notificacionesAtencion.Add(n1);
-        //    this.notificacionesAtencion.Add(n2);
-        //    foreach(Notificacion n in notificacionesAtencion)
-        //    {
-        //        this.lboxAtencion.Items.Add(n.getTitulo());
-        //    }
-        //}
 
-        private void btnFiltroAsisFiltrar_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.txtFiltroAsisFecha.Text == "" || this.txtFiltroAsisRamo.Text == "")
-            {
-                MessageBox.Show("Ingrese datos válidos");
-            }
-            else
-            {
-                //codigo
-            }
-        }
 
         private void btnSoporteEnviar_Click(object sender, RoutedEventArgs e)
         {

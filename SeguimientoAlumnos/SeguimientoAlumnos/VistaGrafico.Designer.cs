@@ -56,6 +56,7 @@ namespace SeguimientoAlumnos
             this.GraficoSeguimiento.Text = "Grafico Seguimiento";
             title1.Name = "titulo 1";
             this.GraficoSeguimiento.Titles.Add(title1);
+            
             // 
             // LstSeguimientos
             // 
