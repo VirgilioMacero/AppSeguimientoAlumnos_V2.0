@@ -97,6 +97,26 @@ namespace Clases
             this.ListaAyudantias = ListaAyudantias;
 
         }
+        public string CargarCorreoProfe(int IdRamo)
+        {
+            ConexionDataBase.Close();
+            var ListaDeNotas = new List<Nota>();
+            string query = "SELECT * FROM profesor,profesor_por_ramo,ramo WHERE profesor.RUT = profesor_por_ramo.RUT_Porfesor AND profesor_por_ramo.id_Ramo = ramo.id AND ramo.id = " + IdRamo + "";
+            MySqlDataReader LeerCorreoPorRamo = LeerBaseDeDatos(query).ExecuteReader();
+
+            if (LeerCorreoPorRamo.Read())
+            {
+
+                string CorreoP = LeerCorreoPorRamo.GetString(3);
+                return CorreoP;
+
+            }
+            else
+            {
+                return null;
+            }
+
+        }
 
 
 

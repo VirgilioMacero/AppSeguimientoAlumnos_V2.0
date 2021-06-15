@@ -34,19 +34,23 @@
                                 <ListView x:Name="LstRamosActuales" HorizontalAlignment="Left" Height="371" Margin="10,10,0,0" VerticalAlignment="Top" Width="257">
                                     <ListView.View>
                                         <GridView>
+                                            <GridViewColumn Header="ID" 
+												DisplayMemberBinding="{Binding ID}" Width="20"/>
                                             <GridViewColumn Header="Nombre-Ramo" 
 												DisplayMemberBinding="{Binding Nombre}" Width="90"/>
                                             <GridViewColumn Header="Codigo" 
 												DisplayMemberBinding="{Binding Codigo}" Width="80"/>
                                             <GridViewColumn Header="Seccion" 
-												DisplayMemberBinding="{Binding Seccion}" Width="80"/>
+												DisplayMemberBinding="{Binding Seccion}" Width="70"/>
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <Button x:Name="BtnMostrarNotasAlumn" Content="Mostrar calificaciones" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="-0.153,-1.173" Click="BtnMostrarNotasAlumn_Click"/>
-                                <ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="371" Margin="272,10,0,0" VerticalAlignment="Top" Width="155">
+                                <Button x:Name="BtnMostrarNotasAlumn" Content="Mostrar calificaciones" HorizontalAlignment="Left" Margin="10,381,0,0" VerticalAlignment="Top" Width="257" RenderTransformOrigin="-0.153,-1.173" Click="BtnMostrarNotasAlumn_Click" Height="25"/>
+                                <ListView x:Name="LstMostarNotas" HorizontalAlignment="Left" Height="371" Margin="304,10,0,0" VerticalAlignment="Top" Width="180">
                                     <ListView.View>
                                         <GridView>
+                                            <GridViewColumn Header="ID" 
+												DisplayMemberBinding="{Binding ID}" Width="30"/>
                                             <GridViewColumn Header="Numero Nota" 
 												DisplayMemberBinding="{Binding NumeroNota}" Width="80"/>
                                             <GridViewColumn Header="Puntaje" 
@@ -90,118 +94,66 @@
                         <ColumnDefinition Width="213*"/>
                         <ColumnDefinition Width="145*"/>
                     </Grid.ColumnDefinitions>
-                    <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
-                        <TabItem Header="Profesores">
-                            <Grid Background="#FFE5E5E5">
-                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFECFFDC">
-                                    <Label Content="Origen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" HorizontalContentAlignment="Center" RenderTransformOrigin="0.543,-0.231"/>
-                                    <ComboBox x:Name="cboxUniProfOrigen" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="134">
-                                        <ComboBoxItem Content="Mis profesores" HorizontalAlignment="Left" Width="118"/>
-                                        <ComboBoxItem Content="Todos los profesores" HorizontalAlignment="Left" Width="118"/>
-                                    </ComboBox>
-                                    <ComboBox x:Name="cboxUniProfEscuela" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="134">
-                                        <ComboBoxItem Content="Facultad de ciencias" HorizontalAlignment="Left" Width="132"/>
-                                    </ComboBox>
-                                    <Label Content="Escuela" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="134" HorizontalContentAlignment="Center"/>
-                                    <Label Content="Ramo" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.231" Width="234" HorizontalContentAlignment="Center"/>
-                                    <ComboBox x:Name="cboxUniProfRamo" HorizontalAlignment="Left" Margin="173,36,0,0" VerticalAlignment="Top" Width="234">
-                                        <ComboBoxItem Content="Programación I" HorizontalAlignment="Left" Width="232"/>
-                                        <ComboBoxItem Content="Algebra VI" HorizontalAlignment="Left" Width="232"/>
-                                    </ComboBox>
-                                    <Button x:Name="btnUniProfBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="332,86,0,0" VerticalAlignment="Top" Width="75"/>
-                                    <ListBox x:Name="lboxUniProfList" HorizontalAlignment="Left" Height="159" VerticalAlignment="Top" Width="397" Margin="10,111,0,0">
-                                        <ListBoxItem Content="Luis Torres --- Facultad de ciencias --- Programación I"/>
-                                        <ListBoxItem Content="Alejando magno --- Facultad de ciencias --- Programación I"/>
-                                    </ListBox>
-                                    <TextBlock x:Name="txtbUniProfDatos" HorizontalAlignment="Left" Margin="10,275,0,0" TextWrapping="Wrap" Text="Acá se podrá consultar sobre los profesores disponibles en la universidad, para establecer un oportuno contacto para tratar cualquier situación que requiera un contacto rápido y directo entre profesor y alumno" VerticalAlignment="Top" Height="88" Width="397"/>
-                                    <Button x:Name="btnUniProfContacto" Content="Contacto" HorizontalAlignment="Left" Margin="332,370,0,0" VerticalAlignment="Top" Width="75"/>
-                                </Grid>
-                            </Grid>
-                        </TabItem>
-                        <TabItem Header="Ayudantías" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="72" Margin="-2,-2,-16,0">
-                            <Grid Background="#FFE5E5E5">
-                                <TabControl HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417">
-                                    <TabItem Header="Mis ayudantías">
-                                        <Grid Background="#FFE5E5E5">
-                                            <Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFDBD8FF">
-                                                <ListBox x:Name="lboxMisAyudantias" HorizontalAlignment="Left" Height="166" Margin="10,10,0,0" VerticalAlignment="Top" Width="371">
-                                                    <ListBoxItem Content="##/##/#### // ##:## - ##:## // Ramo"/>
-                                                    <ListBoxItem Content="31/10/2021 // 12:00 - 13:20 // Programación I"/>
-                                                    <ListBoxItem Content="04/05/2021 // 15:30 - 16:50 // Algebra VI"/>
-                                                </ListBox>
-                                                <TextBlock x:Name="txtbMisAyudInfo" HorizontalAlignment="Left" Margin="10,181,0,0" TextWrapping="Wrap" Text="Info ayudantia selecionada" VerticalAlignment="Top" Height="161" Width="371"/>
-                                            </Grid>
-                                        </Grid>
-                                    </TabItem>
-                                    <TabItem Header="Inscripciones">
-                                        <Grid Background="#FFE5E5E5">
-                                            <Grid HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" Background="#FFE5FFE2">
-                                                <Label Content="Seleccionar ramo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="371" HorizontalContentAlignment="Center"/>
-                                                <TextBlock x:Name="txtbAyudInscInfo" HorizontalAlignment="Left" Margin="10,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="115" Width="371"><Run Text="Acá "/><Run Text="Puedes seleccionar la ayudantía de el ramo en el que estés inscrito dependiendo de si tu profesor lo permite"/></TextBlock>
-                                                <Button x:Name="btnAyudInscEnviar" Content="Registrar" HorizontalAlignment="Left" Margin="272,302,0,0" VerticalAlignment="Top" Width="109" Height="41" Click="btnAyudInscEnviar_Click"/>
-                                                <ListView x:Name="LstAyudantiasDisponibles" HorizontalAlignment="Left" Height="114" Margin="10,68,0,0" VerticalAlignment="Top" Width="371">
-                                                    <ListView.View>
-                                                        <GridView AllowsColumnReorder="true"
-                                            ColumnHeaderToolTip="Ramo" >
-                                                            <GridViewColumn Header="ID" 
-                                                DisplayMemberBinding="{Binding ID}" Width="30"/>
-                                                            <GridViewColumn Header="Ramo" 
-                                                DisplayMemberBinding="{Binding NombreRamo}" Width="100"/>
-                                                            <GridViewColumn Header="Fecha" 
-                                                DisplayMemberBinding="{Binding Fecha}" Width="90"/>
-
-                                                        </GridView>
-                                                    </ListView.View>
-                                                </ListView>
-                                                <ComboBox x:Name="CmbRamosRegistroAyudantias" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="371" Height="22" SelectionChanged="CmbRamosRegistroAyudantias_SelectionChanged"/>
-                                            </Grid>
-                                        </Grid>
-                                    </TabItem>
-                                </TabControl>
-                            </Grid>
-                        </TabItem>
-                    </TabControl>
+                    <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Contacto" Margin="1,0,-1,0">
+            <TabItem Header="Ayudantías" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="72" Margin="1,0,-1,0">
                 <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="271*"/>
-                        <ColumnDefinition Width="192*"/>
-                    </Grid.ColumnDefinitions>
-                    <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2">
-                        <TabItem Header="Soporte general">
+                    <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="500">
+                        <TabItem Header="Mis ayudantías">
                             <Grid Background="#FFE5E5E5">
-                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFD0F9F9">
-                                    <Label Content="Motivo de solicitud" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="178"/>
-                                    <ComboBox x:Name="cboxSoporteMotivo" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="397">
-                                        <ComboBoxItem Content="Problema con la aplicación" HorizontalAlignment="Left" Width="395"/>
-                                        <ComboBoxItem Content="Dudas" HorizontalAlignment="Left" Width="395"/>
-                                        <ComboBoxItem Content="Otro motivo" HorizontalAlignment="Left" Width="395"/>
-                                    </ComboBox>
-                                    <Label Content="Título de la solicitud" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="txtSoporteTItulo" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
-                                    <Label Content="Descripción" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="txtSoporteDesc" HorizontalAlignment="Left" Height="203" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
-                                    <Button x:Name="btnSoporteEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="290,356,0,0" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.507,2.9" Click="btnSoporteEnviar_Click" Height="34"/>
+                                <Grid HorizontalAlignment="Left" Height="410" Margin="10,10,0,0" VerticalAlignment="Top" Width="484" Background="#FFDBD8FF">
+                                    <ListView x:Name="LstAyudantiasDisponibles_Escogidas" HorizontalAlignment="Left" Height="274" Margin="106,101,0,0" VerticalAlignment="Top" Width="269">
+                                        <ListView.View>
+                                            <GridView AllowsColumnReorder="true"
+                                                ColumnHeaderToolTip="Ramo" >
+                                                <GridViewColumn Header="ID" 
+                                                    DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                                <GridViewColumn Header="Ramo" 
+                                                    DisplayMemberBinding="{Binding NombreRamo}" Width="100"/>
+                                                <GridViewColumn Header="Fecha" 
+                                                    DisplayMemberBinding="{Binding Fecha}" Width="150"/>
+
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <Label Content="Ayudantias Escogidas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="40" Width="464" HorizontalContentAlignment="Center" FontSize="20"/>
                                 </Grid>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Apoyo estudiantil">
+                        <TabItem Header="Inscripciones">
                             <Grid Background="#FFE5E5E5">
-                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFECFFD5">
-                                    <Label Content="Seleccione una categoría" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="397"/>
-                                    <ComboBox x:Name="cboxApoyoCategoria" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="397">
-                                        <ComboBoxItem Content="Tengo problemas para estudiar" HorizontalAlignment="Left" Width="395"/>
-                                        <ComboBoxItem Content="No tengo acceso a ciertos servicios" HorizontalAlignment="Left" Width="395"/>
-                                        <ComboBoxItem Content="Desmotivación" HorizontalAlignment="Left" Width="395"/>
-                                        <ComboBoxItem Content="Otro" HorizontalAlignment="Left" Width="395"/>
-                                    </ComboBox>
-                                    <TextBox x:Name="txtApoyoMensaje" HorizontalAlignment="Left" Height="217" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
-                                    <Label Content="Título de la solicitud" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="125"/>
-                                    <TextBox x:Name="txtApoyoTitulo" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
-                                    <Button x:Name="btnApoyoEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="332,370,0,0" VerticalAlignment="Top" Width="75"/>
-                                    <Label Content="Descripción" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.184,-0.038" Width="165"/>
+                                <Grid HorizontalAlignment="Left" Height="410" Margin="10,10,0,0" VerticalAlignment="Top" Width="484" Background="#FFE5FFE2">
+                                    <Label Content="Seleccionar ramo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="464" HorizontalContentAlignment="Center"/>
+                                    <Button x:Name="BtnRegistrarAyudantia" Content="Registrar" HorizontalAlignment="Left" Margin="247,359,0,0" VerticalAlignment="Top" Width="227" Height="41" Click="btnAyudInscEnviar_Click"/>
+                                    <ListView x:Name="LstAyudantiasDisponibles" HorizontalAlignment="Left" Height="290" Margin="247,69,0,0" VerticalAlignment="Top" Width="227">
+                                        <ListView.View>
+                                            <GridView AllowsColumnReorder="true"
+                                            ColumnHeaderToolTip="Ramo" >
+                                                <GridViewColumn Header="ID" 
+                                                DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                                <GridViewColumn Header="Ramo" 
+                                                DisplayMemberBinding="{Binding NombreRamo}" Width="100"/>
+                                                <GridViewColumn Header="Fecha" 
+                                                DisplayMemberBinding="{Binding Fecha}" Width="90"/>
+
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <ListView x:Name="LstRamosActuales_Ayudantias" HorizontalAlignment="Left" Height="331" Margin="10,69,0,0" VerticalAlignment="Top" Width="230">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="ID" 
+                                                    DisplayMemberBinding="{Binding ID}" Width="20"/>
+                                                <GridViewColumn Header="Ramo" 
+                                                    DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                                <GridViewColumn Header="Codigo" 
+                                                    DisplayMemberBinding="{Binding Codigo}" Width="70"/>
+                                                <GridViewColumn Header="Seccion" 
+                                                    DisplayMemberBinding="{Binding Seccion}" Width="60"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
                                 </Grid>
                             </Grid>
                         </TabItem>
@@ -221,20 +173,52 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Notificaciones" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="429" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="TxtBNotificacion" HorizontalAlignment="Left" Margin="41,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="358" Width="290" Grid.RowSpan="2" Grid.Column="1"><Run Text="Contenido."/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                    <ListBox x:Name="lboxNotificaciones" HorizontalAlignment="Left" Height="414" Margin="10,44,0,0" VerticalAlignment="Top" Width="134" Grid.RowSpan="2" Grid.ColumnSpan="2">
-                        <ListBoxItem Content="Nuevas ayudantías"/>
-                        <ListBoxItem Content="Ausencia injustificada"/>
-                        <ListBoxItem Content="Recordatorio ayudantía"/>
-                        <ListBoxItem Content="Entrega de trabajo"/>
-                        <ListBoxItem Content="etc..."/>
-                    </ListBox>
-                    <TextBlock x:Name="txtbHora" HorizontalAlignment="Left" Margin="41,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="74" Grid.RowSpan="2" Grid.Column="1"><Run Text="##/##/####"/><LineBreak/><Run Text="Hora: ##:##"/></TextBlock>
-                    <TextBlock x:Name="txtbTituloNotificacion" HorizontalAlignment="Left" Margin="120,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="51" Width="211" Grid.RowSpan="2" Grid.Column="1"><Run Text="Origen(escuela, ramo, nombre docente)"/><LineBreak/><Run Text="Título notificación"/></TextBlock>
+                    <TextBlock x:Name="TxtBNotificacion" HorizontalAlignment="Left" Margin="104,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="333" Width="267" Grid.RowSpan="2" Grid.Column="1" Background="White"/>
+                    <ListView x:Name="LstNotificacionesEntrantes" HorizontalAlignment="Left" Height="414" Margin="10,44,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="187" Grid.ColumnSpan="2" SelectionChanged="LstNotificacionesEntrantes_SelectionChanged" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" 
+                                                DisplayMemberBinding="{Binding ID}" Width="20"/>
+                                <GridViewColumn Header="Asunto" 
+                                                DisplayMemberBinding="{Binding Titulo}" Width="160"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Label Content="Asunto" Grid.Column="1" HorizontalAlignment="Left" Margin="104,39,0,0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+                    <Label x:Name="LblTituloNotificacion" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="152,39,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="219"/>
+                    <Label Content="DE :" Grid.Column="1" HorizontalAlignment="Left" Margin="104,65,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="48"/>
+                    <Label x:Name="LblRemitente" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="152,65,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="219"/>
+                    <Label Content="Fecha :" Grid.Column="1" HorizontalAlignment="Left" Margin="104,91,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="48"/>
+                    <Label x:Name="LblFechaNotificacion" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="152,91,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="219"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Enviar Mensaje" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="101" Margin="-2,-2,-45,0">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Enviar Mensaje" HorizontalAlignment="Left" VerticalAlignment="Top" Width="502" Height="39" HorizontalContentAlignment="Center" FontSize="20"/>
+                    <Label Content="Seleccione un Ramo" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="227"/>
+                    <ListView x:Name="LstRamosActuales_Mensaje" HorizontalAlignment="Left" Height="371" Margin="10,75,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="LstRamosActuales_Mensaje_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" 
+                                    DisplayMemberBinding="{Binding ID}" Width="30"/>
+                                <GridViewColumn Header="Ramo" 
+                                    DisplayMemberBinding="{Binding Nombre}" Width="80"/>
+                                <GridViewColumn Header="Codigo" 
+                                    DisplayMemberBinding="{Binding Codigo}" Width="60"/>
+                                <GridViewColumn Header="Seccion" 
+                                    DisplayMemberBinding="{Binding Seccion}" Width="50"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Label Content="Ingrese su Mensaje" HorizontalAlignment="Left" Margin="242,44,0,0" VerticalAlignment="Top" Width="250"/>
+                    <Label Content="Destino :" HorizontalAlignment="Left" Margin="242,75,0,0" VerticalAlignment="Top" Width="58"/>
+                    <Label x:Name="LblDestinatario" Content="" HorizontalAlignment="Left" Margin="300,75,0,0" VerticalAlignment="Top" Width="192"/>
+                    <Label Content="Asunto :" HorizontalAlignment="Left" Margin="242,106,0,0" VerticalAlignment="Top" Width="58"/>
+                    <TextBox x:Name="TxtAsuntoMensaje" HorizontalAlignment="Left" Height="26" Margin="300,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+                    <TextBox x:Name="TxtMensaje" HorizontalAlignment="Left" Height="240" Margin="242,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                    <Button x:Name="BtnEnviarMensaje" Content="Enviar" HorizontalAlignment="Left" Margin="401,409,0,0" VerticalAlignment="Top" Width="91" Height="37" Click="BtnEnviarMensaje_Click"/>
+                    <Button x:Name="BtnLimpiarControlesMensaje" Content="Limpiar" HorizontalAlignment="Left" Margin="242,409,0,0" VerticalAlignment="Top" Width="96" Height="37"/>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

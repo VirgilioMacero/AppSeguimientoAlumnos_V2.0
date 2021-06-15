@@ -60,6 +60,9 @@ namespace Clases
                 Alumnito2.Clave = Leer.GetString(3);
                 Alumnito2.Telefono = Leer.GetString(4);
                 Cargar_Plan_De_Estudio_Alumno(Alumnito2.RUT);
+                Alumnito2.ListaRamos = CargarListaRamos(Alumnito2.RUT);
+                Alumnito2.CargarMensajes(Alumnito2.Correo);
+
                 return Alumnito2;
 
             }
@@ -95,5 +98,52 @@ namespace Clases
             this.ListaPlan_De_Estudio = ListaDePlanes;
 
         }
+        public List<Ramo> CargarListaRamos(string RUTAux)
+        {
+            ConexionDataBase.Close();
+            var ListaDeRamos = new List<Ramo>();
+            string query = "SELECT * FROM ramo,alumno_por_ramo,alumno WHERE ramo.id=alumno_por_ramo.id_Ramo AND alumno_por_ramo.RUT_Alumno = alumno.RUT AND alumno_por_ramo.RUT_Alumno='" + RUTAux + "'";
+            MySqlDataReader LeerRamosPorAlumno = LeerBaseDeDatos(query).ExecuteReader();
+            while (LeerRamosPorAlumno.Read())
+            {
+                var RamoAux = new Ramo();
+
+                RamoAux.ID = LeerRamosPorAlumno.GetInt32(0);
+                RamoAux.Nombre = LeerRamosPorAlumno.GetString(2);
+                RamoAux.Codigo = LeerRamosPorAlumno.GetString(3);
+                RamoAux.Seccion = LeerRamosPorAlumno.GetInt32(4);
+
+
+                ListaDeRamos.Add(RamoAux);
+            }
+
+            return ListaDeRamos;
+
+        }
+        public List<Nota> CargarNotas(int IdRamo)
+        {
+            ConexionDataBase.Close();
+            var ListaDeNotas = new List<Nota>();
+            string query = "SELECT * FROM nota,ramo,alumno_por_ramo WHERE alumno_por_ramo.id_Ramo = ramo.id AND alumno_por_ramo.id = nota.Id_Alumno_Por_Ramo AND alumno_por_ramo.RUT_Alumno ='"+this.RUT+"' AND ramo.id = "+IdRamo+"";
+            MySqlDataReader LeerNotasDeAlumno = LeerBaseDeDatos(query).ExecuteReader();
+
+            while (LeerNotasDeAlumno.Read())
+            {
+
+                var NotaAux = new Nota();
+                NotaAux.ID = LeerNotasDeAlumno.GetInt32(0);
+                NotaAux.NumeroNota = LeerNotasDeAlumno.GetString(2);
+                NotaAux.Puntacion = LeerNotasDeAlumno.GetDouble(3);
+                NotaAux.Fecha = LeerNotasDeAlumno.GetDateTime(4);
+
+                ListaDeNotas.Add(NotaAux);
+
+            }
+
+            return ListaDeNotas;
+
+        }
+
+
     }
 }

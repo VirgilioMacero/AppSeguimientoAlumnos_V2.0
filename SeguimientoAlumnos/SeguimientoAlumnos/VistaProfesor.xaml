@@ -420,7 +420,7 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <TextBlock x:Name="TxtbNotifContenido" HorizontalAlignment="Left" Margin="10,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="398" Width="327" FontSize="14" Grid.Column="1" Background="White" TextAlignment="Center"/>
+                    <TextBlock x:Name="TxtbNotifContenido" HorizontalAlignment="Left" Margin="10,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="398" Width="327" FontSize="14" Grid.Column="1" Background="White"/>
                     <Label Content="Asunto" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="154"/>
                     <Label x:Name="LblAsuntoMensaje" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="154" Height="52"/>
                     <Label Content="Remitente" Grid.Column="1" HorizontalAlignment="Left" Margin="169,10,0,0" VerticalAlignment="Top" Width="168"/>
