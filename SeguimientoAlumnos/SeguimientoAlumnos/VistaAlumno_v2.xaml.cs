@@ -33,7 +33,7 @@ namespace SeguimientoAlumnos
             LstNotificacionesEntrantes.ItemsSource = Alumnito.Mensajes;
             LstRamosActuales.ItemsSource = Alumnito.ListaRamos;
             LstRamosActuales_Mensaje.ItemsSource = Alumnito.ListaRamos;
-
+            LstRamosActuales_Ayudantias.ItemsSource = Alumnito.ListaRamos;
 
             AlumnoAux = Alumnito;
 
@@ -105,55 +105,20 @@ namespace SeguimientoAlumnos
         {
 
 
-            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
-
-            ConexionDataBase.Open();
-           // var Valorseleccionado = CmbRamosRegistroAyudantias.SelectedItem.ToString();
-           // var valorSeparado = Valorseleccionado.Split('_');
-            MySqlCommand Consulta2 = new MySqlCommand();
-            Consulta2.Connection = ConexionDataBase;
-          //  Consulta2.CommandText = "SELECT * FROM alumno_por_ramo,ramo WHERE ramo.id = alumno_por_ramo.id_Ramo and alumno_por_ramo.RUT_Alumno ='"+ LblRUTAlumno.Content +"' AND ramo.id = "+valorSeparado[0]+"";
-            MySqlDataReader Leer = Consulta2.ExecuteReader();
-
-            var IdAlumno_Por_Ramo =0;
-
-            while (Leer.Read())
-            {
-
-            IdAlumno_Por_Ramo = Convert.ToInt32(Leer.GetValue(0));
-
-            }
-
-
-
-            ConexionDataBase.Close();
-
-            ConexionDataBase.Open();
-
             if (LstAyudantiasDisponibles.SelectedItem != null)
             {
 
-                var Ayudantia1 = (Ayudantia)LstAyudantiasDisponibles.SelectedItem;
+                var RamoAux = (Ramo)LstRamosActuales_Ayudantias.SelectedItem;
+                var AyudantAux = (Ayudantia)LstAyudantiasDisponibles.SelectedItem;
 
-
-                string Query = "INSERT INTO alumno_por_ayudantia (id,id_ayudantia,id_Alumno_Por_Ramo) VALUES (NULL, " + Ayudantia1.ID + ",'" + IdAlumno_Por_Ramo + "')";
-
-                MySqlCommand CargarNota = new MySqlCommand(Query, ConexionDataBase);
-
-                CargarNota.ExecuteNonQuery();
-
-                ConexionDataBase.Close();
-
-
-
+                AlumnoAux.RegistrarAyudantia(AyudantAux.ID,AlumnoAux.CargarAlumno(RamoAux.ID,AlumnoAux.RUT));
+                MessageBox.Show("Se ha registrado exitosamente a la ayudantia");
 
 
             }
             else
             {
-
                 MessageBox.Show("Debe seleccionar alguna ayudantia y tomar mejores deciciones en la vida ");
-
             }
 
 
@@ -210,12 +175,9 @@ namespace SeguimientoAlumnos
 
 
                     }
-
                 }
 
-
             }
-
 
         }
 
@@ -249,6 +211,24 @@ namespace SeguimientoAlumnos
                 MessageBox.Show("Debe seleccionar un Ramo");
             }
 
+
+
+        }
+
+        private void LstRamosActuales_Ayudantias_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (LstRamosActuales_Ayudantias.SelectedItem != null)
+            {
+                var SeleccionRamo = (Ramo)LstRamosActuales_Ayudantias.SelectedItem;
+
+               LstAyudantiasDisponibles.ItemsSource =  AlumnoAux.CargarAyudantias(SeleccionRamo.ID);
+
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un ramo");
+            }
 
 
         }

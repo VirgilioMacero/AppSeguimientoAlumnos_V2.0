@@ -19,17 +19,7 @@
                         <ColumnDefinition Width="41*"/>
                     </Grid.ColumnDefinitions>
                     <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="500" Grid.ColumnSpan="2">
-                        <TabItem Header="Atención" Margin="63,0,-67,-2">
-                            <Grid Background="#FFE5E5E5">
-                                <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFF2FDCA">
-                                    <ListBox x:Name="lboxAtencion" HorizontalAlignment="Left" Height="380" Margin="10,10,0,0" VerticalAlignment="Top" Width="134"/>
-                                    <TextBlock x:Name="txtbAtencionContenido" HorizontalAlignment="Left" Margin="149,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="321" Width="258"><Run Text="Contenido"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="Esta pestaña es un registro de las notificaciones relacionadas directamente con el seguimiento del estudiante."/><LineBreak/><Run Text=""/></TextBlock>
-                                    <TextBlock x:Name="txtbAtencionHora" HorizontalAlignment="Left" Margin="149,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="54" Width="89"><Run Text="##/##/####"/><LineBreak/><Run Text="Hora: ##:##"/></TextBlock>
-                                    <TextBlock x:Name="txtbAtencionTitulo" HorizontalAlignment="Left" Margin="243,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="164" Text="Título notificación"/>
-                                </Grid>
-                            </Grid>
-                        </TabItem>
-                        <TabItem Header="Calificaciones" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="87" Margin="67,0,-67,0">
+                        <TabItem Header="Calificaciones" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="87" Margin="64,0,-64,0">
                             <Grid Background="#FFE5E5E5">
                                 <ListView x:Name="LstRamosActuales" HorizontalAlignment="Left" Height="371" Margin="10,10,0,0" VerticalAlignment="Top" Width="257">
                                     <ListView.View>
@@ -60,7 +50,7 @@
                                 </ListView>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Inicio" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="64" Margin="-146,0,0,0">
+                        <TabItem Header="Inicio" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="64" Margin="-87,0,0,0">
                             <Grid Background="#FFE5E5E5">
                                 <Grid HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" Background="#FFDAFDFF">
                                     <Label x:Name="lblBienvenido" Content="Bienvenido " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="397" Height="43" FontSize="20" HorizontalContentAlignment="Center"/>
@@ -86,15 +76,6 @@
                         <Label x:Name="LblRUTAlumno" Content="" HorizontalAlignment="Left" Margin="44,41,0,0" VerticalAlignment="Top" Width="98"/>
                         <Label x:Name="LblNombreAlumno" Content="" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Width="117"/>
                     </Grid>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Universidad" Margin="0">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="213*"/>
-                        <ColumnDefinition Width="145*"/>
-                    </Grid.ColumnDefinitions>
-                    <TabControl HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Ayudantías" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="72" Margin="1,0,-1,0">
@@ -140,7 +121,7 @@
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
-                                    <ListView x:Name="LstRamosActuales_Ayudantias" HorizontalAlignment="Left" Height="331" Margin="10,69,0,0" VerticalAlignment="Top" Width="230">
+                                    <ListView x:Name="LstRamosActuales_Ayudantias" HorizontalAlignment="Left" Height="331" Margin="10,69,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="LstRamosActuales_Ayudantias_SelectionChanged">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="ID" 

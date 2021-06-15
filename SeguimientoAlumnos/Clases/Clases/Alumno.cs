@@ -143,7 +143,65 @@ namespace Clases
             return ListaDeNotas;
 
         }
+        public List<Ayudantia> CargarAyudantias(int IdRamo)
+        {
+            ConexionDataBase.Close();
+            var ListaAyudantias = new List<Ayudantia>();
+            string query = "SELECT * FROM ayudantia,ramo WHERE ayudantia.id_Ramo = ramo.id AND ramo.id = "+IdRamo+" AND ayudantia.Fecha >= current_timestamp()";
+            MySqlDataReader LeerAyudantias = LeerBaseDeDatos(query).ExecuteReader();
 
+            while (LeerAyudantias.Read())
+            {
+
+                var AyudantiaAux = new Ayudantia();
+                AyudantiaAux.ID = LeerAyudantias.GetInt32(0);
+                AyudantiaAux.Fecha = LeerAyudantias.GetDateTime(2);
+                AyudantiaAux.NombreRamo = LeerAyudantias.GetString(5);
+
+                ListaAyudantias.Add(AyudantiaAux);
+
+            }
+
+            return ListaAyudantias;
+
+        } 
+
+        public Alumno_Por_Ramo CargarAlumno(int IdRamo,string RUTAux)
+        {
+            ConexionDataBase.Close();
+            
+            string query = "SELECT * FROM alumno_por_ramo,alumno,ramo WHERE alumno_por_ramo.RUT_Alumno=alumno.RUT AND ramo.id=alumno_por_ramo.id_Ramo AND alumno_por_ramo.RUT_Alumno ='"+RUTAux+"' AND ramo.id = "+IdRamo+"";
+            MySqlDataReader LeerAlumno_Por_Ramo = LeerBaseDeDatos(query).ExecuteReader();
+
+            if (LeerAlumno_Por_Ramo.Read())
+            {
+
+                var AlumnoAuxiliar = new Alumno_Por_Ramo();
+                AlumnoAuxiliar.ID = LeerAlumno_Por_Ramo.GetInt32(0);
+
+                return AlumnoAuxiliar;
+            }
+            else
+            {
+                return null;
+            }
+
+
+        }
+
+        public void RegistrarAyudantia(int IdAyudantia ,Alumno_Por_Ramo AlumnoAux)
+        {
+            ConexionDataBase.Close();
+            ConexionDataBase.Open();
+        
+                string query = "INSERT INTO alumno_por_ayudantia (id, id_ayudantia, id_Alumno_Por_Ramo) VALUES (NULL, '"+IdAyudantia+"', '"+AlumnoAux.ID+"');";
+
+                MySqlCommand CargarSeguimiento = new MySqlCommand(query, ConexionDataBase);
+
+                CargarSeguimiento.ExecuteNonQuery();
+
+
+        }
 
     }
 }
