@@ -15,7 +15,7 @@ namespace SeguimientoAlumnos
             InitializeComponent();
 
         }
-
+        //En este apartado se ingresan los datos del inicio de sesion del profesor
         private void BtnIniciarProfesor_Click(object sender, RoutedEventArgs e)
         {
 
@@ -45,7 +45,7 @@ namespace SeguimientoAlumnos
            
 
         }
-
+        //En este Apartado se ingresan los datos de inicio de sesion del Alumno
         private void BtnIniciarAlumno_Click(object sender, RoutedEventArgs e)
         {
 

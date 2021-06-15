@@ -16,6 +16,7 @@ namespace SeguimientoAlumnos
         private List<Alumno_Por_Ramo> ListaAlumnos = new List<Alumno_Por_Ramo>();
 
         public Profesor ProfeAux = new Profesor();
+        //En este apartado se cargan todos los valores predeterminados de el Profesor
         public VistaProfesor(Profesor Profe)
         {
             InitializeComponent();
@@ -58,7 +59,7 @@ namespace SeguimientoAlumnos
         }
 
 
-
+        //Este Boton Sirve para Mostrar a los Alumnos por Ramo seleccionado
         private void BtnMostrarAlumnos_Click(object sender, RoutedEventArgs e)
         {
 
@@ -91,6 +92,7 @@ namespace SeguimientoAlumnos
 
 
         }
+        //Este Boton Sirve para Mostrar a los alumnos por Ramo y Mostrarlos para crear un seguimiento de estos mismos
         private void BtnMostrarAlumnos_Seguimientos_Click(object sender, RoutedEventArgs e)
         {
 
@@ -126,11 +128,13 @@ namespace SeguimientoAlumnos
             }
 
         }
-
+        //Este Boton muestra las notas por alumno a traves del metodo MostrarNotas()
         private void BtnMostrarNotas_Click(object sender, RoutedEventArgs e)
         {
             MostrarNotas();
         }
+
+        //Este Metodo actualiza las notas del alumno
         public void MostrarNotas()
         {
 
@@ -165,7 +169,7 @@ namespace SeguimientoAlumnos
             }
 
         }
-
+        //Este boton Permite Modificar la nota de del alumno Seleccionado
         private void BtnModificarNota_Click(object sender, RoutedEventArgs e)
         {
 
@@ -196,7 +200,7 @@ namespace SeguimientoAlumnos
           
 
         }
-
+        //Este Boton Permite Subir la Puntuacion de una nueva nota a la base de datos
         private void BtnSubirPuntuacion_Click(object sender, RoutedEventArgs e)
         {
             
@@ -237,7 +241,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //Este boton Permite Ingresar a la base de datos una ayudantia con una fecha especifica, en un ramo especifico 
         private void BtnCrearAyudantia_Click(object sender, RoutedEventArgs e)
         {
 
@@ -276,6 +280,7 @@ namespace SeguimientoAlumnos
 
         }
 
+        //Esta funcion permite actualizar los valores de las ayudantias en la base de datos
         public void ActualizarAyudantias()
         {
 
@@ -296,7 +301,7 @@ namespace SeguimientoAlumnos
             LstRamosAyudantias.ItemsSource = ListaAyudantias;
 
         }
-
+        //este boton Permite eliminar ayudantias No deseadas
         private void BtnEliminarAyudantia_Click(object sender, RoutedEventArgs e)
         {
             if (LstRamosAyudantias.SelectedItem != null)
@@ -317,7 +322,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //Este Boton Permite subir el seguimiento de un alumno seleccionado junto con su ramo 
         private void BtnsubirSeguimiento_Click(object sender, RoutedEventArgs e)
         {
 
@@ -355,7 +360,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //Este Boton Permite Limpiar los controles de seguimiento
         private void BtnLimpiarSeguimiento_Click(object sender, RoutedEventArgs e)
         {
 
@@ -366,7 +371,7 @@ namespace SeguimientoAlumnos
 
         }
 
-
+        //Este Boton Abre una ventana Form con un grafico, ayudantias y seguimientos del alumno 
         private void BtnMostrarGrafico_Seguimiento_Click(object sender, RoutedEventArgs e)
         {
             if (LstRamosDadosEscogidos_Seguimiento.SelectedItem != null)
@@ -395,7 +400,7 @@ namespace SeguimientoAlumnos
                 MessageBox.Show("Debe Seleccionar un Ramo para Mostrar el grafico");
             }
         }
-
+        //Este Boton Muestra los alumnos disponibles para hacer seguimiento
         private void BtnMostrarAlumnosEscogidos_Seguimientos_Click(object sender, RoutedEventArgs e)
         {
 
@@ -433,7 +438,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        // En este apartado se cargan los controles del area de notificaciones 
         private void LstNotificaciones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
@@ -465,7 +470,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //Este boton Permite enviar un Mensaje con titulo,Destinatario,Mensaje
         private void BtnEnviarMensaje_Click(object sender, RoutedEventArgs e)
         {
 
@@ -497,7 +502,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //Esta Funcion Permite Cargar un Combobox con los correos de los alumnos
         private void LstRamosDados_Mensaje_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
@@ -537,14 +542,14 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //Este boton Permite Borrar Los controles de mensajes
         private void BtnLimpiarControlesMensaje_Click(object sender, RoutedEventArgs e)
         {
             CmbDestinatario.ItemsSource = null;
             TxtAsunto.Text = string.Empty;
             TxtMensajeRemitente.Text = string.Empty;
         }
-
+        //Este apartado permite cargar las ayudantias del area de seguimiento
         private void BtnMostrar_Ayudantias_Click(object sender, RoutedEventArgs e)
         {
 
@@ -565,7 +570,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //En este apartado se cargan todos los alumnos por ayudantias
         private void BtnMostrarAlumnosAyudantia_Click(object sender, RoutedEventArgs e)
         {
 

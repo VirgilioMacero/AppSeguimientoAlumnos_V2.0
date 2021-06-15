@@ -19,7 +19,7 @@ namespace SeguimientoAlumnos
 
     public partial class VistaAlumno_v2 : Window
     {
-        
+        //En este apartado se cargan todos los valores de fabrica de cada apartado
         public Alumno AlumnoAux = new Alumno(); 
         public VistaAlumno_v2(Alumno Alumnito)
         {
@@ -40,7 +40,7 @@ namespace SeguimientoAlumnos
 
         }
 
-
+        //Este boton Muestra las notas de el  alumnos en LstMostrarNotas
         private void BtnMostrarNotasAlumn_Click(object sender, RoutedEventArgs e)
         {
 
@@ -64,7 +64,7 @@ namespace SeguimientoAlumnos
 
 
         
-
+        //En este boton al ser presionado se agrega la ayudantia seleccioanada a la base de datos
         private void btnAyudInscEnviar_Click(object sender, RoutedEventArgs e)
         {
 
@@ -90,7 +90,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //En este apartado se cargan los mensajes entrantes en El List view LstNotificacionesEntrantes
         private void LstNotificacionesEntrantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -120,7 +120,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //En este apartado se carga el label Lbldestinatario con el correo del docente
         private void LstRamosActuales_Mensaje_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -144,7 +144,7 @@ namespace SeguimientoAlumnos
             }
 
         }
-
+        //En este apartado se Sube a la base de Datos el Mensaje escrito 
         private void BtnEnviarMensaje_Click(object sender, RoutedEventArgs e)
         {
             if (LstRamosActuales_Mensaje.SelectedItem != null)
@@ -178,7 +178,7 @@ namespace SeguimientoAlumnos
 
 
         }
-
+        //En este apartado se Cargan Las Ayudantias disponibles para el alumno
         private void LstRamosActuales_Ayudantias_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
