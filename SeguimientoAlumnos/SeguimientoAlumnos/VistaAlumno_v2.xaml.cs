@@ -34,6 +34,7 @@ namespace SeguimientoAlumnos
             LstRamosActuales.ItemsSource = Alumnito.ListaRamos;
             LstRamosActuales_Mensaje.ItemsSource = Alumnito.ListaRamos;
             LstRamosActuales_Ayudantias.ItemsSource = Alumnito.ListaRamos;
+            LstAyudantiasDisponibles_Escogidas.ItemsSource = Alumnito.DescargarAyudantias(Alumnito.RUT);
 
             AlumnoAux = Alumnito;
 
@@ -59,47 +60,10 @@ namespace SeguimientoAlumnos
         
         }
 
-        private void CmbRamosRegistroAyudantias_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-           // var Valorseleccionado = CmbRamosRegistroAyudantias.SelectedItem.ToString();
-
-            //var valorSeparado = Valorseleccionado.Split('_');
-
-            MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
-            ConexionDataBase.Open();
-            MySqlCommand Consulta2 = new MySqlCommand();
-            Consulta2.Connection = ConexionDataBase;
-          //  Consulta2.CommandText = "SELECT * FROM ayudantia,ramo WHERE ayudantia.id_Ramo=ramo.id AND ramo.id ="+valorSeparado[0]+"";
-            MySqlDataReader Leer = Consulta2.ExecuteReader();
-            var ListaAyudantias = new List<Ayudantia>();
-
-            while (Leer.Read())
-            {
-
-                if (Convert.ToDateTime(Leer.GetValue(3)) >= DateTime.Now)
-                {
-
-                    var Ayudantia1 = new Ayudantia();
-                    Ayudantia1.ID = Convert.ToInt32(Leer.GetValue(0));
-                    Ayudantia1.NombreRamo = Leer.GetValue(2).ToString();
-                    Ayudantia1.Fecha = Convert.ToDateTime(Leer.GetValue(3));
-
-                    ListaAyudantias.Add(Ayudantia1);
+       
 
 
-                }
-
-
-
-            }
-
-            LstAyudantiasDisponibles.ItemsSource = ListaAyudantias;
-
-            ConexionDataBase.Close();
-
-
-        }
+        
 
         private void btnAyudInscEnviar_Click(object sender, RoutedEventArgs e)
         {
@@ -232,5 +196,7 @@ namespace SeguimientoAlumnos
 
 
         }
+
+
     }
 }

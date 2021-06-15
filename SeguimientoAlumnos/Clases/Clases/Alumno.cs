@@ -202,6 +202,34 @@ namespace Clases
 
 
         }
+        public List<Ayudantia> DescargarAyudantias(string RUTAux)
+        {
+
+            ConexionDataBase.Close();
+
+            var ListaAyudantias = new List<Ayudantia>();
+            string query = "SELECT * FROM ayudantia,alumno_por_ayudantia,alumno_por_ramo,ramo WHERE ayudantia.id = alumno_por_ayudantia.id_ayudantia AND alumno_por_ramo.id = alumno_por_ayudantia.id_Alumno_Por_Ramo AND alumno_por_ramo.RUT_Alumno = '"+RUTAux+"' AND ramo.id = alumno_por_ramo.id_Ramo";
+            MySqlDataReader LeerAyudantia = LeerBaseDeDatos(query).ExecuteReader();
+
+            while (LeerAyudantia.Read())
+            {
+                if (LeerAyudantia.GetDateTime(2) >= DateTime.Now)
+                {
+
+                var AyudantiaAux = new Ayudantia();
+                AyudantiaAux.ID = LeerAyudantia.GetInt32(0);
+                AyudantiaAux.Fecha = LeerAyudantia.GetDateTime(2);
+                AyudantiaAux.NombreRamo = LeerAyudantia.GetString(14);
+
+                ListaAyudantias.Add(AyudantiaAux);
+
+                }
+
+            }
+
+            return ListaAyudantias;
+
+        }
 
     }
 }
