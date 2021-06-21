@@ -22,7 +22,7 @@ namespace SeguimientoAlumnos
 
             var Profesor1 = new Profesor();
             
-            var Inicio = Profesor1.Inicio_Sesion_Profesor("select * FROM profesor where RUT ='" + this.TxtUsuarioProfesor.Text + "' and Contrasenia ='" + this.TxtContraseniaProfesor.Password + " ' ");
+            var Inicio = Profesor1.Inicio_Sesion_Profesor(TxtUsuarioProfesor.Text,TxtContraseniaProfesor.Password);
 
             if (Inicio != null)
             {
@@ -51,7 +51,7 @@ namespace SeguimientoAlumnos
 
             var Alumnno1 = new Alumno();
            
-            var Inicio = Alumnno1.Inicio_Sesion_Alumno("select * FROM alumno where RUT ='" + this.TxtUsuarioAlumno.Text + "' and Contrasenia ='" + this.TxtContraseniaAlumno.Password + " ' ");
+            var Inicio = Alumnno1.Inicio_Sesion_Alumno(TxtUsuarioAlumno.Text,TxtContraseniaAlumno.Password);
 
 
 
@@ -66,6 +66,31 @@ namespace SeguimientoAlumnos
             {
                 MessageBox.Show("Hay algun dato mal ingresado");
             }
+
+
+        }
+
+        private void BtnIniciarAdmin_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            var Admin1 = new Administrador();
+            Admin1.Inicio_SesionAdministrador(TxtUsuarioAdministrador.Text,TxtContraseniaAdmin.Password);
+
+
+            if (Admin1 != null)
+            {
+
+                var VentanaAdmin = new VistaAdministrador(Admin1);
+
+                VentanaAdmin.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("Algun Dato Esta Mal ingresado");
+            }
+
 
 
         }

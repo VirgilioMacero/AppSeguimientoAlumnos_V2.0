@@ -117,6 +117,24 @@ namespace Clases
             }
 
         }
+        public void CargarRutProfesor(int IdRamo)
+        {
+            ConexionDataBase.Close();
+            var ListaDeNotas = new List<Nota>();
+            string query = "SELECT * FROM profesor_por_ramo,ramo WHERE ramo.id = profesor_por_ramo.id_Ramo AND ramo.id ="+IdRamo+"";
+            MySqlDataReader LeerRutProfesor = LeerBaseDeDatos(query).ExecuteReader();
+
+            if (LeerRutProfesor.Read())
+            {
+
+                this.RUTProfesor = LeerRutProfesor.GetString(1);
+
+
+            }
+            
+
+
+        }
 
 
 

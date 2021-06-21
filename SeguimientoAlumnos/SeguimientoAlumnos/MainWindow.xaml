@@ -44,11 +44,12 @@
             <TabItem Header="Administrador" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="103" Margin="-1,0,0,0">
                 <Grid Background="#FFE5E5E5">
                     <Grid Background="#FFE5E5E5">
-                        <Button x:Name="BtnIniciarAdmin" Content="Iniciar" HorizontalAlignment="Left" Margin="322,373,0,0" VerticalAlignment="Top" Width="104" Height="38"/>
-                        <TextBox x:Name="TxtUsuarioAdministrador" HorizontalAlignment="Left" Height="23" Margin="42,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
-                        <TextBox x:Name="TxtContraseniaAdministrador" HorizontalAlignment="Left" Height="23" Margin="42,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
-                        <Label Content="Usuario" HorizontalAlignment="Left" Margin="42,66,0,0" VerticalAlignment="Top" Width="120"/>
-                        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="42,144,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Button x:Name="BtnIniciarAdmin" Content="Iniciar" HorizontalAlignment="Left" Margin="373,345,0,0" VerticalAlignment="Top" Width="104" Height="38" Click="BtnIniciarAdmin_Click"/>
+                        <TextBox x:Name="TxtUsuarioAdministrador" HorizontalAlignment="Left" Height="26" Margin="156,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+                        <Label Content="Usuario" HorizontalAlignment="Left" Margin="156,67,0,0" VerticalAlignment="Top" Width="184" HorizontalContentAlignment="Center" FontSize="15"/>
+                        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="156,140,0,0" VerticalAlignment="Top" Width="184" HorizontalContentAlignment="Center" FontSize="15"/>
+                        <PasswordBox x:Name="TxtContraseniaAdmin" HorizontalAlignment="Left" Margin="156,170,0,0" VerticalAlignment="Top" Width="184" Height="25"/>
+                        <Label Content="Prototipo de Interfaz de Seguimiento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Height="48" FontSize="14" HorizontalContentAlignment="Center" FontWeight="Bold"/>
                     </Grid>
                 </Grid>
             </TabItem>

@@ -23,7 +23,7 @@ namespace Clases
 
         }
 
-        public void Cargar_Semestres(int id , string Rut)
+        public void Cargar_Semestres_Alumno(int id , string Rut)
         {
 
             ConexionDataBase.Close();
@@ -47,6 +47,28 @@ namespace Clases
 
             this.ListaSemestre = ListaSemestres;
 
+
+        }
+        public void Cargar_Semestres_Administrador(int idPlan_Estudio)
+        {
+            ConexionDataBase.Close();
+            var ListaSemestres = new List<Semestre>();
+            string query = "SELECT * FROM semestre,plan_de_estudio WHERE semestre.Id_Plan_De_Estudio = plan_de_estudio.id AND plan_de_estudio.id ="+idPlan_Estudio+"";
+            MySqlDataReader LeerSemestres_Administrador = LeerBaseDeDatos(query).ExecuteReader();
+
+            while (LeerSemestres_Administrador.Read())
+            {
+                var SemestreAux = new Semestre();
+
+                SemestreAux.ID = LeerSemestres_Administrador.GetInt32(0);
+                SemestreAux.Numero = LeerSemestres_Administrador.GetInt32(2);
+                SemestreAux.Cargar_Ramos_Administrador(SemestreAux.ID);
+
+                ListaSemestres.Add(SemestreAux);
+
+            }
+
+            this.ListaSemestre = ListaSemestres;
 
         }
 

@@ -197,6 +197,12 @@ namespace SeguimientoAlumnos
 
         }
 
+        private void BtnLimpiarControlesMensaje_Click(object sender, RoutedEventArgs e)
+        {
+            LblDestinatario.Content = string.Empty;
+            TxtAsuntoMensaje.Text = string.Empty;
+            TxtMensaje.Text = string.Empty;
 
+        }
     }
 }

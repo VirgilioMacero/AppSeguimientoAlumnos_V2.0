@@ -60,8 +60,10 @@ namespace Clases
 
         //En el siguiente codigo se toman los valores de el metodo LeerBaseDeDatos y se toman los valores retornados
         //para convertirlo en un objeto de la clase Profesor
-        public Profesor Inicio_Sesion_Profesor(string sql)
+        public Profesor Inicio_Sesion_Profesor(string Usuario,string Contrasenia)
         {
+
+            string sql = "select * FROM profesor where RUT ='" + Usuario + "' and Contrasenia ='" + Contrasenia + " ' ";
 
             MySqlDataReader Leer = LeerBaseDeDatos(sql).ExecuteReader();
 

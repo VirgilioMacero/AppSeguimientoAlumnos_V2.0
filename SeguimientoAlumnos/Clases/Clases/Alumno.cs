@@ -43,9 +43,10 @@ namespace Clases
 
         }
 
-        public Alumno Inicio_Sesion_Alumno(string sql)
+        public Alumno Inicio_Sesion_Alumno(string Usuario,string Contrasenia)
         {
 
+            string sql = "select * FROM alumno where RUT ='" + Usuario + "' and Contrasenia ='" + Contrasenia+ " ' ";
 
             MySqlDataReader Leer = LeerBaseDeDatos(sql).ExecuteReader();
 
@@ -89,7 +90,7 @@ namespace Clases
                 var PlanAux = new Plan_De_Estudio();
                 PlanAux.ID = LeerPlanesDeEstudio.GetInt32(0);
                 PlanAux.anio = LeerPlanesDeEstudio.GetInt32(1);
-                PlanAux.Cargar_Semestres(PlanAux.ID,Rut);
+                PlanAux.Cargar_Semestres_Alumno(PlanAux.ID,Rut);
 
                 ListaDePlanes.Add(PlanAux);
 

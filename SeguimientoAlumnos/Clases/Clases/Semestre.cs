@@ -36,7 +36,7 @@ namespace Clases
 
                 var RamoAux = new Ramo();
                 RamoAux.ID = LeerRamosPorSemestre.GetInt32(0);
-                RamoAux.RUTProfesor = LeerRamosPorSemestre.GetString(2);
+                RamoAux.CargarRutProfesor(RamoAux.ID);
                 RamoAux.Nombre = LeerRamosPorSemestre.GetString(3);
                 RamoAux.Codigo = LeerRamosPorSemestre.GetString(4);
                 RamoAux.Seccion = LeerRamosPorSemestre.GetInt32(5);
@@ -46,6 +46,36 @@ namespace Clases
             }
 
             this.ListaRamos = ListaRamos;
+
+
+        }
+        public void Cargar_Ramos_Administrador(int IdSemestre)
+        {
+
+            ConexionDataBase.Close();
+            var ListaRamos = new List<Ramo>();
+
+            string query = "SELECT * FROM ramo,semestre WHERE ramo.id_Semestre = semestre.id AND semestre.id = "+IdSemestre+"";
+            MySqlDataReader LeerRamosPorSemestre = LeerBaseDeDatos(query).ExecuteReader();
+
+            while (LeerRamosPorSemestre.Read())
+            {
+
+                var RamoAux = new Ramo();
+                RamoAux.ID = LeerRamosPorSemestre.GetInt32(0);
+                RamoAux.CargarRutProfesor(RamoAux.ID);
+                RamoAux.Nombre = LeerRamosPorSemestre.GetString(2);
+                RamoAux.Codigo = LeerRamosPorSemestre.GetString(3);
+                RamoAux.Seccion = LeerRamosPorSemestre.GetInt32(4);
+                RamoAux.Cargar_Alumnos_Por_Ramo(RamoAux.ID);
+                RamoAux.Cargar_Ayudantias_Por_Ramo(RamoAux.ID);
+
+                ListaRamos.Add(RamoAux);
+
+            }
+
+            this.ListaRamos = ListaRamos;
+
 
 
         }

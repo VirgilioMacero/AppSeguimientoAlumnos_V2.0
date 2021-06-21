@@ -198,7 +198,7 @@
                     <TextBox x:Name="TxtAsuntoMensaje" HorizontalAlignment="Left" Height="26" Margin="300,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
                     <TextBox x:Name="TxtMensaje" HorizontalAlignment="Left" Height="240" Margin="242,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
                     <Button x:Name="BtnEnviarMensaje" Content="Enviar" HorizontalAlignment="Left" Margin="401,409,0,0" VerticalAlignment="Top" Width="91" Height="37" Click="BtnEnviarMensaje_Click"/>
-                    <Button x:Name="BtnLimpiarControlesMensaje" Content="Limpiar" HorizontalAlignment="Left" Margin="242,409,0,0" VerticalAlignment="Top" Width="96" Height="37"/>
+                    <Button x:Name="BtnLimpiarControlesMensaje" Content="Limpiar" HorizontalAlignment="Left" Margin="242,409,0,0" VerticalAlignment="Top" Width="96" Height="37" Click="BtnLimpiarControlesMensaje_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
