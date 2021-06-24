@@ -23,7 +23,9 @@
                         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="467" FontSize="16" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
                         <Label Content="Prototipo de Interfaz de Seguimiento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Height="48" FontSize="14" HorizontalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3"/>
                         <Label Content="Prototipo de Interfaz de Seguimiento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Height="48" FontSize="14" HorizontalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3"/>
-                        <PasswordBox x:Name="TxtContraseniaAlumno" Grid.Column="1" HorizontalAlignment="Left" Margin="71,180,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="184" Height="22"/>
+                        <PasswordBox x:Name="TxtContraseniaAlumno" Grid.Column="1" HorizontalAlignment="Left" Margin="71,180,0,0" VerticalAlignment="Top" Width="136" Height="22" Grid.ColumnSpan="2" PasswordChanged="TxtContraseniaAlumno_PasswordChanged"/>
+                        <Button x:Name="BtnMostrarClaveAlumno" Content="Mostrar" Grid.Column="2" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="48" Height="22" Click="BtnMostrarClaveAlumno_Click"/>
+                        <Label x:Name="LblContraseniaVisible_Alumno" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="71,202,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="136"/>
                     </Grid>
                 </Grid>
             </TabItem>
@@ -38,7 +40,9 @@
                     <Label Content="Usuario" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="467" FontSize="16" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
                     <Label Content="Contraseña" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="467" FontSize="16" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
                     <Label Content="Prototipo de Interfaz de Seguimiento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Height="48" FontSize="14" HorizontalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                    <PasswordBox x:Name="TxtContraseniaProfesor" Grid.Column="1" HorizontalAlignment="Left" Margin="115,180,0,0" VerticalAlignment="Top" Width="182" Height="23"/>
+                    <PasswordBox x:Name="TxtContraseniaProfesor" Grid.Column="1" HorizontalAlignment="Left" Margin="115,180,0,0" VerticalAlignment="Top" Width="136" Height="23" PasswordChanged="TxtContraseniaProfesor_PasswordChanged"/>
+                    <Button x:Name="BtnMostrarClaveProfesor" Content="Mostrar" Grid.Column="1" HorizontalAlignment="Left" Margin="251,180,0,0" VerticalAlignment="Top" Width="48" Height="23" Click="BtnMostrarClaveProfesor_Click"/>
+                    <Label x:Name="LblContraseniaVisible_Profesor" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="115,203,0,0" VerticalAlignment="Top" Width="136"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Administrador" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="103" Margin="-1,0,0,0">
@@ -48,8 +52,10 @@
                         <TextBox x:Name="TxtUsuarioAdministrador" HorizontalAlignment="Left" Height="26" Margin="156,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
                         <Label Content="Usuario" HorizontalAlignment="Left" Margin="156,67,0,0" VerticalAlignment="Top" Width="184" HorizontalContentAlignment="Center" FontSize="15"/>
                         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="156,140,0,0" VerticalAlignment="Top" Width="184" HorizontalContentAlignment="Center" FontSize="15"/>
-                        <PasswordBox x:Name="TxtContraseniaAdmin" HorizontalAlignment="Left" Margin="156,170,0,0" VerticalAlignment="Top" Width="184" Height="25"/>
+                        <PasswordBox x:Name="TxtContraseniaAdmin" HorizontalAlignment="Left" Margin="156,170,0,0" VerticalAlignment="Top" Width="138" Height="25" PasswordChanged="TxtContraseniaAdmin_PasswordChanged"/>
                         <Label Content="Prototipo de Interfaz de Seguimiento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Height="48" FontSize="14" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                        <Button x:Name="BtnMostrarClaveAdministrador" Content="Mostrar" HorizontalAlignment="Left" Margin="294,170,0,0" VerticalAlignment="Top" Width="46" Height="25" Click="BtnMostrarClaveAdministrador_Click"/>
+                        <Label x:Name="LblContraseniaVisible_Administrador" Content="" HorizontalAlignment="Left" Margin="156,195,0,0" VerticalAlignment="Top" Width="138"/>
                     </Grid>
                 </Grid>
             </TabItem>

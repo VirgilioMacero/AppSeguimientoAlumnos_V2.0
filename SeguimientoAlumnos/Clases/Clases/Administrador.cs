@@ -8,14 +8,12 @@ namespace Clases
 
         MySqlConnection ConexionDataBase = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=sistema_seguimiento");
 
-        public List<Alumno_Por_Ramo> ListaAlumnos { get; set; }
+        public List<Alumno> ListaAlumnos { get; set; }
 
+        public List<Profesor> ListaProfesores { get; set; }
 
         public List<Plan_De_Estudio> ListaPlanes_De_Estudio { get; set; }
 
-        public List<Ramo> ListaRamos { get; set;}
-
-        public List<Profesor> ListaProfesores { get; set; }
 
         public MySqlCommand LeerBaseDeDatos(string sql)
         {
@@ -42,9 +40,17 @@ namespace Clases
                 AdministradorAux.Nombre = Leer.GetString(2);
                 AdministradorAux.Correo = Leer.GetString(4);
                 AdministradorAux.Telefono = Leer.GetString(5);
+                CargarMensajes(AdministradorAux.Correo);
+                AdministradorAux.Mensajes = this.Mensajes;
                 ConexionDataBase.Close();
                 Cargar_Planes_De_Estudio();
                 AdministradorAux.ListaPlanes_De_Estudio = this.ListaPlanes_De_Estudio;
+                ConexionDataBase.Close();
+                Cargar_Alumnos();
+                AdministradorAux.ListaAlumnos = this.ListaAlumnos;
+                ConexionDataBase.Close();
+                Cargar_Profesores();
+                AdministradorAux.ListaProfesores = this.ListaProfesores;
 
 
 
@@ -82,6 +88,55 @@ namespace Clases
 
         }
         
+        public void Cargar_Alumnos()
+        {
+            string sql = "SELECT * FROM alumno";
+            var Lista_AlumnosAux = new List<Alumno>();
+            MySqlDataReader Leer_Alumnos = LeerBaseDeDatos(sql).ExecuteReader();
+
+            while (Leer_Alumnos.Read())
+            {
+
+                var AlumnoAux = new Alumno();
+
+                AlumnoAux.RUT = Leer_Alumnos.GetString(0);
+                AlumnoAux.Correo = Leer_Alumnos.GetString(1);
+                AlumnoAux.Nombre = Leer_Alumnos.GetString(2);
+                AlumnoAux.Telefono = Leer_Alumnos.GetString(4);
+                AlumnoAux.CargarListaRamos(AlumnoAux.RUT);
+
+                Lista_AlumnosAux.Add(AlumnoAux);
+
+            }
+
+            this.ListaAlumnos = Lista_AlumnosAux;
+
+        }
+        public void Cargar_Profesores()
+        {
+            string sql = "SELECT * FROM profesor";
+            var Lista_ProfesoresAux = new List<Profesor>();
+            MySqlDataReader Leer_Profesores = LeerBaseDeDatos(sql).ExecuteReader();
+
+            while (Leer_Profesores.Read())
+            {
+
+                var ProfesorAux = new Profesor();
+                ProfesorAux.RUT = Leer_Profesores.GetString(0);
+                ProfesorAux.Nombre = Leer_Profesores.GetString(2);
+                ProfesorAux.Correo = Leer_Profesores.GetString(3);
+                ProfesorAux.Telefono = Leer_Profesores.GetString(5);
+                ProfesorAux.Cargar_Ramos_Profesor(ProfesorAux.RUT);
+
+                Lista_ProfesoresAux.Add(ProfesorAux);
+
+            }
+
+            this.ListaProfesores = Lista_ProfesoresAux;
+
+
+        }
+
         public List<Ramo> CambiarAlumnoDeRamo()
         {
             var ListaRamos = new List<Ramo>();

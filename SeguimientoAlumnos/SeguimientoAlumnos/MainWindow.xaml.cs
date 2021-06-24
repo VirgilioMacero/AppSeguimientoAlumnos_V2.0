@@ -75,13 +75,14 @@ namespace SeguimientoAlumnos
 
 
             var Admin1 = new Administrador();
-            Admin1.Inicio_SesionAdministrador(TxtUsuarioAdministrador.Text,TxtContraseniaAdmin.Password);
+            var Admin2 = new Administrador();
+            Admin2 = Admin1.Inicio_SesionAdministrador(TxtUsuarioAdministrador.Text,TxtContraseniaAdmin.Password);
 
 
-            if (Admin1 != null)
+            if (Admin2 != null)
             {
 
-                var VentanaAdmin = new VistaAdministrador(Admin1);
+                var VentanaAdmin = new VistaAdministrador(Admin2);
 
                 VentanaAdmin.Show();
 
@@ -93,6 +94,107 @@ namespace SeguimientoAlumnos
 
 
 
+        }
+
+        private void BtnMostrarClaveAlumno_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (BtnMostrarClaveAlumno.Content.ToString() == "Mostrar")
+            {
+            LblContraseniaVisible_Alumno.Content = TxtContraseniaAlumno.Password;
+                BtnMostrarClaveAlumno.Content = "Ocultar";
+                TxtContraseniaAlumno.Focus();
+            }
+            else
+            {
+                LblContraseniaVisible_Alumno.Content = string.Empty;
+                BtnMostrarClaveAlumno.Content = "Mostrar" ;
+                TxtContraseniaAlumno.Focus();
+            }
+
+        }
+
+        private void TxtContraseniaAlumno_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (BtnMostrarClaveAlumno.Content.ToString() != "Mostrar")
+            {
+                LblContraseniaVisible_Alumno.Content = TxtContraseniaAlumno.Password;
+              
+            }
+            else
+            {
+                LblContraseniaVisible_Alumno.Content = string.Empty;
+                
+            }
+
+
+        }
+
+        private void BtnMostrarClaveProfesor_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (BtnMostrarClaveProfesor.Content.ToString() == "Mostrar")
+            {
+                LblContraseniaVisible_Profesor.Content = TxtContraseniaProfesor.Password;
+                BtnMostrarClaveProfesor.Content = "Ocultar";
+                TxtContraseniaProfesor.Focus();
+
+            }
+            else
+            {
+                LblContraseniaVisible_Profesor.Content = string.Empty;
+                BtnMostrarClaveProfesor.Content = "Mostrar";
+                TxtContraseniaProfesor.Focus();
+            }
+
+
+
+        }
+
+        private void TxtContraseniaProfesor_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (BtnMostrarClaveProfesor.Content.ToString() != "Mostrar")
+            {
+                LblContraseniaVisible_Profesor.Content = TxtContraseniaProfesor.Password;
+            }
+            else
+            {
+                LblContraseniaVisible_Profesor.Content = string.Empty;
+            }
+
+
+        }
+
+        private void BtnMostrarClaveAdministrador_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (BtnMostrarClaveAdministrador.Content.ToString() == "Mostrar")
+            {
+                LblContraseniaVisible_Administrador.Content = TxtContraseniaAdmin.Password;
+                BtnMostrarClaveAdministrador.Content = "Ocultar";
+                TxtContraseniaAdmin.Focus();
+
+            }
+            else
+            {
+                LblContraseniaVisible_Administrador.Content = string.Empty;
+                BtnMostrarClaveAdministrador.Content = "Mostrar";
+                TxtContraseniaAdmin.Focus();
+            }
+
+
+        }
+
+        private void TxtContraseniaAdmin_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (BtnMostrarClaveAdministrador.Content.ToString() != "Mostrar")
+            {
+                LblContraseniaVisible_Administrador.Content = TxtContraseniaAdmin.Password;
+            }
+            else
+            {
+                LblContraseniaVisible_Administrador.Content = string.Empty;
+            }
         }
     }
 }
